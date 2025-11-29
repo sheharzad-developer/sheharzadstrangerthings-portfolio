@@ -194,3 +194,65 @@ input, textarea, select, button, label {
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
+
+/* Intro Animation Styles */
+.intro-container {
+  background: #000000;
+  mix-blend-mode: normal;
+}
+
+.glitch-intro {
+  position: relative;
+  color: #b01121;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.glitch-intro::before,
+.glitch-intro::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitch-intro::before {
+  animation: glitchIntroTop 3s infinite linear;
+  color: #ff5964;
+  z-index: -1;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+}
+
+.glitch-intro::after {
+  animation: glitchIntroBottom 3.5s infinite linear;
+  color: #7f0a0a;
+  z-index: -2;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+@keyframes glitchIntroTop {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitchIntroBottom {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(-2px, -2px); }
+}
+
+.intro-particle {
+  will-change: transform, opacity;
+}
