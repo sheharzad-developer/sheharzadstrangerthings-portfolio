@@ -177,13 +177,13 @@ export default function Projects() {
               glareMaxOpacity={0.1}
               glareColor="#b01121"
             >
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                onClick={() => openModal(project)}
-                className="bg-gray-900 bg-opacity-50 border-2 border-red-600 overflow-hidden relative cursor-pointer"
-                style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.2)' }}
-              >
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => openModal(project)}
+                    className="bg-gray-900 bg-opacity-50 border-2 border-red-600 overflow-hidden relative cursor-pointer crt-overlay"
+                    style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.2)' }}
+                  >
                 {/* Classified Header */}
                 <div className="border-b-2 border-red-600 bg-black bg-opacity-50 p-3">
                   <div className="flex justify-between items-center mb-1">

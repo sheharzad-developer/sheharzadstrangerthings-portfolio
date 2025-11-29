@@ -9,6 +9,9 @@ import Certifications from './components/Certifications';
 import Background from './components/Background';
 import BackgroundAudio from './components/BackgroundAudio';
 import IntroAnimation from './components/IntroAnimation';
+import CustomCursor from './components/CustomCursor';
+import LightningFlash from './components/LightningFlash';
+import AudioReverb from './components/AudioReverb';
 import SectionWrapper from './components/SectionWrapper';
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -19,9 +22,12 @@ export default function Home() {
 
   return (
     <main className="relative overflow-hidden min-h-screen">
+      {introComplete && <CustomCursor />}
       <IntroAnimation onComplete={() => setIntroComplete(true)} />
       {introComplete && (
         <>
+          <AudioReverb />
+          <LightningFlash />
           <BackgroundAudio />
           <Background portalActive={portalActive} />
           <Hero onActivate={setPortalActive} />

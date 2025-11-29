@@ -1,10 +1,72 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import DemogorgonScene from './DemogorgonScene';
 
 export default function Portal({ onActivate }) {
   const audioRef = useRef(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isPulsing, setIsPulsing] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Portal pulse every 7 seconds
+  useEffect(() => {
+    const pulseInterval = setInterval(() => {
+      setIsPulsing(true);
+      setTimeout(() => setIsPulsing(false), 1000);
+    }, 7000);
+
+    return () => clearInterval(pulseInterval);
+  }, []);
+
+  const playHoverSound = () => {
+    if (typeof window !== 'undefined' && typeof Audio !== "undefined") {
+      try {
+        const audioPath = "/songs/portal-sound.mp3";
+        const audio = new Audio(audioPath);
+        audio.volume = 0.3;
+        audio.currentTime = 0.1; // Start slightly into the sound
+        
+        // Apply reverb if available
+        if (window.audioContext && window.reverbGain) {
+          try {
+            const source = window.audioContext.createMediaElementSource(audio);
+            const delay = window.audioContext.createDelay(0.2);
+            const feedbackGain = window.audioContext.createGain();
+            const outputGain = window.audioContext.createGain();
+            
+            feedbackGain.gain.value = 0.2;
+            outputGain.gain.value = 0.5;
+            
+            source.connect(delay);
+            delay.connect(feedbackGain);
+            feedbackGain.connect(delay);
+            delay.connect(outputGain);
+            source.connect(outputGain);
+            outputGain.connect(window.audioContext.destination);
+          } catch (e) {
+            // Continue without reverb
+          }
+        }
+        
+        audio.play().catch(() => {
+          // Ignore autoplay errors
+        });
+      } catch (error) {
+        // Ignore errors
+      }
+    }
+  };
 
   const handleEnter = () => {
     // Create and play audio on click (user interaction required)
@@ -15,6 +77,30 @@ export default function Portal({ onActivate }) {
         const audio = new Audio(audioPath);
         audio.volume = 0.7;
         audio.preload = 'auto';
+        
+        // Apply reverb effect if available
+        if (window.audioContext && window.reverbGain) {
+          try {
+            const source = window.audioContext.createMediaElementSource(audio);
+            const delay = window.audioContext.createDelay(0.3);
+            const feedbackGain = window.audioContext.createGain();
+            const outputGain = window.audioContext.createGain();
+            
+            feedbackGain.gain.value = 0.3;
+            outputGain.gain.value = 0.7;
+            
+            // Create reverb with delay feedback
+            source.connect(delay);
+            delay.connect(feedbackGain);
+            feedbackGain.connect(delay);
+            delay.connect(outputGain);
+            source.connect(outputGain);
+            outputGain.connect(window.audioContext.destination);
+          } catch (reverbError) {
+            // If reverb fails, play normally
+            console.log('Reverb not available, playing normally');
+          }
+        }
         
         // Play the audio immediately
         const playPromise = audio.play();
@@ -50,12 +136,45 @@ export default function Portal({ onActivate }) {
   };
 
   return (
-    <motion.button
-      className="btn-neon mt-10"
-      whileHover={{ scale: 1.1, textShadow: "0 0 8px #b01121" }}
-      onClick={handleEnter}
-    >
-      ENTER THE PORTAL
-    </motion.button>
+    <div className="relative flex flex-col gap-4 items-center w-full">
+      {/* 3D Demogorgon Scene - only visible on hover, positioned behind button */}
+      <DemogorgonScene isVisible={isHovered} mousePosition={mousePosition} />
+      
+      <motion.button
+        className="btn-neon mt-10 relative z-10"
+        whileHover={{ scale: 1.1, textShadow: "0 0 8px #b01121" }}
+        onClick={handleEnter}
+        onMouseEnter={() => {
+          setIsHovered(true);
+          playHoverSound();
+        }}
+        onMouseLeave={() => setIsHovered(false)}
+        animate={isPulsing ? {
+          boxShadow: [
+            '0 0 10px rgba(176, 17, 33, 0.12)',
+            '0 0 40px rgba(176, 17, 33, 0.6)',
+            '0 0 60px rgba(176, 17, 33, 0.8)',
+            '0 0 40px rgba(176, 17, 33, 0.6)',
+            '0 0 10px rgba(176, 17, 33, 0.12)',
+          ],
+          scale: [1, 1.05, 1.1, 1.05, 1],
+        } : {}}
+        transition={{ duration: 1, ease: 'easeInOut' }}
+      >
+        ENTER THE PORTAL
+      </motion.button>
+      <motion.a
+        href="#about"
+        className="btn-neon mt-0"
+        whileHover={{ scale: 1.1, textShadow: "0 0 8px #b01121" }}
+        onClick={(e) => {
+          e.preventDefault();
+          const about = document.getElementById("about");
+          about?.scrollIntoView({ behavior: "smooth" });
+        }}
+      >
+        VIEW PROFILE
+      </motion.a>
+    </div>
   );
 }
