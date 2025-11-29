@@ -1,26 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* If you want the true Stranger Things font, import ITC Benguiat or a free alternative.
+   Use a commercially permitted font for production. */
+
+html, body, #__next {
+  height: 100%;
+  color: #eaeaea;
+  font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.glitch {
+  position: relative;
+  color: #b01121;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+}
+.glitch::before {
+  animation: glitchTop 2s infinite linear;
+  color: #ff5964;
+  z-index: -1;
+}
+.glitch::after {
+  animation: glitchBottom 2.5s infinite linear;
+  color: #7f0a0a;
+  z-index: -2;
+}
+@keyframes glitchTop {
+  0% { clip: rect(0, 900px, 0, 0); transform: translate(0,0); }
+  10% { clip: rect(0,900px,40px,0); transform: translate(-2px,-2px); }
+  20% { clip: rect(0,900px,10px,0); transform: translate(2px,2px); }
+  30% { clip: rect(0,900px,35px,0); transform: translate(-1px,1px); }
+  40% { clip: rect(0,900px,5px,0); transform: translate(2px,-1px); }
+  100% { clip: rect(0,900px,0,0); transform: translate(0,0); }
+}
+@keyframes glitchBottom {
+  0% { clip: rect(0,900px,0,0); transform: translate(0,0); }
+  12% { clip: rect(20px,900px,90px,0); transform: translate(1px,-1px); }
+  25% { clip: rect(0,900px,30px,0); transform: translate(-2px,2px); }
+  50% { clip: rect(10px,900px,80px,0); transform: translate(2px,1px); }
+  100% { clip: rect(0,900px,0,0); transform: translate(0,0); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Typewriter Effect */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255,255,255,0.15);
+  animation: typing 3s steps(40, end), blink 0.8s infinite;
+  color: #ddd;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Neon Button */
+.btn-neon {
+  border: 1px solid rgba(176,17,33,0.9);
+  background: transparent;
+  padding: 0.6rem 1.2rem;
+  color: #b01121;
+  transition: all .2s ease;
+  box-shadow: 0 0 10px rgba(176,17,33,0.12);
+}
+.btn-neon:hover {
+  background: rgba(176,17,33,0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(176,17,33,0.2);
+}
+
+/* Skills Slider Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-scroll {
+  animation: scroll 15s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Floating Clouds Animation */
+@keyframes floatCloud {
+  0% { transform: translateX(-200px); }
+  100% { transform: translateX(120vw); }
+}
+
+.cloud {
+  position: absolute;
+  top: 20%;
+  width: 300px;
+  height: 80px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+  animation: floatCloud 60s linear infinite;
+}
+
+@keyframes portalGlitch {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+}
+.animate-pulse {
+  animation: portalGlitch 0.6s infinite;
+}
+
+.glitch {
+  text-shadow: 2px 2px 0 #ff0000, -2px -2px 0 #000;
+  animation: glitch 1s infinite;
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 2px 0 #ff0000; }
+  50% { text-shadow: -2px -2px 0 #ff0000; }
+  100% { text-shadow: 2px 2px 0 #ff0000; }
+}
+
+.neon-btn {
+  text-shadow: 0 0 4px red, 0 0 10px red;
 }
