@@ -9,6 +9,7 @@ import Certifications from './components/Certifications';
 import Background from './components/Background';
 import SectionWrapper from './components/SectionWrapper';
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const [portalActive, setPortalActive] = useState(false);
@@ -32,6 +33,7 @@ export default function Home() {
       <SectionWrapper>
         <Contact />
       </SectionWrapper>
+      <Footer />
     </main>
   );
 }
