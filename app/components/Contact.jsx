@@ -144,7 +144,7 @@ const Contact = () => {
             <h4 className="text-red-500 font-mono text-sm mb-4 tracking-wider">[CONNECT WITH ME]</h4>
             <div className="flex gap-4">
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(37, 99, 235, 0.5)' }}
@@ -154,7 +154,7 @@ const Contact = () => {
                 <FaLinkedin className="text-xl" />
               </motion.a>
               <motion.a
-                href="https://github.com"
+                href="https://github.com/sheharzad-developer"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(176, 17, 33, 0.5)' }}
