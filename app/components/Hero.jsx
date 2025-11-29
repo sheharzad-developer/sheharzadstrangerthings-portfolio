@@ -6,6 +6,35 @@ import Portal from './Portal';
 export default function Hero({ onActivate }) {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 relative z-10">
+      {/* S-Logo at the top */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+        className="absolute top-8 md:top-12"
+      >
+        <motion.img
+          src="/S-Logo/S-Logo.jpg"
+          alt="Stranger Things Logo"
+          className="w-16 h-16 md:w-20 md:h-20 object-contain"
+          animate={{
+            filter: [
+              'drop-shadow(0 0 10px rgba(176, 17, 33, 0.5))',
+              'drop-shadow(0 0 20px rgba(176, 17, 33, 0.8))',
+              'drop-shadow(0 0 10px rgba(176, 17, 33, 0.5))',
+            ],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          style={{
+            filter: 'drop-shadow(0 0 15px rgba(176, 17, 33, 0.6))',
+          }}
+        />
+      </motion.div>
+
       {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}

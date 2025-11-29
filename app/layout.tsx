@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   keywords: ["Full-Stack Developer", "React", "Next.js", "Python", "Web Development", "Portfolio"],
   authors: [{ name: "Sheharzad Salahuddin" }],
   creator: "Sheharzad Salahuddin",
+  icons: {
+    icon: "/S-Logo/favicon.png",
+    apple: "/S-Logo/favicon.png",
+    shortcut: "/S-Logo/favicon.png",
+  },
   openGraph: {
     title: "Sheharzad Salahuddin | Full-Stack Developer",
     description: "Full-Stack Developer & Design Enthusiast. Building scalable web applications.",
