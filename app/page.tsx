@@ -7,6 +7,7 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Background from './components/Background';
+import BackgroundAudio from './components/BackgroundAudio';
 import SectionWrapper from './components/SectionWrapper';
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
@@ -16,6 +17,7 @@ export default function Home() {
 
   return (
     <main className="relative overflow-hidden min-h-screen">
+      <BackgroundAudio />
       <Background portalActive={portalActive} />
       <Hero onActivate={setPortalActive} />
       <SectionWrapper>
