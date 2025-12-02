@@ -40,21 +40,25 @@ export default function Hero({ onActivate }) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-6xl md:text-7xl glitch font-stranger mb-6"
+        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl glitch font-stranger mb-6 px-4 text-center w-full mx-auto"
         data-text="SHEHARZAD SALAHUDDIN"
+        style={{ textAlign: 'center' }}
       >
         SHEHARZAD SALAHUDDIN
       </motion.h1>
 
       {/* Typewriter subtitle */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.8 }}
-        className="typewriter text-base sm:text-lg md:text-2xl px-4 text-center max-w-full"
-      >
-        SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS... ID: FULLSTACK DEVELOPER
-      </motion.p>
+      <div className="w-full flex justify-center px-4">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+          className="typewriter text-base sm:text-lg md:text-2xl text-center w-full max-w-full"
+          style={{ textAlign: 'center' }}
+        >
+          SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS... ID: FULLSTACK DEVELOPER
+        </motion.p>
+      </div>
 
       {/* CTA Buttons */}
       <motion.div
