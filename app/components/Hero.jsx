@@ -51,7 +51,7 @@ export default function Hero({ onActivate }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6, duration: 0.8 }}
-        className="typewriter text-xl md:text-2xl"
+        className="typewriter text-base sm:text-lg md:text-2xl px-4 text-center max-w-full"
       >
         SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS... ID: FULLSTACK DEVELOPER
       </motion.p>
