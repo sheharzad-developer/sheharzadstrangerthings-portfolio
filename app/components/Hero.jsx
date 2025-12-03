@@ -75,9 +75,26 @@ export default function Hero({ onActivate }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
+        onClick={(e) => {
+          e.preventDefault();
+          const about = document.getElementById("about");
+          if (about) {
+            about.scrollIntoView({ 
+              behavior: "smooth",
+              block: "start"
+            });
+          }
+        }}
+        whileHover={{ scale: 1.1 }}
+        style={{ cursor: 'pointer' }}
       >
-        <span className="text-red-500 font-mono text-sm tracking-wider">SCROLL DOWN</span>
+        <motion.span 
+          className="text-red-500 font-mono text-sm tracking-wider"
+          whileHover={{ color: '#ff0000' }}
+        >
+          SCROLL DOWN
+        </motion.span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}

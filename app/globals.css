@@ -4,6 +4,10 @@
 /* If you want the true Stranger Things font, import ITC Benguiat or a free alternative.
    Use a commercially permitted font for production. */
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body, #__next {
   height: 100%;
   color: #eaeaea;
