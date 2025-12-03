@@ -133,6 +133,17 @@ const projects = [
     image: "/images/projects/Card-and-Click_Play.png",
     liveDemo: "https://sheharzad-developer.github.io/Card-Click-and-Play/",
   },
+  {
+    id: 11,
+    title: "FinPay - Crypto Wallet Application",
+    shortDesc: "A full-stack React crypto wallet with authentication, transaction management, and real-time market data. Built with React, Tailwind CSS, and Recharts.",
+    fullDesc: "A full-stack React crypto wallet with authentication, transaction management, and real-time market data. Built with React, Tailwind CSS, and Recharts. FinPay is a comprehensive cryptocurrency wallet application featuring secure authentication with email verification, multi-cryptocurrency support (Bitcoin, Ethereum, Tether), real-time balance tracking, portfolio overview with USD value conversion, and complete transaction management with full CRUD operations. The application includes interactive price charts with 7-day analytics, area charts with gradient fills, color-coded trends, real-time price updates via CoinGecko API, and a modern responsive UI with glassmorphism effects, smooth animations, and intuitive navigation. Key features include user registration with email verification using 6-digit codes, secure sign-in/sign-out with protected routes and session management, wallet management with multi-cryptocurrency support and real-time balance tracking, transaction management with create, read, update, and delete operations, transaction persistence via localStorage, market analytics with interactive price charts and real-time price updates, responsive design optimized for mobile, tablet, and desktop, and comprehensive error handling with user feedback.",
+    tech: ["React 19.2.1", "React Router DOM", "Tailwind CSS", "Recharts", "CoinGecko API", "React Context API", "localStorage", "JavaScript", "Responsive Design", "Glassmorphism", "Animation"],
+    category: "FinTech",
+    year: "2025",
+    status: "completed",
+    image: "/images/projects/fintech-website.png",
+  },
 ];
 
 export default function Projects() {
