@@ -66,9 +66,9 @@ function getTargetDate() {
   return new Date(currentYear + 1, 11, 1, 0, 0, 0);
 }
 
-function calculateTimeRemaining(targetDate) {
+function calculateTimeRemaining(targetDate: Date) {
   const now = new Date();
-  const difference = targetDate - now;
+  const difference = targetDate.getTime() - now.getTime();
   
   if (difference <= 0) {
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -82,7 +82,7 @@ function calculateTimeRemaining(targetDate) {
   return { days, hours, minutes, seconds };
 }
 
-function CountdownTimer({ targetDate, label }) {
+function CountdownTimer({ targetDate, label }: { targetDate: Date; label: string }) {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining(targetDate));
   
   useEffect(() => {
@@ -118,7 +118,7 @@ function CountdownTimer({ targetDate, label }) {
   );
 }
 
-function FloatingCountdown({ targetDate }) {
+function FloatingCountdown({ targetDate }: { targetDate: Date }) {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining(targetDate));
   
   useEffect(() => {
