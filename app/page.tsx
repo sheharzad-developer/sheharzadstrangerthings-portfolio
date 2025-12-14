@@ -262,6 +262,14 @@ export default function Home() {
           TIME REMAINING
         </div>
         <CountdownTimer targetDate={endOfDecember} label="Until the end of December" />
+        <div className="mt-8 space-y-2">
+          <div className="text-red-500 text-2xl md:text-3xl font-bold">
+            Merry Christmas
+          </div>
+          <div className="text-red-500 text-2xl md:text-3xl font-bold">
+            Happy New Year
+          </div>
+        </div>
         <div className="text-gray-500 text-sm mt-4">
           Current time: {now.toLocaleString()}
         </div>
