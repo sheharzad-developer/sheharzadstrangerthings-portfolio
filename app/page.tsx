@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { FaSnowflake } from 'react-icons/fa';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -178,6 +179,18 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  // Ensure cursor is visible during December (must be before early returns)
+  useEffect(() => {
+    if (isAccessible) {
+      document.body.style.setProperty('cursor', 'default', 'important');
+      document.documentElement.style.setProperty('cursor', 'default', 'important');
+    }
+    return () => {
+      document.body.style.removeProperty('cursor');
+      document.documentElement.style.removeProperty('cursor');
+    };
+  }, [isAccessible]);
+
   // Prevent hydration mismatch
   if (!mounted) {
     return (
@@ -256,18 +269,36 @@ export default function Home() {
   const endOfDecember = new Date(currentYear, 11, 31, 23, 59, 59);
   
   return (
-    <main className="relative overflow-hidden min-h-screen flex items-center justify-center bg-black">
+    <main className="countdown-page relative overflow-hidden min-h-screen flex items-center justify-center bg-black">
       <div className="text-center px-4 max-w-4xl">
         <div className="text-red-500 text-3xl md:text-5xl font-bold mb-4 glitch" data-text="TIME REMAINING">
           TIME REMAINING
         </div>
         <CountdownTimer targetDate={endOfDecember} label="Until the end of December" />
-        <div className="mt-8 space-y-2">
-          <div className="text-red-500 text-2xl md:text-3xl font-bold">
-            Merry Christmas
+        <div className="mt-8 space-y-3">
+          <div className="flex items-center justify-center gap-3">
+            <span 
+              className="text-4xl md:text-5xl colorful-tree" 
+              style={{ display: 'inline-block' }}
+            >
+              🎄
+            </span>
+            <div className="text-red-500 text-2xl md:text-3xl font-bold glitch" data-text="MERRY CHRISTMAS">
+              Merry Christmas
+            </div>
+            <span 
+              className="text-4xl md:text-5xl colorful-tree" 
+              style={{ display: 'inline-block' }}
+            >
+              🎄
+            </span>
           </div>
-          <div className="text-red-500 text-2xl md:text-3xl font-bold">
-            Happy New Year
+          <div className="flex items-center justify-center gap-3">
+            <FaSnowflake className="text-red-500 text-3xl md:text-4xl" />
+            <div className="text-red-500 text-2xl md:text-3xl font-bold glitch" data-text="HAPPY NEW YEAR 2026">
+              Happy New Year 2026
+            </div>
+            <FaSnowflake className="text-red-500 text-3xl md:text-4xl" />
           </div>
         </div>
         <div className="text-gray-500 text-sm mt-4">

@@ -314,6 +314,12 @@ input, textarea, select, button, label {
   cursor: none !important;
 }
 
+/* Show cursor on December countdown page */
+.countdown-page,
+.countdown-page * {
+  cursor: default !important;
+}
+
 /* Show pointer cursor on interactive elements (custom cursor will handle visual) */
 a, button, [role="button"], input[type="submit"], input[type="button"] {
   cursor: none !important;
@@ -550,5 +556,56 @@ a, button, [role="button"], input[type="submit"], input[type="button"] {
 
   .text-xs {
     font-size: 0.75rem;
+  }
+}
+
+/* Colorful Christmas Tree */
+.colorful-tree {
+  color: #22c55e !important;
+  filter: 
+    drop-shadow(0 0 4px #22c55e) 
+    drop-shadow(0 0 3px #ef4444) 
+    drop-shadow(0 0 3px #f59e0b) 
+    drop-shadow(0 0 3px #3b82f6) 
+    drop-shadow(0 0 3px #a855f7)
+    saturate(1.3) 
+    brightness(0.9);
+  animation: colorful-glow 3s ease-in-out infinite;
+}
+
+/* Colorful Text Animation */
+.colorful-text {
+  color: #ef4444 !important;
+  filter: 
+    drop-shadow(0 0 4px #ef4444) 
+    drop-shadow(0 0 3px #22c55e) 
+    drop-shadow(0 0 3px #f59e0b) 
+    drop-shadow(0 0 3px #3b82f6) 
+    drop-shadow(0 0 3px #a855f7)
+    saturate(1.3) 
+    brightness(0.9);
+  animation: colorful-glow 3s ease-in-out infinite;
+}
+
+@keyframes colorful-glow {
+  0%, 60% {
+    filter: 
+      drop-shadow(0 0 4px #22c55e) 
+      drop-shadow(0 0 3px #ef4444) 
+      drop-shadow(0 0 3px #f59e0b) 
+      drop-shadow(0 0 3px #3b82f6) 
+      drop-shadow(0 0 3px #a855f7)
+      saturate(1.3) 
+      brightness(0.9);
+  }
+  20% {
+    filter: 
+      drop-shadow(0 0 6px #22c55e) 
+      drop-shadow(0 0 5px #ef4444) 
+      drop-shadow(0 0 5px #f59e0b) 
+      drop-shadow(0 0 5px #3b82f6) 
+      drop-shadow(0 0 5px #a855f7)
+      saturate(1.5) 
+      brightness(1.1);
   }
 }
