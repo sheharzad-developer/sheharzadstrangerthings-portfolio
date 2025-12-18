@@ -213,11 +213,15 @@ export default function Home() {
     );
   }
 
-  // Show access denied message if not in December
-  if (!isAccessible) {
-    const now = new Date();
-    const currentMonth = now.getMonth();
-    const currentYear = now.getFullYear();
+  // Check if we should show portfolio (after December 31st) or access denied (before December)
+  const now = new Date();
+  const currentMonth = now.getMonth();
+  const currentYear = now.getFullYear();
+  const endOfDecember = new Date(currentYear, 11, 31, 23, 59, 59);
+  const isAfterDecember = now > endOfDecember;
+
+  // Show access denied message if before December
+  if (!isAccessible && !isAfterDecember) {
     const targetDate = getTargetDate();
     
     let message = '';
@@ -233,14 +237,7 @@ export default function Home() {
       if (now < dec1) {
         message = `This website will be available starting December 1st, ${currentYear} at 00:00:00 until the end of December`;
         countdownLabel = 'Time until website opens:';
-      } else {
-        message = `This website is no longer available. It was only accessible from December 1st, ${currentYear} at 00:00:00 until the end of December`;
-        countdownLabel = '';
       }
-    } else {
-      // After December
-      message = `This website is no longer available. It was only accessible from December 1st, ${currentYear} at 00:00:00 until the end of December`;
-      countdownLabel = 'Time until next December:';
     }
 
     return (
@@ -263,11 +260,42 @@ export default function Home() {
     );
   }
 
+  // Show portfolio if after December 31st
+  if (isAfterDecember) {
+    return (
+      <main className="relative overflow-hidden min-h-screen">
+        {introComplete && <CustomCursor />}
+        <IntroAnimation onComplete={() => setIntroComplete(true)} />
+        {introComplete && (
+          <>
+            <AudioReverb />
+            <LightningFlash />
+            <BackgroundAudio />
+            <Background portalActive={portalActive} />
+            <Hero onActivate={setPortalActive} />
+        <SectionWrapper>
+          <About />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Skills />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Projects />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Certifications />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Contact />
+        </SectionWrapper>
+        <Footer />
+          </>
+        )}
+      </main>
+    );
+  }
+
   // Show only countdown timer during December (portfolio hidden)
-  const now = new Date();
-  const currentYear = now.getFullYear();
-  const endOfDecember = new Date(currentYear, 11, 31, 23, 59, 59);
-  
   return (
     <main className="countdown-page relative overflow-hidden min-h-screen flex items-center justify-center bg-black">
       <div className="text-center px-4 max-w-4xl">
