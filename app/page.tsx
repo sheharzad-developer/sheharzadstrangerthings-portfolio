@@ -24,10 +24,17 @@ function isDecemberAccessible() {
     return true;
   }
 
+  // Show portfolio after December 31st - always return false to show portfolio
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth(); // 0-11, where 11 is December
+  const endOfDecember = new Date(currentYear, 11, 31, 23, 59, 59);
   
+  // If it's after December 31st, show portfolio (return false so it goes to portfolio section)
+  if (now > endOfDecember) {
+    return false; // This will trigger portfolio display
+  }
+
   // Check if it's December (month index 11)
   if (currentMonth !== 11) {
     return false;
@@ -96,7 +103,7 @@ function CountdownTimer({ targetDate, label }: { targetDate: Date; label: string
   
   return (
     <div className="mt-8">
-      <div className="text-red-500 text-xl font-bold mb-4">{label}</div>
+      {label && <div className="text-red-500 text-xl font-bold mb-4">{label}</div>}
       <div className="grid grid-cols-4 gap-4 max-w-2xl mx-auto">
         <div className="bg-black bg-opacity-50 border-2 border-red-600 rounded-lg p-4">
           <div className="text-red-500 text-4xl font-bold">{String(timeRemaining.days).padStart(2, '0')}</div>
@@ -161,178 +168,37 @@ function FloatingCountdown({ targetDate }: { targetDate: Date }) {
 export default function Home() {
   const [portalActive, setPortalActive] = useState(false);
   const [introComplete, setIntroComplete] = useState(false);
-  const [isAccessible, setIsAccessible] = useState(false);
-  const [isChecking, setIsChecking] = useState(true);
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    // Check access on mount and update every second
-    const checkAccess = () => {
-      setIsAccessible(isDecemberAccessible());
-      setIsChecking(false);
-    };
-
-    checkAccess();
-    const interval = setInterval(checkAccess, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  // Ensure cursor is visible during December (must be before early returns)
-  useEffect(() => {
-    if (isAccessible) {
-      document.body.style.setProperty('cursor', 'default', 'important');
-      document.documentElement.style.setProperty('cursor', 'default', 'important');
-    }
-    return () => {
-      document.body.style.removeProperty('cursor');
-      document.documentElement.style.removeProperty('cursor');
-    };
-  }, [isAccessible]);
-
-  // Prevent hydration mismatch
-  if (!mounted) {
-    return (
-      <main className="relative overflow-hidden min-h-screen flex items-center justify-center bg-black">
-        <div className="text-center">
-          <div className="text-red-500 text-2xl font-bold mb-4">Loading...</div>
-        </div>
-      </main>
-    );
-  }
-
-  // Show loading state while checking
-  if (isChecking) {
-    return (
-      <main className="relative overflow-hidden min-h-screen flex items-center justify-center bg-black">
-        <div className="text-center">
-          <div className="text-red-500 text-2xl font-bold mb-4">Checking access...</div>
-        </div>
-      </main>
-    );
-  }
-
-  // Check if we should show portfolio (after December 31st) or access denied (before December)
-  const now = new Date();
-  const currentMonth = now.getMonth();
-  const currentYear = now.getFullYear();
-  const endOfDecember = new Date(currentYear, 11, 31, 23, 59, 59);
-  const isAfterDecember = now > endOfDecember;
-
-  // Show access denied message if before December
-  if (!isAccessible && !isAfterDecember) {
-    const targetDate = getTargetDate();
-    
-    let message = '';
-    let countdownLabel = '';
-    
-    if (currentMonth < 11) {
-      // Before December
-      message = `This website will be available starting December 1st, ${currentYear} at 00:00:00 until the end of December`;
-      countdownLabel = 'Time until website opens:';
-    } else if (currentMonth === 11) {
-      // It's December but might be before Dec 1st 00:00:00
-      const dec1 = new Date(currentYear, 11, 1, 0, 0, 0);
-      if (now < dec1) {
-        message = `This website will be available starting December 1st, ${currentYear} at 00:00:00 until the end of December`;
-        countdownLabel = 'Time until website opens:';
-      }
-    }
-
-    return (
-      <main className="relative overflow-hidden min-h-screen flex items-center justify-center bg-black">
-        <div className="text-center px-4 max-w-4xl">
-          <div className="text-red-500 text-3xl md:text-5xl font-bold mb-4 glitch" data-text="ACCESS DENIED">
-            ACCESS DENIED
-          </div>
-          <div className="text-gray-300 text-lg mt-6">
-            {message}
-          </div>
-          {countdownLabel && (
-            <CountdownTimer targetDate={targetDate} label={countdownLabel} />
-          )}
-          <div className="text-gray-500 text-sm mt-4">
-            Current time: {now.toLocaleString()}
-          </div>
-        </div>
-      </main>
-    );
-  }
-
-  // Show portfolio if after December 31st
-  if (isAfterDecember) {
-    return (
-      <main className="relative overflow-hidden min-h-screen">
-        {introComplete && <CustomCursor />}
-        <IntroAnimation onComplete={() => setIntroComplete(true)} />
-        {introComplete && (
-          <>
-            <AudioReverb />
-            <LightningFlash />
-            <BackgroundAudio />
-            <Background portalActive={portalActive} />
-            <Hero onActivate={setPortalActive} />
-        <SectionWrapper>
-          <About />
-        </SectionWrapper>
-        <SectionWrapper>
-          <Skills />
-        </SectionWrapper>
-        <SectionWrapper>
-          <Projects />
-        </SectionWrapper>
-        <SectionWrapper>
-          <Certifications />
-        </SectionWrapper>
-        <SectionWrapper>
-          <Contact />
-        </SectionWrapper>
-        <Footer />
-          </>
-        )}
-      </main>
-    );
-  }
-
-  // Show only countdown timer during December (portfolio hidden)
+  // Show portfolio - always live now
   return (
-    <main className="countdown-page relative overflow-hidden min-h-screen flex items-center justify-center bg-black">
-      <div className="text-center px-4 max-w-4xl">
-        <div className="text-red-500 text-3xl md:text-5xl font-bold mb-4 glitch" data-text="TIME REMAINING">
-          TIME REMAINING
-        </div>
-        <CountdownTimer targetDate={endOfDecember} label="Until the end of December" />
-        <div className="mt-8 space-y-3">
-          <div className="flex items-center justify-center gap-3">
-            <span 
-              className="text-4xl md:text-5xl colorful-tree" 
-              style={{ display: 'inline-block' }}
-            >
-              🎄
-            </span>
-            <div className="text-red-500 text-2xl md:text-3xl font-bold glitch" data-text="MERRY CHRISTMAS">
-              Merry Christmas
-            </div>
-            <span 
-              className="text-4xl md:text-5xl colorful-tree" 
-              style={{ display: 'inline-block' }}
-            >
-              🎄
-            </span>
-          </div>
-          <div className="flex items-center justify-center gap-3">
-            <FaSnowflake className="text-red-500 text-3xl md:text-4xl" />
-            <div className="text-red-500 text-2xl md:text-3xl font-bold glitch" data-text="HAPPY NEW YEAR 2026">
-              Happy New Year 2026
-            </div>
-            <FaSnowflake className="text-red-500 text-3xl md:text-4xl" />
-          </div>
-        </div>
-        <div className="text-gray-500 text-sm mt-4">
-          Current time: {now.toLocaleString()}
-        </div>
-      </div>
+    <main className="relative overflow-hidden min-h-screen">
+      {introComplete && <CustomCursor />}
+      <IntroAnimation onComplete={() => setIntroComplete(true)} />
+      {introComplete && (
+        <>
+          <AudioReverb />
+          <LightningFlash />
+          <BackgroundAudio />
+          <Background portalActive={portalActive} />
+          <Hero onActivate={setPortalActive} />
+      <SectionWrapper>
+        <About />
+      </SectionWrapper>
+      <SectionWrapper>
+        <Skills />
+      </SectionWrapper>
+      <SectionWrapper>
+        <Projects />
+      </SectionWrapper>
+      <SectionWrapper>
+        <Certifications />
+      </SectionWrapper>
+      <SectionWrapper>
+        <Contact />
+      </SectionWrapper>
+      <Footer />
+        </>
+      )}
     </main>
   );
 }
