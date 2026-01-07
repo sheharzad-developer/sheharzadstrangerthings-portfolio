@@ -36,7 +36,7 @@ export default function Portal({ onActivate }) {
         const audio = new Audio(audioPath);
         audio.volume = 0.3;
         audio.currentTime = 0.1; // Start slightly into the sound
-        
+
         // Apply reverb if available
         if (window.audioContext && window.reverbGain) {
           try {
@@ -44,10 +44,10 @@ export default function Portal({ onActivate }) {
             const delay = window.audioContext.createDelay(0.2);
             const feedbackGain = window.audioContext.createGain();
             const outputGain = window.audioContext.createGain();
-            
+
             feedbackGain.gain.value = 0.2;
             outputGain.gain.value = 0.5;
-            
+
             source.connect(delay);
             delay.connect(feedbackGain);
             feedbackGain.connect(delay);
@@ -58,7 +58,7 @@ export default function Portal({ onActivate }) {
             // Continue without reverb
           }
         }
-        
+
         audio.play().catch(() => {
           // Ignore autoplay errors
         });
@@ -77,7 +77,7 @@ export default function Portal({ onActivate }) {
         const audio = new Audio(audioPath);
         audio.volume = 0.7;
         audio.preload = 'auto';
-        
+
         // Apply reverb effect if available
         if (window.audioContext && window.reverbGain) {
           try {
@@ -85,10 +85,10 @@ export default function Portal({ onActivate }) {
             const delay = window.audioContext.createDelay(0.3);
             const feedbackGain = window.audioContext.createGain();
             const outputGain = window.audioContext.createGain();
-            
+
             feedbackGain.gain.value = 0.3;
             outputGain.gain.value = 0.7;
-            
+
             // Create reverb with delay feedback
             source.connect(delay);
             delay.connect(feedbackGain);
@@ -101,10 +101,10 @@ export default function Portal({ onActivate }) {
             console.log('Reverb not available, playing normally');
           }
         }
-        
+
         // Play the audio immediately
         const playPromise = audio.play();
-        
+
         if (playPromise !== undefined) {
           playPromise
             .then(() => {
@@ -115,7 +115,7 @@ export default function Portal({ onActivate }) {
               console.error('Error details:', error.message);
             });
         }
-        
+
         // Store reference
         audioRef.current = audio;
       } catch (error) {
@@ -124,10 +124,10 @@ export default function Portal({ onActivate }) {
     } else {
       console.warn('⚠️ Audio API not available');
     }
-    
+
     // Activate background effect
     onActivate(true);
-    
+
     // Navigate to projects section
     setTimeout(() => {
       const projects = document.getElementById("projects");
@@ -139,41 +139,37 @@ export default function Portal({ onActivate }) {
     <div className="relative flex flex-col gap-4 items-center w-full">
       {/* 3D Demogorgon Scene - only visible on hover, positioned behind button */}
       <DemogorgonScene isVisible={isHovered} mousePosition={mousePosition} />
-      
+
       <motion.button
-        className="btn-neon mt-10 relative z-10"
-        whileHover={{ scale: 1.1, textShadow: "0 0 8px #b01121" }}
+        className="btn-neon-sign blue mt-12"
         onClick={handleEnter}
         onMouseEnter={() => {
           setIsHovered(true);
           playHoverSound();
         }}
         onMouseLeave={() => setIsHovered(false)}
-        animate={isPulsing ? {
-          boxShadow: [
-            '0 0 10px rgba(176, 17, 33, 0.12)',
-            '0 0 40px rgba(176, 17, 33, 0.6)',
-            '0 0 60px rgba(176, 17, 33, 0.8)',
-            '0 0 40px rgba(176, 17, 33, 0.6)',
-            '0 0 10px rgba(176, 17, 33, 0.12)',
-          ],
-          scale: [1, 1.05, 1.1, 1.05, 1],
-        } : {}}
-        transition={{ duration: 1, ease: 'easeInOut' }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        ENTER THE PORTAL
+        <span className="tube-borders"></span>
+        <span className="tube-ends"></span>
+        <span>ENTER THE PORTAL</span>
       </motion.button>
+
       <motion.a
         href="#about"
-        className="btn-neon mt-0"
-        whileHover={{ scale: 1.1, textShadow: "0 0 8px #b01121" }}
+        className="btn-neon-sign purple mt-6"
         onClick={(e) => {
           e.preventDefault();
           const about = document.getElementById("about");
           about?.scrollIntoView({ behavior: "smooth" });
         }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
       >
-        VIEW PROFILE
+        <span className="tube-borders"></span>
+        <span className="tube-ends"></span>
+        <span>VIEW PROFILE</span>
       </motion.a>
     </div>
   );

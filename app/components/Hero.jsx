@@ -19,18 +19,18 @@ export default function Hero({ onActivate }) {
           className="w-16 h-16 md:w-20 md:h-20 object-contain"
           animate={{
             filter: [
-              'drop-shadow(0 0 10px rgba(176, 17, 33, 0.5))',
-              'drop-shadow(0 0 20px rgba(176, 17, 33, 0.8))',
-              'drop-shadow(0 0 10px rgba(176, 17, 33, 0.5))',
+              'drop-shadow(0 0 10px rgba(188, 19, 254, 0.5))',
+              'drop-shadow(0 0 20px rgba(0, 243, 255, 0.8))',
+              'drop-shadow(0 0 10px rgba(188, 19, 254, 0.5))',
             ],
           }}
           transition={{
-            duration: 2,
+            duration: 3,
             repeat: Infinity,
             ease: "easeInOut",
           }}
           style={{
-            filter: 'drop-shadow(0 0 15px rgba(176, 17, 33, 0.6))',
+            filter: 'drop-shadow(0 0 15px rgba(0, 243, 255, 0.6))',
           }}
         />
       </motion.div>
@@ -80,7 +80,7 @@ export default function Hero({ onActivate }) {
           e.preventDefault();
           const about = document.getElementById("about");
           if (about) {
-            about.scrollIntoView({ 
+            about.scrollIntoView({
               behavior: "smooth",
               block: "start"
             });
@@ -89,7 +89,7 @@ export default function Hero({ onActivate }) {
         whileHover={{ scale: 1.1 }}
         style={{ cursor: 'pointer' }}
       >
-        <motion.span 
+        <motion.span
           className="text-red-500 font-mono text-sm tracking-wider"
           whileHover={{ color: '#ff0000' }}
         >

@@ -60,11 +60,17 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, label, input, textarea {
   color: #ff5964;
   z-index: -1;
 }
+.glitch.neon-blue::before { color: #00f3ff; }
+.glitch.neon-purple::before { color: #bc13fe; }
+
 .glitch::after {
   animation: glitchBottom 2.5s infinite linear;
   color: #7f0a0a;
   z-index: -2;
 }
+.glitch.neon-blue::after { color: #ffffff; }
+.glitch.neon-purple::after { color: #ff00ff; }
+
 @keyframes glitchTop {
   0% { clip: rect(0, 900px, 0, 0); transform: translate(0,0); }
   10% { clip: rect(0,900px,40px,0); transform: translate(-2px,-2px); }
@@ -143,19 +149,87 @@ h1, h2, h3, h4, h5, h6, p, span, div, a, button, label, input, textarea {
   50% { border-color: transparent; }
 }
 
-/* Neon Button */
+/* Neon Button - Enhanced */
 .btn-neon {
   border: 1px solid rgba(176,17,33,0.9);
   background: transparent;
   padding: 0.6rem 1.2rem;
   color: #b01121;
-  transition: all .2s ease;
-  box-shadow: 0 0 10px rgba(176,17,33,0.12);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(176,17,33,0.12), inset 0 0 10px rgba(176,17,33,0.05);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .btn-neon:hover {
-  background: rgba(176,17,33,0.08);
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(176,17,33,0.2);
+  background: rgba(176,17,33,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(176,17,33,0.4), inset 0 0 20px rgba(176,17,33,0.2);
+  border-color: #ff5964;
+  color: #ff5964;
+  text-shadow: 0 0 8px rgba(255, 89, 100, 0.6);
+}
+
+/* Real Neon Sign Button (Reference Style) */
+.btn-neon-sign {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  background: transparent;
+  color: #ff003c; /* Red color from reference */
+  transition: all 0.3s ease;
+  z-index: 10;
+  text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c;
+  border: 2px solid #ff003c; /* Solid border instead of 'broken' for cleaner look */
+  border-radius: 50px; /* Pill shape */
+  box-shadow: 0 0 10px rgba(255, 0, 60, 0.5), inset 0 0 10px rgba(255, 0, 60, 0.2);
+  cursor: pointer;
+}
+
+.btn-neon-sign:hover {
+  background: rgba(255, 0, 60, 0.1);
+  box-shadow: 
+    0 0 20px rgba(255, 0, 60, 0.8),
+    0 0 40px rgba(255, 0, 60, 0.6),
+    inset 0 0 20px rgba(255, 0, 60, 0.4);
+  transform: scale(1.05);
+  color: #fff;
+  text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 30px #ff003c;
+  border-color: #fff;
+}
+
+/* Remove the old complex pseudo-elements for now to ensure cleanliness */
+.btn-neon-sign::before,
+.btn-neon-sign::after,
+.btn-neon-sign .tube-borders::before,
+.btn-neon-sign .tube-borders::after,
+.btn-neon-sign .tube-ends::before,
+.btn-neon-sign .tube-ends::after {
+  content: none;
+  display: none;
+}
+
+/* Generic Neon Utilities */
+.neon-border-blue {
+  border: 1px solid #00f3ff;
+  box-shadow: 0 0 5px rgba(0, 243, 255, 0.5), inset 0 0 5px rgba(0, 243, 255, 0.2);
+}
+.neon-border-purple {
+  border: 1px solid #bc13fe;
+  box-shadow: 0 0 5px rgba(188, 19, 254, 0.5), inset 0 0 5px rgba(188, 19, 254, 0.2);
+}
+
+.neon-text-glow-blue {
+  text-shadow: 0 0 5px rgba(0, 243, 255, 0.8), 0 0 10px rgba(0, 243, 255, 0.5);
+}
+.neon-text-glow-purple {
+  text-shadow: 0 0 5px rgba(188, 19, 254, 0.8), 0 0 10px rgba(188, 19, 254, 0.5);
 }
 
 /* Skills Slider Animation */
@@ -362,11 +436,11 @@ a, button, [role="button"], input[type="submit"], input[type="button"] {
     radial-gradient(
       ellipse at center,
       transparent 0%,
-      rgba(0, 0, 0, 0.4) 100%
+      rgba(0, 0, 0, 0.2) 100%
     );
   pointer-events: none;
   z-index: 1;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
 .crt-overlay:hover::before {

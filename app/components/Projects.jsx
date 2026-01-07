@@ -186,15 +186,21 @@ export default function Projects() {
               transitionSpeed={2500}
               glareEnable={true}
               glareMaxOpacity={0.1}
-              glareColor="#b01121"
+              glareColor={index % 3 === 0 ? "#00f3ff" : index % 3 === 1 ? "#bc13fe" : "#ff00ff"}
             >
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => openModal(project)}
-                    className="bg-gray-900 bg-opacity-50 border-2 border-red-600 overflow-hidden relative cursor-pointer crt-overlay"
-                    style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.2)' }}
-                  >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => openModal(project)}
+                className={`bg-gray-900 bg-opacity-50 border-2 overflow-hidden relative cursor-pointer crt-overlay ${index % 3 === 0 ? 'neon-border-blue' : index % 3 === 1 ? 'neon-border-purple' : 'border-neonPink'
+                  }`}
+                style={{
+                  boxShadow: index % 3 === 0 ? '0 0 15px rgba(0, 243, 255, 0.2)' :
+                    index % 3 === 1 ? '0 0 15px rgba(188, 19, 254, 0.2)' :
+                      '0 0 15px rgba(255, 0, 255, 0.2)',
+                  borderColor: index % 3 === 0 ? '#00f3ff' : index % 3 === 1 ? '#bc13fe' : '#ff00ff'
+                }}
+              >
                 {/* Classified Header */}
                 <div className="border-b-2 border-red-600 bg-black bg-opacity-50 p-3">
                   <div className="flex justify-between items-center mb-1">
@@ -209,8 +215,8 @@ export default function Projects() {
                 {/* Image area */}
                 <div className="w-full h-40 bg-gray-800 border-b-2 border-red-600 flex items-center justify-center relative overflow-hidden">
                   {project.image ? (
-                    <img 
-                      src={project.image} 
+                    <img
+                      src={project.image}
                       alt={project.title}
                       className="w-full h-full object-cover"
                     />
@@ -221,7 +227,7 @@ export default function Projects() {
                     </>
                   )}
                 </div>
-                
+
                 <div className="p-4 bg-black bg-opacity-30">
                   <h3 className="text-red-500 font-bold text-lg mb-2 glitch font-mono" data-text={project.title}>
                     {project.title.toUpperCase()}
@@ -229,20 +235,23 @@ export default function Projects() {
                   <p className="text-gray-400 mb-4 text-xs leading-relaxed font-mono">
                     {project.shortDesc}
                   </p>
-                  
+
                   <div className="mb-4">
-                    <div className="text-red-500 font-mono text-xs mb-2">[TECH STACK]</div>
+                    <div className="text-gray-300 font-mono text-xs mb-2">[TECH STACK]</div>
                     <div className="flex flex-wrap gap-1.5">
-                      {project.tech.slice(0, 3).map(tech => (
-                        <span 
-                          key={tech} 
-                          className="bg-red-600 bg-opacity-30 border border-red-500 text-red-300 px-2 py-0.5 rounded font-mono text-xs"
+                      {project.tech.slice(0, 3).map((tech, i) => (
+                        <span
+                          key={tech}
+                          className={`bg-opacity-20 border px-2 py-0.5 rounded font-mono text-xs ${i % 3 === 0 ? 'bg-cyan-900 border-cyan-500 text-cyan-300' :
+                            i % 3 === 1 ? 'bg-purple-900 border-purple-500 text-purple-300' :
+                              'bg-pink-900 border-pink-500 text-pink-300'
+                            }`}
                         >
                           {tech}
                         </span>
                       ))}
                       {project.tech.length > 3 && (
-                        <span className="bg-red-600 bg-opacity-30 border border-red-500 text-red-300 px-2 py-0.5 rounded font-mono text-xs">
+                        <span className="bg-gray-800 border-gray-600 text-gray-400 border px-2 py-0.5 rounded font-mono text-xs">
                           +{project.tech.length - 3}
                         </span>
                       )}
@@ -284,12 +293,15 @@ export default function Projects() {
                 style={{ boxShadow: '0 0 30px rgba(176, 17, 33, 0.5)' }}
               >
                 {/* Modal Header */}
-                <div className="border-b-2 border-red-600 bg-black bg-opacity-50 p-4 sticky top-0 z-10">
+                <div className={`border-b-2 bg-black bg-opacity-50 p-4 sticky top-0 z-10 ${selectedProject.id % 3 === 0 ? 'border-neonBlue' : selectedProject.id % 3 === 1 ? 'border-neonPurple' : 'border-neonPink'
+                  }`}>
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
-                        <span className="text-red-500 font-mono text-xs tracking-wider">CASE FILE</span>
-                        <span className="text-red-500 font-mono text-xs">#{String(selectedProject.id).padStart(3, '0')}</span>
+                        <span className={`font-mono text-xs tracking-wider ${selectedProject.id % 3 === 0 ? 'text-neonBlue' : selectedProject.id % 3 === 1 ? 'text-neonPurple' : 'text-neonPink'
+                          }`}>CASE FILE</span>
+                        <span className={`font-mono text-xs ${selectedProject.id % 3 === 0 ? 'text-neonBlue' : selectedProject.id % 3 === 1 ? 'text-neonPurple' : 'text-neonPink'
+                          }`}>#{String(selectedProject.id).padStart(3, '0')}</span>
                         {selectedProject.category && (
                           <span className="text-gray-400 font-mono text-xs">[{selectedProject.category}]</span>
                         )}
@@ -300,7 +312,9 @@ export default function Projects() {
                           <span className="text-green-400 font-mono text-xs">STATUS: {selectedProject.status.toUpperCase()}</span>
                         )}
                       </div>
-                      <h3 className="text-red-500 font-bold text-2xl glitch font-mono" data-text={selectedProject.title}>
+                      <h3 className={`font-bold text-2xl glitch font-mono ${selectedProject.id % 3 === 0 ? 'text-neonBlue glitch-blue' :
+                          selectedProject.id % 3 === 1 ? 'text-neonPurple glitch-purple' : 'text-neonPink glitch-pink'
+                        }`} data-text={selectedProject.title}>
                         {selectedProject.title.toUpperCase()}
                       </h3>
                     </div>
@@ -308,8 +322,11 @@ export default function Projects() {
                       whileHover={{ scale: 1.1, rotate: 90 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={closeModal}
-                      className="text-red-500 hover:text-red-400 font-mono text-2xl w-8 h-8 flex items-center justify-center border border-red-600 hover:border-red-400 transition-colors flex-shrink-0"
-                      style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.3)' }}
+                      className={`font-mono text-2xl w-8 h-8 flex items-center justify-center border transition-colors flex-shrink-0 ${selectedProject.id % 3 === 0 ? 'text-neonBlue border-neonBlue hover:text-white hover:bg-neonBlue' :
+                          selectedProject.id % 3 === 1 ? 'text-neonPurple border-neonPurple hover:text-white hover:bg-neonPurple' :
+                            'text-neonPink border-neonPink hover:text-white hover:bg-neonPink'
+                        }`}
+                      style={{ boxShadow: '0 0 10px rgba(255, 255, 255, 0.1)' }}
                     >
                       ×
                     </motion.button>
@@ -329,7 +346,7 @@ export default function Projects() {
                     <div className="text-red-500 font-mono text-sm mb-3">[TECH STACK]</div>
                     <div className="flex flex-wrap gap-2">
                       {selectedProject.tech.map(tech => (
-                        <span 
+                        <span
                           key={tech}
                           className="bg-red-600 bg-opacity-30 border border-red-500 text-red-300 px-3 py-1 rounded font-mono text-xs"
                           style={{ boxShadow: '0 0 5px rgba(176, 17, 33, 0.3)' }}
@@ -347,10 +364,13 @@ export default function Projects() {
                         href={selectedProject.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(176, 17, 33, 0.8)' }}
+                        whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 243, 255, 0.8)' }}
                         whileTap={{ scale: 0.95 }}
-                        className="flex-1 text-center bg-red-600 hover:bg-red-700 border border-red-500 text-white px-6 py-3 font-mono font-semibold tracking-wider uppercase transition-all"
-                        style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.5)' }}
+                        className={`flex-1 text-center border text-white px-6 py-3 font-mono font-semibold tracking-wider uppercase transition-all ${selectedProject.id % 3 === 0 ? 'bg-cyan-600 border-cyan-500 hover:bg-cyan-700' :
+                            selectedProject.id % 3 === 1 ? 'bg-purple-600 border-purple-500 hover:bg-purple-700' :
+                              'bg-pink-600 border-pink-500 hover:bg-pink-700'
+                          }`}
+                        style={{ boxShadow: '0 0 15px rgba(0, 0, 0, 0.5)' }}
                       >
                         GITHUB
                       </motion.a>
@@ -359,10 +379,13 @@ export default function Projects() {
                       href={selectedProject.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(176, 17, 33, 0.8)' }}
+                      whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(0, 243, 255, 0.8)' }}
                       whileTap={{ scale: 0.95 }}
-                      className={`${selectedProject.github ? 'flex-1' : 'flex-1 max-w-xs'} text-center bg-transparent border-2 border-red-600 text-red-500 hover:bg-red-600 hover:text-white px-6 py-3 font-mono font-semibold tracking-wider uppercase transition-all`}
-                      style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.3)' }}
+                      className={`${selectedProject.github ? 'flex-1' : 'flex-1 max-w-xs'} text-center bg-transparent border-2 px-6 py-3 font-mono font-semibold tracking-wider uppercase transition-all ${selectedProject.id % 3 === 0 ? 'border-cyan-500 text-cyan-400 hover:bg-cyan-600 hover:text-white' :
+                          selectedProject.id % 3 === 1 ? 'border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white' :
+                            'border-pink-500 text-pink-400 hover:bg-pink-600 hover:text-white'
+                        }`}
+                      style={{ boxShadow: '0 0 15px rgba(0, 0, 0, 0.3)' }}
                     >
                       LIVE DEMO
                     </motion.a>
