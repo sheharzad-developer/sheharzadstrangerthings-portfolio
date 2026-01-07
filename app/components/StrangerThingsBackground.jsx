@@ -8,12 +8,12 @@ export default function StrangerThingsBackground({ portalActive = false }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const containerRef = useRef(null);
-  
+
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
   const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-  
+
   const x = useTransform(springX, (value) => {
     if (typeof window !== 'undefined') {
       return value * window.innerWidth - 150;
@@ -52,11 +52,11 @@ export default function StrangerThingsBackground({ portalActive = false }) {
 
 
   return (
-    <div 
+    <div
       ref={containerRef}
       className="fixed inset-0 z-0 overflow-hidden"
-      style={{ 
-        background: 'radial-gradient(ellipse at center, rgba(10,10,10,1) 0%, rgba(0,0,0,1) 100%)'
+      style={{
+        background: 'radial-gradient(ellipse at left, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 70%)'
       }}
     >
       {/* Particles - Stars */}
@@ -169,8 +169,8 @@ export default function StrangerThingsBackground({ portalActive = false }) {
         }}
         style={{
           background: portalActive
-            ? 'radial-gradient(circle at center, rgba(176, 17, 33, 0.5) 0%, rgba(127, 10, 10, 0.3) 100%)'
-            : 'radial-gradient(circle at center, rgba(176, 17, 33, 0.1) 0%, rgba(127, 10, 10, 0.05) 100%)',
+            ? 'radial-gradient(circle at left, rgba(176, 17, 33, 0.5) 0%, rgba(127, 10, 10, 0.3) 100%)'
+            : 'radial-gradient(circle at left, rgba(176, 17, 33, 0.15) 0%, rgba(127, 10, 10, 0.05) 70%, transparent 100%)',
         }}
       />
 

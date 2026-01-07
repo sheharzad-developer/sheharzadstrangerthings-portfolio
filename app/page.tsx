@@ -7,7 +7,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
-import Background from './components/Background';
+import StrangerThingsBackground from './components/StrangerThingsBackground'; // Corrected Import
 import BackgroundAudio from './components/BackgroundAudio';
 import IntroAnimation from './components/IntroAnimation';
 import CustomCursor from './components/CustomCursor';
@@ -29,7 +29,7 @@ function isDecemberAccessible() {
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth(); // 0-11, where 11 is December
   const endOfDecember = new Date(currentYear, 11, 31, 23, 59, 59);
-  
+
   // If it's after December 31st, show portfolio (return false so it goes to portfolio section)
   if (now > endOfDecember) {
     return false; // This will trigger portfolio display
@@ -42,7 +42,7 @@ function isDecemberAccessible() {
 
   // Define the start time: December 1st at 00:00:00
   const startTime = new Date(currentYear, 11, 1, 0, 0, 0);
-  
+
   // Define the end time: December 31st at 23:59:59
   const endTime = new Date(currentYear, 11, 31, 23, 59, 59);
 
@@ -54,12 +54,12 @@ function getTargetDate() {
   const now = new Date();
   const currentYear = now.getFullYear();
   const currentMonth = now.getMonth();
-  
+
   // If before December, target is December 1st 00:00:00
   if (currentMonth < 11) {
     return new Date(currentYear, 11, 1, 0, 0, 0);
   }
-  
+
   // If in December, target is December 31st 23:59:59
   if (currentMonth === 11) {
     const dec1 = new Date(currentYear, 11, 1, 0, 0, 0);
@@ -69,7 +69,7 @@ function getTargetDate() {
       return dec1;
     }
   }
-  
+
   // If after December, target is next year's December 1st
   return new Date(currentYear + 1, 11, 1, 0, 0, 0);
 }
@@ -77,30 +77,30 @@ function getTargetDate() {
 function calculateTimeRemaining(targetDate: Date) {
   const now = new Date();
   const difference = targetDate.getTime() - now.getTime();
-  
+
   if (difference <= 0) {
     return { days: 0, hours: 0, minutes: 0, seconds: 0 };
   }
-  
+
   const days = Math.floor(difference / (1000 * 60 * 60 * 24));
   const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-  
+
   return { days, hours, minutes, seconds };
 }
 
 function CountdownTimer({ targetDate, label }: { targetDate: Date; label: string }) {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining(targetDate));
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeRemaining(calculateTimeRemaining(targetDate));
     }, 1000);
-    
+
     return () => clearInterval(interval);
   }, [targetDate]);
-  
+
   return (
     <div className="mt-8">
       {label && <div className="text-red-500 text-xl font-bold mb-4">{label}</div>}
@@ -128,15 +128,15 @@ function CountdownTimer({ targetDate, label }: { targetDate: Date; label: string
 
 function FloatingCountdown({ targetDate }: { targetDate: Date }) {
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining(targetDate));
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       setTimeRemaining(calculateTimeRemaining(targetDate));
     }, 1000);
-    
+
     return () => clearInterval(interval);
   }, [targetDate]);
-  
+
   return (
     <div className="fixed top-4 right-4 z-50 bg-black bg-opacity-80 border-2 border-red-600 rounded-lg p-4 backdrop-blur-sm">
       <div className="text-red-500 text-xs font-bold mb-2 text-center">TIME REMAINING</div>
@@ -179,24 +179,24 @@ export default function Home() {
           <AudioReverb />
           <LightningFlash />
           <BackgroundAudio />
-          <Background portalActive={portalActive} />
+          <StrangerThingsBackground portalActive={portalActive} />
           <Hero onActivate={setPortalActive} />
-      <SectionWrapper>
-        <About />
-      </SectionWrapper>
-      <SectionWrapper>
-        <Skills />
-      </SectionWrapper>
-      <SectionWrapper>
-        <Projects />
-      </SectionWrapper>
-      <SectionWrapper>
-        <Certifications />
-      </SectionWrapper>
-      <SectionWrapper>
-        <Contact />
-      </SectionWrapper>
-      <Footer />
+          <SectionWrapper>
+            <About />
+          </SectionWrapper>
+          <SectionWrapper>
+            <Skills />
+          </SectionWrapper>
+          <SectionWrapper>
+            <Projects />
+          </SectionWrapper>
+          <SectionWrapper>
+            <Certifications />
+          </SectionWrapper>
+          <SectionWrapper>
+            <Contact />
+          </SectionWrapper>
+          <Footer />
         </>
       )}
     </main>
