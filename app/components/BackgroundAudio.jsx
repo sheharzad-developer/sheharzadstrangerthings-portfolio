@@ -5,6 +5,7 @@ import { useEffect, useRef } from 'react';
 export default function BackgroundAudio() {
   const audioRef = useRef(null);
   const hasStartedRef = useRef(false);
+  const playOnInteractionRef = useRef(null);
 
   useEffect(() => {
     // Initialize audio only on client side
@@ -12,11 +13,12 @@ export default function BackgroundAudio() {
       return;
     }
 
-    // Create audio with proper path (renamed file without spaces)
+    // Create audio with proper path
     const audioPath = "/songs/portal-sound.mp3";
     const audio = new Audio(audioPath);
-    audio.volume = 0.3; // Lower volume for background ambient sound
+    audio.volume = 0.5; // Increased volume for better audibility
     audio.loop = true; // Loop continuously
+    audio.preload = 'auto'; // Preload the audio
 
     audioRef.current = audio;
 
@@ -27,78 +29,103 @@ export default function BackgroundAudio() {
         console.error('Error code:', audio.error.code);
         console.error('Error message:', audio.error.message);
       }
-      // Try with encoded path as fallback
-      if (!hasStartedRef.current) {
-        const fallbackAudio = new Audio(encodeURI(audioPath));
-        fallbackAudio.volume = 0.3;
-        fallbackAudio.loop = true;
-        audioRef.current = fallbackAudio;
-        tryPlay(fallbackAudio);
-      }
+      console.error('Audio path attempted:', audioPath);
     });
 
-    // Function to try playing
-    const tryPlay = (audioInstance) => {
-      if (hasStartedRef.current) return;
+    // Add loaded event listener
+    audio.addEventListener('loadeddata', () => {
+      console.log('✅ Audio file loaded successfully, readyState:', audio.readyState);
+    });
 
-      const playPromise = audioInstance.play();
+    audio.addEventListener('canplay', () => {
+      console.log('✅ Audio can play, readyState:', audio.readyState);
+    });
 
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            console.log('✅ Background portal sound playing');
-            hasStartedRef.current = true;
-          })
-          .catch(error => {
-            console.log('⚠️ Autoplay blocked, waiting for user interaction');
-            // Will be handled by interaction listeners
-          });
-      }
-    };
+    audio.addEventListener('loadstart', () => {
+      console.log('🔄 Audio loading started');
+    });
 
-    // Removed immediate play attempt to fix NotAllowedError
-    // tryPlay(audio);
+    // Define events array
+    const events = ['click', 'touchstart', 'keydown', 'mousedown', 'pointerdown', 'scroll'];
 
-    // Define events array first
-    const events = ['click', 'touchstart', 'keydown', 'mousedown', 'pointerdown'];
-
-    // If autoplay is blocked, play on first user interaction
-    const playOnInteraction = () => {
-      if (!hasStartedRef.current && audioRef.current) {
+    // Resume audio context if suspended (required by some browsers)
+    const resumeAudioContext = async () => {
+      if (window.audioContext && window.audioContext.state === 'suspended') {
         try {
-          const playPromise = audioRef.current.play();
-          if (playPromise !== undefined) {
-            playPromise
-              .then(() => {
-                console.log('✅ Background portal sound started on interaction');
-                hasStartedRef.current = true;
-                // Remove all listeners once started
-                events.forEach(event => {
-                  document.removeEventListener(event, playOnInteraction);
-                });
-                window.removeEventListener('click', playOnInteraction);
-                window.removeEventListener('touchstart', playOnInteraction);
-              })
-              .catch(e => {
-                // Silently handle autoplay errors - user interaction will retry
-                console.log('⚠️ Play failed on interaction, will retry on next interaction');
-              });
-          }
-        } catch (error) {
-          // Handle any synchronous errors
-          console.log('⚠️ Audio play error:', error);
+          await window.audioContext.resume();
+          console.log('✅ Audio context resumed');
+        } catch (e) {
+          console.log('⚠️ Could not resume audio context:', e);
         }
       }
     };
 
-    // Add multiple interaction listeners (without once: true to ensure it fires)
-    events.forEach(event => {
-      document.addEventListener(event, playOnInteraction, { passive: true });
-    });
+    // If autoplay is blocked, play on first user interaction
+    const playOnInteraction = async (event) => {
+      if (!hasStartedRef.current && audioRef.current) {
+        console.log('🎵 User interaction detected, attempting to play audio...');
+        
+        // Resume audio context first
+        await resumeAudioContext();
+        
+        try {
+          // Load audio if not loaded
+          if (audioRef.current.readyState < 2) {
+            audioRef.current.load();
+          }
 
-    // Also add to window for broader coverage
-    window.addEventListener('click', playOnInteraction, { passive: true });
-    window.addEventListener('touchstart', playOnInteraction, { passive: true });
+          // Wait for audio to be ready if needed
+          if (audioRef.current.readyState < 2) {
+            await new Promise((resolve) => {
+              const onCanPlay = () => {
+                audioRef.current.removeEventListener('canplay', onCanPlay);
+                resolve();
+              };
+              audioRef.current.addEventListener('canplay', onCanPlay);
+            });
+          }
+
+          // Now try to play
+          const playPromise = audioRef.current.play();
+          if (playPromise !== undefined) {
+            playPromise
+              .then(() => {
+                console.log('✅ Background portal sound started successfully');
+                hasStartedRef.current = true;
+                // Remove all listeners once started
+                events.forEach(eventType => {
+                  document.removeEventListener(eventType, playOnInteraction);
+                  window.removeEventListener(eventType, playOnInteraction);
+                });
+              })
+              .catch(e => {
+                console.error('❌ Play failed on interaction:', e);
+                // Don't remove listeners, will retry on next interaction
+              });
+          } else {
+            // Play promise is undefined, check if already playing
+            if (!audioRef.current.paused) {
+              hasStartedRef.current = true;
+              events.forEach(eventType => {
+                document.removeEventListener(eventType, playOnInteraction);
+                window.removeEventListener(eventType, playOnInteraction);
+              });
+            }
+          }
+        } catch (error) {
+          console.error('❌ Audio play error:', error);
+        }
+      }
+    };
+
+    // Store reference for cleanup
+    playOnInteractionRef.current = playOnInteraction;
+
+    // Add multiple interaction listeners
+    events.forEach(event => {
+      document.addEventListener(event, playOnInteraction, { passive: true, once: false });
+      window.addEventListener(event, playOnInteraction, { passive: true, once: false });
+    });
 
     // Cleanup on unmount
     return () => {
@@ -106,11 +133,12 @@ export default function BackgroundAudio() {
         audioRef.current.pause();
         audioRef.current = null;
       }
-      events.forEach(event => {
-        document.removeEventListener(event, playOnInteraction);
-      });
-      window.removeEventListener('click', playOnInteraction);
-      window.removeEventListener('touchstart', playOnInteraction);
+      if (playOnInteractionRef.current) {
+        events.forEach(event => {
+          document.removeEventListener(event, playOnInteractionRef.current);
+          window.removeEventListener(event, playOnInteractionRef.current);
+        });
+      }
     };
   }, []);
 
