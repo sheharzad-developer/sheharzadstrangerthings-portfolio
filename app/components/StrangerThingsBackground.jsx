@@ -81,8 +81,8 @@ export default function StrangerThingsBackground({ portalActive = false }) {
       className="fixed inset-0 z-0 overflow-hidden"
       style={{
         background: lightningFlash
-          ? 'radial-gradient(ellipse at left, rgba(60,20,20,1) 0%, rgba(40,10,10,1) 50%, rgba(20,0,0,1) 70%, rgba(0,0,0,1) 100%)'
-          : 'radial-gradient(ellipse at left, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 70%)',
+          ? 'radial-gradient(ellipse at left, rgba(80,10,10,1) 0%, rgba(60,5,5,1) 50%, rgba(40,0,0,1) 70%, rgba(20,0,0,1) 100%)'
+          : 'radial-gradient(ellipse at left, rgba(40,5,5,1) 0%, rgba(20,0,0,1) 70%, rgba(10,0,0,1) 100%)',
         transition: 'background 0.15s ease-out',
       }}
     >

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FaSnowflake } from 'react-icons/fa';
 import Hero from './components/Hero';
+import FallingAshes from './components/FallingAshes';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -180,6 +181,7 @@ export default function Home() {
           <LightningFlash />
           <BackgroundAudio />
           <StrangerThingsBackground portalActive={portalActive} />
+          <FallingAshes />
           <Hero onActivate={setPortalActive} />
           <SectionWrapper>
             <About />
