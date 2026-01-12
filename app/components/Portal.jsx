@@ -59,9 +59,12 @@ export default function Portal({ onActivate }) {
           }
         }
 
-        audio.play().catch(() => {
-          // Ignore autoplay errors
-        });
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            // Ignore autoplay errors - hover sound is optional
+          });
+        }
       } catch (error) {
         // Ignore errors
       }

@@ -9,7 +9,7 @@ export default function IntroAnimation({ onComplete }) {
   const [glitchLetters, setGlitchLetters] = useState([]);
   const [flicker, setFlicker] = useState(true);
   const audioRef = useRef(null);
-  
+
   const text = "SHEHARZAD SALAHUDDIN";
   const letters = text.split('');
 
@@ -21,16 +21,16 @@ export default function IntroAnimation({ onComplete }) {
       // Randomly select 2-4 letters to glitch
       const count = Math.floor(Math.random() * 3) + 2;
       const indices = [];
-      
+
       while (indices.length < count) {
         const index = Math.floor(Math.random() * letters.length);
         if (!indices.includes(index)) {
           indices.push(index);
         }
       }
-      
+
       setGlitchLetters(indices);
-      
+
       // Clear glitch after short duration
       setTimeout(() => {
         setGlitchLetters([]);
@@ -62,7 +62,7 @@ export default function IntroAnimation({ onComplete }) {
       audio.volume = 0.4; // Low volume for rumbling
       audio.loop = false;
       audio.preload = 'auto';
-      
+
       audio.addEventListener('error', () => {
         // If audio file doesn't exist, continue without sound
         console.log('Rumble sound not found, continuing without audio');
@@ -71,12 +71,16 @@ export default function IntroAnimation({ onComplete }) {
       audioRef.current = audio;
 
       // Try to play on mount
+      // Removed immediate play attempt to prevent NotAllowedError
+      // User interaction is required for audio
+      /* 
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
           // Autoplay blocked, that's okay
         });
       }
+      */
     } catch (error) {
       console.log('Audio initialization failed, continuing without sound');
     }
@@ -148,10 +152,10 @@ export default function IntroAnimation({ onComplete }) {
         >
           {/* Main text with flickering and glitch effects */}
           <motion.div
-            animate={{ 
+            animate={{
               opacity: flicker ? [0.7, 1, 0.9, 1, 0.8, 1] : [1, 0.9, 1, 0.8, 1, 0.9],
             }}
-            transition={{ 
+            transition={{
               duration: 0.3,
               repeat: Infinity,
               repeatType: 'reverse',
@@ -162,7 +166,7 @@ export default function IntroAnimation({ onComplete }) {
               {letters.map((letter, index) => {
                 const isGlitching = glitchLetters.includes(index);
                 const displayChar = isGlitching ? getGlitchChar() : letter;
-                
+
                 return (
                   <motion.span
                     key={index}
@@ -180,13 +184,13 @@ export default function IntroAnimation({ onComplete }) {
                     animate={
                       isGlitching
                         ? {
-                            x: [0, -2, 2, -2, 2, 0],
-                            y: [0, 1, -1, 1, -1, 0],
-                            opacity: [1, 0.5, 1, 0.5, 1],
-                          }
+                          x: [0, -2, 2, -2, 2, 0],
+                          y: [0, 1, -1, 1, -1, 0],
+                          opacity: [1, 0.5, 1, 0.5, 1],
+                        }
                         : {
-                            opacity: [0.9, 1, 0.95, 1],
-                          }
+                          opacity: [0.9, 1, 0.95, 1],
+                        }
                     }
                     transition={{
                       duration: isGlitching ? 0.1 : 0.3,
@@ -235,7 +239,7 @@ export default function IntroAnimation({ onComplete }) {
               style={{
                 boxShadow: '0 0 15px rgba(176, 17, 33, 0.6)',
               }}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 boxShadow: '0 0 25px rgba(176, 17, 33, 0.9)',
               }}

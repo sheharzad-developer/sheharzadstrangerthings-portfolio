@@ -7,6 +7,7 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 export default function StrangerThingsBackground({ portalActive = false }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [lightningFlash, setLightningFlash] = useState(false);
   const containerRef = useRef(null);
 
   const mouseX = useMotionValue(0);
@@ -50,13 +51,39 @@ export default function StrangerThingsBackground({ portalActive = false }) {
     };
   }, [mouseX, mouseY]);
 
+  // Lightning flash effect
+  useEffect(() => {
+    const triggerFlash = () => {
+      setLightningFlash(true);
+      setTimeout(() => setLightningFlash(false), 200);
+    };
+
+    // Initial flash
+    const initialTimeout = setTimeout(() => {
+      triggerFlash();
+    }, 500);
+
+    // Automatic flashes at random intervals
+    const lightningInterval = setInterval(() => {
+      triggerFlash();
+    }, Math.random() * 3000 + 2000);
+
+    return () => {
+      clearTimeout(initialTimeout);
+      clearInterval(lightningInterval);
+    };
+  }, []);
+
 
   return (
     <div
       ref={containerRef}
       className="fixed inset-0 z-0 overflow-hidden"
       style={{
-        background: 'radial-gradient(ellipse at left, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 70%)'
+        background: lightningFlash
+          ? 'radial-gradient(ellipse at left, rgba(60,20,20,1) 0%, rgba(40,10,10,1) 50%, rgba(20,0,0,1) 70%, rgba(0,0,0,1) 100%)'
+          : 'radial-gradient(ellipse at left, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 70%)',
+        transition: 'background 0.15s ease-out',
       }}
     >
       {/* Particles - Stars */}
@@ -195,6 +222,21 @@ export default function StrangerThingsBackground({ portalActive = false }) {
             duration: 2,
             repeat: Infinity,
             ease: 'easeInOut',
+          }}
+        />
+      )}
+
+      {/* Lightning Flash Overlay */}
+      {lightningFlash && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0, 0.7, 0.4, 0.6, 0] }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="absolute inset-0 pointer-events-none z-5"
+          style={{
+            background: 'radial-gradient(circle at 50% 30%, rgba(255, 200, 200, 0.5) 0%, rgba(255, 100, 100, 0.3) 30%, rgba(176, 17, 33, 0.2) 70%, transparent 100%)',
+            mixBlendMode: 'screen',
           }}
         />
       )}
