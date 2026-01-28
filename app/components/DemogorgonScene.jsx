@@ -50,8 +50,8 @@ export default function DemogorgonScene({ isVisible, mousePosition }) {
               depth: true,
               preserveDrawingBuffer: false,
             }}
-            dpr={[1, 1.5]} // Limit pixel ratio for performance
-            performance={{ min: 0.5 }} // Lower quality if FPS drops
+            dpr={[1, 1.5]} 
+            performance={{ min: 0.5 }} 
             style={{ width: '100%', height: '100%' }}
           >
             <Suspense fallback={<LoadingFallback />}>

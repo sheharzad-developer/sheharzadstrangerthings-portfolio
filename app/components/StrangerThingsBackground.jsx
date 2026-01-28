@@ -51,19 +51,19 @@ export default function StrangerThingsBackground({ portalActive = false }) {
     };
   }, [mouseX, mouseY]);
 
-  // Lightning flash effect
+
   useEffect(() => {
     const triggerFlash = () => {
       setLightningFlash(true);
       setTimeout(() => setLightningFlash(false), 200);
     };
 
-    // Initial flash
+    
     const initialTimeout = setTimeout(() => {
       triggerFlash();
     }, 500);
 
-    // Automatic flashes at random intervals
+   
     const lightningInterval = setInterval(() => {
       triggerFlash();
     }, Math.random() * 3000 + 2000);
@@ -86,7 +86,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
         transition: 'background 0.15s ease-out',
       }}
     >
-      {/* Particles - Stars */}
+      
       <Particles
         id="tsparticles-stranger"
         options={{
@@ -182,7 +182,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
         }}
       />
 
-      {/* Red Fog Overlay with Glitch Pulse */}
+     
       <motion.div
         className="absolute inset-0 bg-red-900 mix-blend-overlay pointer-events-none z-10"
         animate={{
@@ -201,7 +201,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
         }}
       />
 
-      {/* Interactive Red Disturbance Effect on Hover */}
+ 
       {isHovering && (
         <motion.div
           className="absolute pointer-events-none z-20"
@@ -226,7 +226,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
         />
       )}
 
-      {/* Lightning Flash Overlay */}
+      
       {lightningFlash && (
         <motion.div
           initial={{ opacity: 0 }}
@@ -241,12 +241,12 @@ export default function StrangerThingsBackground({ portalActive = false }) {
         />
       )}
 
-      {/* Floating Clouds/Mist */}
+    
       <div className="cloud"></div>
       <div className="cloud" style={{ top: '40%', animationDuration: '90s' }}></div>
       <div className="cloud" style={{ top: '60%', animationDuration: '120s', width: '400px', height: '100px' }}></div>
 
-      {/* Portal Activation Glitch Overlay */}
+    
       {portalActive && (
         <motion.div
           className="absolute inset-0 pointer-events-none z-50"

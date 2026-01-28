@@ -5,7 +5,7 @@ import Portal from './Portal';
 
 export default function Hero({ onActivate }) {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 relative z-10">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16 relative z-10 py-8 md:py-12">
       {/* S-Logo at the top */}
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
@@ -40,9 +40,8 @@ export default function Hero({ onActivate }) {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl glitch font-stranger mb-6 px-4 text-center w-full mx-auto"
+        className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl glitch font-stranger mb-4 md:mb-6 px-2 text-center max-w-6xl mx-auto leading-tight laptop-hero-title"
         data-text="SHEHARZAD SALAHUDDIN"
-        style={{ textAlign: 'center' }}
       >
         SHEHARZAD SALAHUDDIN
       </motion.h1>
@@ -53,8 +52,7 @@ export default function Hero({ onActivate }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="typewriter text-base sm:text-lg md:text-2xl text-center w-full max-w-full"
-          style={{ textAlign: 'center' }}
+          className="typewriter text-sm sm:text-base md:text-lg lg:text-xl text-center w-full max-w-3xl leading-relaxed"
         >
           SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS... ID: FULLSTACK DEVELOPER
         </motion.p>
@@ -65,7 +63,7 @@ export default function Hero({ onActivate }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6 }}
-        className="mt-10 flex justify-center gap-4"
+        className="mt-6 md:mt-8 lg:mt-10 flex justify-center gap-4"
       >
         <Portal onActivate={onActivate} />
       </motion.div>
