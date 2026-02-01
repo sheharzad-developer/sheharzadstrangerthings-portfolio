@@ -7,7 +7,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
-import StrangerThingsBackground from './components/StrangerThingsBackground'; // Corrected Import
+import StrangerThingsBackground from './components/StrangerThingsBackground';
 import BackgroundAudio from './components/BackgroundAudio';
 import IntroAnimation from './components/IntroAnimation';
 import CustomCursor from './components/CustomCursor';
