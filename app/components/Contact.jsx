@@ -12,6 +12,7 @@ import {
   FaCalendar,
   FaPaperPlane
 } from "react-icons/fa";
+import { SiFiverr, SiUpwork } from "react-icons/si";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -143,6 +144,28 @@ const Contact = () => {
           <div>
             <h4 className="text-red-500 font-mono text-sm mb-4 tracking-wider">[CONNECT WITH ME]</h4>
             <div className="flex gap-4">
+              <motion.a
+                href="https://www.upwork.com/freelancers/~01264a0282005eca30"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(34, 197, 94, 0.5)' }}
+                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
+                aria-label="Upwork"
+              >
+                <SiUpwork className="text-xl" />
+              </motion.a>
+              <motion.a
+                href="https://www.fiverr.com/sellers/sheharzad_1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(34, 197, 94, 0.5)' }}
+                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
+                aria-label="Fiverr"
+              >
+                <SiFiverr className="text-xl" />
+              </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/"
                 target="_blank"
