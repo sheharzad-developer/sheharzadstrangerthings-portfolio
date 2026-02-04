@@ -54,9 +54,25 @@ export default function Hero({ onActivate }) {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="typewriter text-sm sm:text-base md:text-lg lg:text-xl text-center w-full max-w-3xl leading-relaxed"
         >
-          SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS... ID: FULLSTACK DEVELOPER
+          SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS...
+          <motion.span
+            className="block mt-1"
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1, duration: 0.6 }}
+          >
+            ID: FULL STACK DEVELOPER
+          </motion.span>
         </motion.p>
       </div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
+        className="mt-4 flex flex-col items-center gap-2 text-center"
+      >
+      </motion.div>
 
       {/* CTA Buttons */}
       <motion.div

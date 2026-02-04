@@ -19,7 +19,7 @@ export default function About() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
-        className="max-w-4xl w-full bg-gray-900 bg-opacity-50 border-2 border-red-600 p-8 shadow-2xl relative"
+        className="max-w-6xl w-full bg-gray-900 bg-opacity-50 border-2 border-red-600 p-8 shadow-2xl relative"
         style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.3)' }}
       >
         {/* Classified Header */}
@@ -29,11 +29,10 @@ export default function About() {
             <span className="text-red-500 font-mono text-sm tracking-wider">SUBJECT ID: S-011</span>
           </div>
           <div className="text-gray-400 font-mono text-xs">
-        SHEHARZAD SALAHUDDIN LABORATORY - PERSONNEL FILE
+            SHEHARZAD SALAHUDDIN LABORATORY - PERSONNEL FILE
           </div>
         </div>
 
-        {/* Document Content */}
         <div className="space-y-6 text-gray-300 font-mono text-sm md:text-base leading-relaxed">
           <div>
             <span className="text-red-500">[PHILOSOPHY]</span>

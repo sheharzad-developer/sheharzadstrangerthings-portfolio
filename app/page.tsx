@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Hero from './components/Hero';
 import FallingAshes from './components/FallingAshes';
-import About from './components/About';
+import AboutContact from './components/AboutContact';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
@@ -14,8 +14,8 @@ import CustomCursor from './components/CustomCursor';
 import LightningFlash from './components/LightningFlash';
 import AudioReverb from './components/AudioReverb';
 import SectionWrapper from './components/SectionWrapper';
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import GitHubActivity from "./components/GitHubActivity";
 
 export default function Home() {
   const [portalActive, setPortalActive] = useState(false);
@@ -34,19 +34,19 @@ export default function Home() {
           <FallingAshes />
           <Hero onActivate={setPortalActive} />
           <SectionWrapper>
-            <About />
+            <AboutContact />
           </SectionWrapper>
           <SectionWrapper>
             <Skills />
+          </SectionWrapper>
+          <SectionWrapper>
+            <GitHubActivity />
           </SectionWrapper>
           <SectionWrapper>
             <Projects />
           </SectionWrapper>
           <SectionWrapper>
             <Certifications />
-          </SectionWrapper>
-          <SectionWrapper>
-            <Contact />
           </SectionWrapper>
           <Footer />
         </>
