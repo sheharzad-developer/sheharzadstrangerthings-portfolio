@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { FaCalendar, FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp } from 'react-icons/fa';
+import { FaCalendar, FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { SiFiverr, SiUpwork } from 'react-icons/si';
 
 export default function AboutContact() {
   return (
@@ -101,6 +102,10 @@ export default function AboutContact() {
             Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences. Let's chat about your project!
           </p>
 
+          <div className="text-purple-300 font-mono text-xs tracking-wider mb-4">
+            LET'S HAVE A COFFEE
+          </div>
+
           <div className="flex flex-col gap-4 mb-8">
             <a
               href="https://wa.me/923160144176"
@@ -151,6 +156,52 @@ export default function AboutContact() {
                 <FaMapMarkerAlt className="text-red-500" />
                 <span className="text-gray-300">Lahore, Pakistan</span>
               </div>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h4 className="text-red-500 font-mono text-sm mb-4 tracking-wider">[CONNECT WITH ME]</h4>
+            <div className="flex gap-4">
+              <a
+                href="https://www.upwork.com/freelancers/~01264a0282005eca30"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
+                aria-label="Upwork"
+              >
+                <SiUpwork className="text-xl" />
+              </a>
+              <a
+                href="https://www.fiverr.com/sellers/sheharzad_1/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
+                aria-label="Fiverr"
+              >
+                <SiFiverr className="text-xl" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gray-800 border-2 border-blue-500 rounded-lg flex items-center justify-center text-blue-400 hover:border-blue-400 transition"
+                style={{ boxShadow: '0 0 10px rgba(37, 99, 235, 0.3)' }}
+                aria-label="LinkedIn"
+              >
+                <FaLinkedin className="text-xl" />
+              </a>
+              <a
+                href="https://github.com/sheharzad-developer"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gray-800 border-2 border-red-600 rounded-lg flex items-center justify-center text-red-400 hover:border-red-500 transition"
+                style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.3)' }}
+                aria-label="GitHub"
+              >
+                <FaGithub className="text-xl" />
+              </a>
             </div>
           </div>
         </motion.div>
