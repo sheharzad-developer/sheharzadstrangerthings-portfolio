@@ -144,6 +144,18 @@ const projects = [
     status: "completed",
     image: "/images/projects/fintech-website.png",
   },
+  {
+    id: 12,
+    title: "Live Gold and Silver Prices Today in the International Market",
+    shortDesc: "Live gold and silver prices in USD and local currencies with country-specific pages.",
+    fullDesc: "Live gold and silver prices in USD and local currencies (SAR, AED, QAR, KWD, INR, PKR) for Saudi Arabia, UAE, Qatar, Kuwait, India, and Pakistan. Built with Next.js App Router and Sanity CMS, featuring Arabic RTL support for Gulf countries, REST API endpoints, responsive layout, and server-side revalidation for fresh rates.",
+    tech: ["Next.js 16", "React 19", "TypeScript", "Tailwind CSS", "Sanity CMS", "Gold API", "Vercel"],
+    category: "FinTech",
+    year: "2026",
+    status: "live",
+    image: "/images/projects/Gold-&-Silver.png",
+    liveDemo: "https://www.thegoldprice.gold/",
+  },
 ];
 
 export default function Projects() {
