@@ -168,23 +168,6 @@ export default function Portal({ onActivate }) {
           style={{ boxShadow: '0 0 60px rgba(176, 17, 33, 0.55)' }}
         />
         <div className="relative z-10 flex flex-col md:flex-row gap-4 items-center justify-center px-6 md:px-10 py-8 md:py-10">
-      <motion.button
-        className="btn-neon-sign blue pointer-events-auto"
-        variants={itemVariants}
-        onClick={handleEnter}
-        onMouseEnter={() => {
-          setIsHovered(true);
-          playHoverSound();
-        }}
-        onMouseLeave={() => setIsHovered(false)}
-        whileHover={{ scale: 1.06, boxShadow: '0 0 25px rgba(255, 0, 60, 0.9)' }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <span className="tube-borders"></span>
-        <span className="tube-ends"></span>
-        <span>ENTER THE PORTAL</span>
-      </motion.button>
-
       <motion.a
         href="#about"
         className="btn-neon-sign purple pointer-events-auto"
