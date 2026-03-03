@@ -138,20 +138,46 @@ export default function Portal({ onActivate }) {
     }, 1200);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.98 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { delay: 0.6, duration: 0.6, staggerChildren: 0.12 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 12 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div className="relative flex flex-col gap-4 items-center w-full">
+    <motion.div
+      className="relative flex flex-col items-center w-full"
+      variants={containerVariants}
+      initial="hidden"
+      animate="show"
+    >
       {/* 3D Demogorgon Scene - only visible on hover, positioned behind button */}
       <DemogorgonScene isVisible={isHovered} mousePosition={mousePosition} />
 
+      <div className="relative mt-8 w-full max-w-5xl">
+        <div
+          className="absolute inset-0 rounded-3xl border border-red-500/40 bg-black/50 backdrop-blur-sm pointer-events-none"
+          style={{ boxShadow: '0 0 60px rgba(176, 17, 33, 0.55)' }}
+        />
+        <div className="relative z-10 flex flex-col md:flex-row gap-4 items-center justify-center px-6 md:px-10 py-8 md:py-10">
       <motion.button
-        className="btn-neon-sign blue mt-12"
+        className="btn-neon-sign blue pointer-events-auto"
+        variants={itemVariants}
         onClick={handleEnter}
         onMouseEnter={() => {
           setIsHovered(true);
           playHoverSound();
         }}
         onMouseLeave={() => setIsHovered(false)}
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ scale: 1.06, boxShadow: '0 0 25px rgba(255, 0, 60, 0.9)' }}
         whileTap={{ scale: 0.95 }}
       >
         <span className="tube-borders"></span>
@@ -161,19 +187,35 @@ export default function Portal({ onActivate }) {
 
       <motion.a
         href="#about"
-        className="btn-neon-sign purple mt-6"
+        className="btn-neon-sign purple pointer-events-auto"
         onClick={(e) => {
           e.preventDefault();
           const about = document.getElementById("about");
           about?.scrollIntoView({ behavior: "smooth" });
         }}
-        whileHover={{ scale: 1.05 }}
+        variants={itemVariants}
+        whileHover={{ scale: 1.06 }}
         whileTap={{ scale: 0.95 }}
       >
         <span className="tube-borders"></span>
         <span className="tube-ends"></span>
         <span>VIEW PROFILE</span>
       </motion.a>
-    </div>
+
+      <motion.a
+        href="/resume/Sheharzad-Resume.pdf"
+        download
+        className="btn-neon-sign blue pointer-events-auto"
+        variants={itemVariants}
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <span className="tube-borders"></span>
+        <span className="tube-ends"></span>
+        <span>DOWNLOAD RESUME</span>
+      </motion.a>
+        </div>
+      </div>
+    </motion.div>
   );
 }
