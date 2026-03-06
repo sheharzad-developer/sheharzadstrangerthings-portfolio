@@ -156,6 +156,18 @@ const projects = [
     image: "/images/projects/Gold-&-Silver.png",
     liveDemo: "https://www.thegoldprice.gold/",
   },
+  {
+    id: 13,
+    title: "Shoes Ecommerce",
+    shortDesc: "Modern ecommerce storefront for shoes with clean UI and smooth shopping flow.",
+    fullDesc: "Modern ecommerce storefront for shoes with clean UI and smooth shopping flow. Built for fast browsing, product discovery, and a polished shopping experience.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Ecommerce"],
+    category: "Ecommerce",
+    year: "2026",
+    status: "live",
+    image: "/images/projects/shoes-ecommerce.png",
+    liveDemo: "https://shoes-ecommerce-five.vercel.app/",
+  },
 ];
 
 export default function Projects() {
