@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaCalendar, FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
-import { SiFiverr, SiUpwork } from 'react-icons/si';
+import { SiFiverr, SiUpwork, SiLeetcode } from 'react-icons/si';
 
 export default function AboutContact() {
   return (
@@ -201,6 +201,16 @@ export default function AboutContact() {
                 aria-label="GitHub"
               >
                 <FaGithub className="text-xl" />
+              </a>
+              <a
+                href="https://leetcode.com/u/sheharzad-developer/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gray-800 border-2 border-yellow-500 rounded-lg flex items-center justify-center text-yellow-400 hover:border-yellow-400 transition"
+                style={{ boxShadow: '0 0 10px rgba(234, 179, 8, 0.3)' }}
+                aria-label="LeetCode"
+              >
+                <SiLeetcode className="text-xl" />
               </a>
             </div>
           </div>
