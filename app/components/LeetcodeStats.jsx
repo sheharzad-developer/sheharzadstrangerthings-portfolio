@@ -116,6 +116,30 @@ const LeetcodeStats = () => {
               })}
             </div>
           </div>
+
+          <div className="mt-6 bg-gray-800 border-2 border-red-600 rounded-lg p-6 flex flex-col sm:flex-row items-center gap-6"
+            style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.2)' }}>
+            <div className="relative w-24 h-24 flex-shrink-0">
+              <div className="absolute inset-0 bg-green-500 opacity-20 blur-xl rounded-full" />
+              <div className="relative w-full h-full bg-gray-900 border-2 border-green-500 rounded-2xl flex flex-col items-center justify-center"
+                style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', boxShadow: '0 0 15px rgba(34, 197, 94, 0.5)' }}>
+                <span className="font-stranger text-green-400 text-3xl leading-none">50</span>
+                <span className="font-mono text-green-500 text-[0.55rem] tracking-widest">DAYS</span>
+              </div>
+            </div>
+            <div className="flex-1 text-center sm:text-left">
+              <div className="font-mono text-red-500 text-xs tracking-widest mb-1">// MOST RECENT BADGE</div>
+              <div className="font-stranger text-red-500 text-2xl neon-text-glow-red mb-1">
+                50 DAYS BADGE 2026
+              </div>
+              <div className="font-mono text-gray-400 text-xs">
+                Solving problems 50+ days in 2026
+              </div>
+            </div>
+            <div className="font-mono text-gray-500 text-xs">
+              <span className="text-red-400">BADGES</span> · 1
+            </div>
+          </div>
         </div>
       </div>
     </motion.div>
