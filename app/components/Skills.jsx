@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import SkillsGrid from './SkillsGrid';
+import LeetcodeStats from './LeetcodeStats';
 
 export default function Skills() {
   return (
@@ -211,6 +212,9 @@ export default function Skills() {
 
       {/* Tech Stack Grid */}
       <SkillsGrid />
+
+      {/* Leetcode Stats */}
+      <LeetcodeStats />
     </section>
   );
 }

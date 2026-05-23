@@ -5,6 +5,8 @@ import {
   FaNodeJs,
   FaPython,
   FaGithub,
+  FaFigma,
+  FaJira,
 } from "react-icons/fa";
 import {
   SiNextdotjs,
@@ -14,29 +16,80 @@ import {
   SiPostgresql,
   SiDjango,
   SiFirebase,
-  SiTypescript,
+  SiJavascript,
+  SiSupabase,
+  SiDocker,
 } from "react-icons/si";
-import { TbBrain, TbMessageChatbot } from "react-icons/tb";
+import { TbBrain, TbMessageChatbot, TbUsersGroup } from "react-icons/tb";
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
-const techStack = [
-  { name: "React", category: "Frontend", icon: <FaReact className="text-sky-400" /> },
-  { name: "Next.js", category: "Frontend", icon: <SiNextdotjs className="text-black dark:text-white" /> },
-  { name: "Node.js", category: "Backend", icon: <FaNodeJs className="text-green-500" /> },
-  { name: "Python", category: "Backend", icon: <FaPython className="text-yellow-400" /> },
-  { name: "Tailwind", category: "Frontend", icon: <SiTailwindcss className="text-sky-500" /> },
-  { name: "TypeScript", category: "Frontend", icon: <SiTypescript className="text-blue-500" /> },
-  { name: "OpenAI", category: "AI", icon: <SiOpenai className="text-green-400" /> },
-  { name: "LLM", category: "AI", icon: <TbBrain className="text-purple-500" /> },
-  { name: "Chatbot Development", category: "AI", icon: <TbMessageChatbot className="text-blue-400" /> },
-  { name: "MongoDB", category: "Database", icon: <SiMongodb className="text-green-600" /> },
-  { name: "PostgreSQL", category: "Database", icon: <SiPostgresql className="text-blue-500" /> },
-  { name: "GitHub", category: "DevOps", icon: <FaGithub className="text-black dark:text-white" /> },
-  { name: "Django", category: "Backend", icon: <SiDjango className="text-black dark:text-white" /> },
-  { name: "Firebase", category: "Database", icon: <SiFirebase className="text-orange-500" /> },
+const sections = [
+  {
+    title: "// FRONTEND",
+    items: [
+      { name: "React", icon: <FaReact className="text-sky-400" /> },
+      { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
+      { name: "Tailwind", icon: <SiTailwindcss className="text-sky-500" /> },
+      { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
+    ],
+  },
+  {
+    title: "// BACKEND",
+    items: [
+      { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+      { name: "Python", icon: <FaPython className="text-yellow-400" /> },
+      { name: "Django", icon: <SiDjango className="text-black dark:text-white" /> },
+    ],
+  },
+  {
+    title: "// AI",
+    items: [
+      { name: "OpenAI", icon: <SiOpenai className="text-green-400" /> },
+      { name: "LLM", icon: <TbBrain className="text-purple-500" /> },
+      { name: "Chatbot Development", icon: <TbMessageChatbot className="text-blue-400" /> },
+    ],
+  },
+  {
+    title: "// DATABASE",
+    items: [
+      { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+      { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-500" /> },
+      { name: "Firebase", icon: <SiFirebase className="text-orange-500" /> },
+      { name: "Supabase", icon: <SiSupabase className="text-green-500" /> },
+    ],
+  },
+  {
+    title: "// DEVOPS",
+    items: [
+      { name: "GitHub", icon: <FaGithub className="text-black dark:text-white" /> },
+      { name: "Docker", icon: <SiDocker className="text-sky-400" /> },
+    ],
+  },
+  {
+    title: "// COLLABORATION",
+    items: [
+      { name: "JIRA", icon: <FaJira className="text-blue-500" /> },
+      { name: "Figma", icon: <FaFigma className="text-pink-500" /> },
+      { name: "Agile/Scrum", icon: <TbUsersGroup className="text-green-400" /> },
+    ],
+  },
 ];
+
+const SkillCard = ({ tech }) => (
+  <div className="skill-item w-32 text-center">
+    <div
+      className="bg-gray-800 border-2 border-red-600 w-20 h-20 flex items-center justify-center rounded-lg text-4xl mb-2 mx-auto transition-all duration-400 hover:border-red-400 hover:shadow-lg hover:shadow-red-600"
+      style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.2)' }}
+    >
+      {tech.icon}
+    </div>
+    <h4 className="font-mono font-bold text-red-400 text-center text-sm leading-tight break-words">
+      {tech.name}
+    </h4>
+  </div>
+);
 
 const SkillsGrid = () => {
   const { ref, inView } = useInView({ 
@@ -82,45 +135,19 @@ const SkillsGrid = () => {
           I WORK WITH
         </motion.h3>
         
-        {/* Skills Slider Container */}
-        <div className={`overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="skills-slider flex gap-6 animate-scroll">
-            {/* First set of skills */}
-            {techStack.map((tech, index) => (
-              <div 
-                key={`${tech.name}-1`}
-                className="skill-item flex-shrink-0 w-32 text-center"
-              >
-                <div className="bg-gray-800 border-2 border-red-600 w-20 h-20 flex items-center justify-center rounded-lg text-4xl mb-2 mx-auto transition-all duration-400 hover:border-red-400 hover:shadow-lg hover:shadow-red-600"
-                  style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.2)' }}>
-                  {tech.icon}
-                </div>
-                <h4 className="font-mono font-bold text-red-400 text-center text-sm mb-1">
-                  {tech.name}
+        <div className={`transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            {sections.map((section) => (
+              <section key={section.title}>
+                <h4 className="font-mono text-red-500 text-sm tracking-widest mb-6 border-l-4 border-red-600 pl-3">
+                  {section.title}
                 </h4>
-                <p className="text-xs text-gray-500 font-mono text-center">
-                  {tech.category}
-                </p>
-              </div>
-            ))}
-
-            {/* Second set for seamless loop */}
-            {techStack.map((tech, index) => (
-              <div 
-                key={`${tech.name}-2`}
-                className="skill-item flex-shrink-0 w-32 text-center"
-              >
-                <div className="bg-gray-800 border-2 border-red-600 w-20 h-20 flex items-center justify-center rounded-lg text-4xl mb-2 mx-auto transition-all duration-400 hover:border-red-400 hover:shadow-lg hover:shadow-red-600"
-                  style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.2)' }}>
-                  {tech.icon}
+                <div className="flex flex-col gap-6 items-center lg:items-start">
+                  {section.items.map((tech) => (
+                    <SkillCard key={tech.name} tech={tech} />
+                  ))}
                 </div>
-                <h4 className="font-mono font-bold text-red-400 text-center text-sm mb-1">
-                  {tech.name}
-                </h4>
-                <p className="text-xs text-gray-500 font-mono text-center">
-                  {tech.category}
-                </p>
-              </div>
+              </section>
             ))}
           </div>
         </div>
