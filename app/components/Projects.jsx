@@ -142,7 +142,7 @@ const projects = [
     category: "FinTech",
     year: "2025",
     status: "completed",
-    image: "/images/projects/fintech-website.png",
+    image: "/images/projects/FinPay.png",
     liveDemo: "https://fin-pay-crypto.vercel.app/",
   },
   {
@@ -168,6 +168,18 @@ const projects = [
     status: "live",
     image: "/images/projects/shoes-ecommerce.png",
     liveDemo: "https://shoes-ecommerce-five.vercel.app/",
+  },
+  {
+    id: 14,
+    title: "Expense Tracker",
+    shortDesc: "A clean, fast personal finance tracker for logging income and expenses, categorizing transactions, and visualizing spending trends.",
+    fullDesc: "Personal Finance & Budgeting Dashboard. A clean, fast personal finance tracker for logging income and expenses, categorizing transactions, and visualizing spending trends. Includes a demo mode with seeded data, monthly/category summaries, interactive charts, and a responsive UI optimized for both desktop and mobile. Key features include add/edit/delete transactions with category and date, income vs. expense summary cards, category breakdown with charts, monthly filtering, persistent storage, and a one-click demo experience.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Charts", "Responsive Design"],
+    category: "FinTech",
+    year: "2026",
+    status: "live",
+    image: "/images/projects/ExpensesTracker.png",
+    liveDemo: "https://expense-tracker-nine-theta-79.vercel.app/demo",
   },
 ];
 
