@@ -16,7 +16,7 @@ const SITE_URL = "https://sheharzad-portfolio.vercel.app";
 const OG_IMAGE = "/S-Logo/S-Logo.jpg";
 
 const DESCRIPTION =
-  "Full-Stack Developer specializing in AI-integrated web & mobile apps — React Native, FastAPI, Next.js, and Python.";
+  "Full-Stack Developer specializing in AI-integrated web & mobile apps — ReactJS, FastAPI, Next.js, and Python.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
