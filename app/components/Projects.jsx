@@ -143,6 +143,7 @@ const projects = [
     year: "2025",
     status: "completed",
     image: "/images/projects/fintech-website.png",
+    liveDemo: "https://fin-pay-crypto.vercel.app/",
   },
   {
     id: 12,

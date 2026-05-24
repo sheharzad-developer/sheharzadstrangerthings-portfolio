@@ -139,7 +139,7 @@ const SkillsGrid = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {sections.map((section) => (
               <section key={section.title}>
-                <h4 className="font-mono text-red-500 text-sm tracking-widest mb-6 border-l-4 border-red-600 pl-3">
+                <h4 className="font-mono text-red-500 text-sm tracking-widest mb-6 border-l-4 border-red-600 pl-3 min-h-[2.5rem] leading-tight flex items-start">
                   {section.title}
                 </h4>
                 <div className="flex flex-col gap-6 items-center lg:items-start">

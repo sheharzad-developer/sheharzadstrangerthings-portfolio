@@ -12,12 +12,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://sheharzad-portfolio.vercel.app";
+const OG_IMAGE = "/S-Logo/S-Logo.jpg";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Sheharzad Salahuddin | Full-Stack Developer",
   description: "Full-Stack Developer & Design Enthusiast. Building scalable web applications with React, Next.js, Python, and modern technologies.",
   keywords: ["Full-Stack Developer", "React", "Next.js", "Python", "Web Development", "Portfolio"],
-  authors: [{ name: "Sheharzad Salahuddin" }],
+  authors: [{ name: "Sheharzad Salahuddin", url: SITE_URL }],
   creator: "Sheharzad Salahuddin",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/S-Logo/favicon.png",
     apple: "/S-Logo/favicon.png",
@@ -28,17 +35,45 @@ export const metadata: Metadata = {
     description: "Full-Stack Developer & Design Enthusiast. Building scalable web applications.",
     type: "website",
     locale: "en_US",
+    url: SITE_URL,
+    siteName: "Sheharzad Salahuddin",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Sheharzad Salahuddin — Full-Stack Developer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Sheharzad Salahuddin | Full-Stack Developer",
     description: "Full-Stack Developer & Design Enthusiast",
     creator: "@sheharzad_sala1",
+    images: [OG_IMAGE],
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Sheharzad Salahuddin",
+  url: SITE_URL,
+  image: `${SITE_URL}${OG_IMAGE}`,
+  jobTitle: "Full-Stack Developer",
+  description:
+    "Full-Stack Developer & Design Enthusiast. Building scalable web applications with React, Next.js, Python, and modern technologies.",
+  sameAs: [
+    "https://github.com/sheharzad-developer",
+    "https://leetcode.com/u/sheharzad-developer/",
+    "https://medium.com/@sheharzadsalahuddin.90",
+    "https://twitter.com/sheharzad_sala1",
+  ],
 };
 
 export default function RootLayout({
@@ -51,6 +86,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         {children}
       </body>
     </html>
