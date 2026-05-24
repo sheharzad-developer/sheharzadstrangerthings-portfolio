@@ -59,6 +59,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "azegAu5abVs3oG9gp40RB7VGFmzozYB_q24zNevcnaQ",
+  },
 };
 
 const personJsonLd = {
