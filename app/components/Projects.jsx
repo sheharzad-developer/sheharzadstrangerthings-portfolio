@@ -181,6 +181,18 @@ const projects = [
     image: "/images/projects/ExpensesTracker.png",
     liveDemo: "https://expense-tracker-nine-theta-79.vercel.app/demo",
   },
+  {
+    id: 15,
+    title: "AuraAi - AI Wellness Companion",
+    shortDesc: "A conversational mental-health chat app that pairs a streaming LLM (Google Gemini) with a tuned wellness system prompt and adaptive response modes — short plain-prose replies for casual check-ins, structured labeled sections for deeper or list-style asks.",
+    fullDesc: "AI Wellness Companion. A conversational mental-health chat app that pairs a streaming LLM (Google Gemini) with a tuned wellness system prompt and adaptive response modes — short plain-prose replies for casual check-ins, structured labeled sections for deeper or list-style asks. Built on Next.js 16 / React 19 with server-sent streaming over the AG-UI protocol, account auth, persistent chat history, and subscription billing. Key features include adaptive response modes (concise prose vs. structured labeled sections) driven by a tuned wellness system prompt, real-time token streaming over the AG-UI protocol via Server-Sent Events, Google Gemini API integration with streaming response sanitization, account authentication with NextAuth v5, persistent chat history backed by Supabase (Postgres + Auth), Stripe-powered subscription billing, and a calm, accessible UI built with Tailwind v4.",
+    tech: ["Next.js 16 (App Router)", "React 19", "TypeScript", "Tailwind v4", "Google Gemini API", "AG-UI streaming protocol", "Server-Sent Events", "NextAuth v5", "Supabase (Postgres + Auth)", "Stripe subscriptions", "Prompt engineering", "Streaming response sanitization"],
+    category: "AI/Healthcare",
+    year: "2026",
+    status: "live",
+    image: "/images/projects/AI-Mental-Health.png",
+    liveDemo: "https://ai-mental-health-chat-app.vercel.app/",
+  },
 ];
 
 export default function Projects() {
