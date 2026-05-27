@@ -65,6 +65,16 @@ const certifications = [
     credentialId: "CERT-006",
     category: "Professional",
   },
+  {
+    id: 7,
+    title: "Certification Six",
+    issuer: "Issuing Organization",
+    date: "2024",
+    description: "Professional certification in relevant field.",
+    image: "/certifications/Six.png",
+    credentialId: "CERT-007",
+    category: "Professional",
+  },
 ];
 
 export default function Certifications() {
@@ -152,11 +162,19 @@ export default function Certifications() {
                   {/* Image area */}
                   <div className="w-full h-48 bg-gray-800 border-b-2 border-red-600 flex items-center justify-center relative overflow-hidden">
                     {cert.image ? (
-                      <img 
-                        src={cert.image} 
+                      <img
+                        src={cert.image}
                         alt={cert.title}
                         className="w-full h-full object-cover"
                       />
+                    ) : cert.pdf ? (
+                      <>
+                        <div className="absolute inset-0 bg-gradient-to-br from-red-900 opacity-20"></div>
+                        <div className="relative z-10 flex flex-col items-center gap-2">
+                          <span className="text-red-500 font-mono text-4xl">PDF</span>
+                          <span className="text-gray-400 text-xs font-mono">[CERTIFICATE DOCUMENT]</span>
+                        </div>
+                      </>
                     ) : (
                       <>
                         <div className="absolute inset-0 bg-gradient-to-br from-red-900 opacity-20"></div>
@@ -246,12 +264,33 @@ export default function Certifications() {
                   {/* Certificate Image */}
                   {selectedCert.image && (
                     <div className="mb-6">
-                      <img 
-                        src={selectedCert.image} 
+                      <img
+                        src={selectedCert.image}
                         alt={selectedCert.title}
                         className="w-full h-auto border-2 border-red-600"
                         style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.3)' }}
                       />
+                    </div>
+                  )}
+
+                  {/* Certificate PDF */}
+                  {selectedCert.pdf && (
+                    <div className="mb-6">
+                      <iframe
+                        src={selectedCert.pdf}
+                        title={selectedCert.title}
+                        className="w-full h-[70vh] border-2 border-red-600 bg-white"
+                        style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.3)' }}
+                      />
+                      <a
+                        href={selectedCert.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-block bg-red-600 hover:bg-red-700 border border-red-500 text-white px-4 py-2 transition-all text-xs font-mono font-semibold tracking-wider uppercase"
+                        style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.5)' }}
+                      >
+                        OPEN PDF IN NEW TAB &gt;
+                      </a>
                     </div>
                   )}
 

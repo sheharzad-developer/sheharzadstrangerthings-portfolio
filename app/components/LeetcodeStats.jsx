@@ -7,12 +7,12 @@ import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { name: "Easy", solved: 74, total: 944, color: "text-green-500", border: "border-green-500", bar: "bg-green-500" },
-  { name: "Medium", solved: 44, total: 2057, color: "text-yellow-400", border: "border-yellow-400", bar: "bg-yellow-400" },
-  { name: "Hard", solved: 3, total: 934, color: "text-red-500", border: "border-red-500", bar: "bg-red-500" },
+  { name: "Easy", solved: 76, total: 944, color: "text-green-500", border: "border-green-500", bar: "bg-green-500" },
+  { name: "Medium", solved: 50, total: 2057, color: "text-yellow-400", border: "border-yellow-400", bar: "bg-yellow-400" },
+  { name: "Hard", solved: 4, total: 934, color: "text-red-500", border: "border-red-500", bar: "bg-red-500" },
 ];
 
-const TOTAL_SOLVED = 121;
+const TOTAL_SOLVED = 130;
 const TOTAL_PROBLEMS = 3935;
 const PROFILE_URL = "https://leetcode.com/u/sheharzad-developer/";
 
