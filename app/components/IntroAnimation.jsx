@@ -51,47 +51,7 @@ export default function IntroAnimation({ onComplete }) {
     return () => clearInterval(flickerInterval);
   }, [showIntro]);
 
-  // Low rumbling sound
-  useEffect(() => {
-    if (typeof window === 'undefined' || typeof Audio === 'undefined') return;
-
-    try {
-      // Try to load rumbling sound
-      const audioPath = '/songs/rumble-sound.mp3';
-      const audio = new Audio(audioPath);
-      audio.volume = 0.4; // Low volume for rumbling
-      audio.loop = false;
-      audio.preload = 'auto';
-
-      audio.addEventListener('error', () => {
-        // If audio file doesn't exist, continue without sound
-        console.log('Rumble sound not found, continuing without audio');
-      });
-
-      audioRef.current = audio;
-
-      // Try to play on mount
-      // Removed immediate play attempt to prevent NotAllowedError
-      // User interaction is required for audio
-      /* 
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Autoplay blocked, that's okay
-        });
-      }
-      */
-    } catch (error) {
-      console.log('Audio initialization failed, continuing without sound');
-    }
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current = null;
-      }
-    };
-  }, []);
+  // Rumble sound disabled (site is silent)
 
   // Show skip button after 1 second and auto-complete after 3 seconds
   useEffect(() => {

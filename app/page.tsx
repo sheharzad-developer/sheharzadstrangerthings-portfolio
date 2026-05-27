@@ -8,11 +8,9 @@ import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import StrangerThingsBackground from './components/StrangerThingsBackground';
-import BackgroundAudio from './components/BackgroundAudio';
 import IntroAnimation from './components/IntroAnimation';
 import CustomCursor from './components/CustomCursor';
 import LightningFlash from './components/LightningFlash';
-import AudioReverb from './components/AudioReverb';
 import SectionWrapper from './components/SectionWrapper';
 import Footer from "./components/Footer";
 import GitHubActivity from "./components/GitHubActivity";
@@ -27,9 +25,7 @@ export default function Home() {
       <IntroAnimation onComplete={() => setIntroComplete(true)} />
       {introComplete && (
         <>
-          <AudioReverb />
           <LightningFlash />
-          <BackgroundAudio />
           <StrangerThingsBackground portalActive={portalActive} />
           <FallingAshes />
           <Hero onActivate={setPortalActive} />
