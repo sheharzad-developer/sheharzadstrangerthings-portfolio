@@ -142,7 +142,7 @@ const SkillsGrid = () => {
                 <h4 className="font-mono text-red-500 text-sm tracking-widest mb-6 border-l-4 border-red-600 pl-3 min-h-[2.5rem] leading-tight flex items-start">
                   {section.title}
                 </h4>
-                <div className="flex flex-col gap-6 items-center lg:items-start">
+                <div className="flex flex-wrap justify-center gap-6 lg:flex-col lg:items-start lg:justify-start">
                   {section.items.map((tech) => (
                     <SkillCard key={tech.name} tech={tech} />
                   ))}
