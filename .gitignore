@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local agent/skill configs and internal docs (not for GitHub)
+.agents/
+.claude/
+skills/
+DEPLOYMENT.md
