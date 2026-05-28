@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import Tilt from 'react-parallax-tilt';
 
 const certifications = [
@@ -90,7 +91,7 @@ export default function Certifications() {
 
   return (
     <section id="certifications" className="min-h-screen px-6 py-20 flex flex-col items-center relative z-10">
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -99,10 +100,10 @@ export default function Certifications() {
         data-text="CERTIFICATIONS"
       >
         CERTIFICATIONS
-      </motion.h2>
+      </m.h2>
 
       {certifications.length === 0 ? (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -121,11 +122,11 @@ export default function Certifications() {
           <p className="text-gray-400 font-mono text-center">
             [NO CERTIFICATIONS FOUND] Add your certifications to display them here.
           </p>
-        </motion.div>
+        </m.div>
       ) : (
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl w-full">
           {certifications.map((cert, index) => (
-            <motion.div
+            <m.div
               key={cert.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +142,7 @@ export default function Certifications() {
                 glareMaxOpacity={0.1}
                 glareColor="#b01121"
               >
-                <motion.div
+                <m.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => openModal(cert)}
@@ -149,7 +150,7 @@ export default function Certifications() {
                   style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.2)' }}
                 >
                   {/* Classified Header */}
-                  <div className="border-b-2 border-red-600 bg-black bg-opacity-50 p-3">
+                  <div className="border-b-2 border-red-600 bg-zinc-950 bg-opacity-50 p-3">
                     <div className="flex justify-between items-center mb-1">
                       <span className="text-red-500 font-mono text-xs tracking-wider">CERTIFICATE</span>
                       <span className="text-red-500 font-mono text-xs">#{String(cert.id).padStart(3, '0')}</span>
@@ -162,10 +163,12 @@ export default function Certifications() {
                   {/* Image area */}
                   <div className="w-full h-48 bg-gray-800 border-b-2 border-red-600 flex items-center justify-center relative overflow-hidden">
                     {cert.image ? (
-                      <img
+                      <Image
                         src={cert.image}
                         alt={cert.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover"
                       />
                     ) : cert.pdf ? (
                       <>
@@ -183,7 +186,7 @@ export default function Certifications() {
                     )}
                   </div>
                   
-                  <div className="p-4 bg-black bg-opacity-30">
+                  <div className="p-4 bg-zinc-950 bg-opacity-30">
                     <h3 className="text-red-500 font-bold text-lg mb-2 glitch font-mono" data-text={cert.title}>
                       {cert.title.toUpperCase()}
                     </h3>
@@ -200,9 +203,9 @@ export default function Certifications() {
                       VIEW CERTIFICATE &gt;
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               </Tilt>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       )}
@@ -212,15 +215,15 @@ export default function Certifications() {
         {selectedCert && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
-              className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-zinc-950 bg-opacity-80 z-50 flex items-center justify-center p-4"
             >
               {/* Modal Content */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: 50 }}
@@ -230,7 +233,7 @@ export default function Certifications() {
                 style={{ boxShadow: '0 0 30px rgba(176, 17, 33, 0.5)' }}
               >
                 {/* Modal Header */}
-                <div className="border-b-2 border-red-600 bg-black bg-opacity-50 p-4 sticky top-0 z-10">
+                <div className="border-b-2 border-red-600 bg-zinc-950 bg-opacity-50 p-4 sticky top-0 z-10">
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
@@ -247,15 +250,15 @@ export default function Certifications() {
                         {selectedCert.title.toUpperCase()}
                       </h3>
                     </div>
-                    <motion.button
+                    <m.button
                       whileHover={{ scale: 1.1, rotate: 90 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={closeModal}
-                      className="text-red-500 hover:text-red-400 font-mono text-2xl w-8 h-8 flex items-center justify-center border border-red-600 hover:border-red-400 transition-colors flex-shrink-0"
+                      className="text-red-500 hover:text-red-400 font-mono text-2xl size-8 flex items-center justify-center border border-red-600 hover:border-red-400 transition-colors flex-shrink-0"
                       style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.3)' }}
                     >
                       ×
-                    </motion.button>
+                    </m.button>
                   </div>
                 </div>
 
@@ -264,9 +267,11 @@ export default function Certifications() {
                   {/* Certificate Image */}
                   {selectedCert.image && (
                     <div className="mb-6">
-                      <img
+                      <Image
                         src={selectedCert.image}
                         alt={selectedCert.title}
+                        width={1200}
+                        height={900}
                         className="w-full h-auto border-2 border-red-600"
                         style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.3)' }}
                       />
@@ -279,6 +284,7 @@ export default function Certifications() {
                       <iframe
                         src={selectedCert.pdf}
                         title={selectedCert.title}
+                        sandbox="allow-scripts"
                         className="w-full h-[70vh] border-2 border-red-600 bg-white"
                         style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.3)' }}
                       />
@@ -325,8 +331,8 @@ export default function Certifications() {
                     </div>
                   )}
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

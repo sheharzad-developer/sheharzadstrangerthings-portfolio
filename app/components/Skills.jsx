@@ -1,13 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
+import Image from 'next/image';
 import SkillsGrid from './SkillsGrid';
 import LeetcodeStats from './LeetcodeStats';
 
 export default function Skills() {
   return (
     <section id="skills" className="min-h-screen px-6 py-20 flex flex-col items-center relative z-10">
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -15,27 +16,27 @@ export default function Skills() {
         data-text="SOME OF THE COMPANIES I WORKED WITH"
       >
         SOME OF THE COMPANIES I WORKED WITH
-      </motion.h2>
+      </m.h2>
 
       {/* Company Logos */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
         className="flex justify-center gap-12 mb-16"
       >
-        <div className="w-24 h-24 bg-blue-600 flex items-center justify-center border-2 border-blue-400 overflow-hidden" style={{ boxShadow: '0 0 20px rgba(37, 99, 235, 0.5)' }}>
-          <img src="/images/company/codeninjainc.jpeg" alt="Code Ninja Inc" className="w-full h-full object-contain p-2" />
+        <div className="size-24 bg-blue-600 flex items-center justify-center border-2 border-blue-400 overflow-hidden" style={{ boxShadow: '0 0 20px rgba(37, 99, 235, 0.5)' }}>
+          <Image src="/images/company/codeninjainc.jpeg" alt="Code Ninja Inc" width={96} height={96} className="w-full h-full object-contain p-2" />
         </div>
-        <div className="w-24 h-24 bg-red-600 flex items-center justify-center border-2 border-red-400 overflow-hidden" style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.5)' }}>
-          <img src="/images/company/Netsol.png" alt="Netsol" className="w-full h-full object-contain p-2" />
+        <div className="size-24 bg-red-600 flex items-center justify-center border-2 border-red-400 overflow-hidden" style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.5)' }}>
+          <Image src="/images/company/Netsol.png" alt="Netsol" width={96} height={96} className="w-full h-full object-contain p-2" />
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Skill Cards */}
       <div className="grid md:grid-cols-2 gap-8 max-w-5xl w-full">
         {/* Chatbot Development Card */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
@@ -62,10 +63,10 @@ export default function Skills() {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Full Stack Development Card */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.7, duration: 0.8 }}
@@ -92,17 +93,17 @@ export default function Skills() {
               ))}
             </ul>
           </div>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Skills Progress Section */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 0.8 }}
         className="mt-20 w-full max-w-4xl"
       >
-        <motion.h3
+        <m.h3
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}
@@ -110,7 +111,7 @@ export default function Skills() {
           data-text="SKILL PROFICIENCY"
         >
           SKILL PROFICIENCY
-        </motion.h3>
+        </m.h3>
 
         <div className="bg-gray-900 bg-opacity-50 border-2 border-red-600 p-8 relative" style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.3)' }}>
           {/* Classified Header */}
@@ -132,7 +133,7 @@ export default function Skills() {
                 <span className="text-blue-400 font-mono text-lg">95%</span>
               </div>
               <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <motion.div
+                <m.div
                   initial={{ width: 0 }}
                   whileInView={{ width: '95%' }}
                   transition={{ duration: 1.5, delay: 1.2, ease: "easeOut" }}
@@ -140,7 +141,7 @@ export default function Skills() {
                   style={{ boxShadow: '0 0 10px rgba(37, 99, 235, 0.8)' }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 animate-pulse"></div>
-                </motion.div>
+                </m.div>
               </div>
             </div>
 
@@ -151,7 +152,7 @@ export default function Skills() {
                 <span className="text-purple-400 font-mono text-lg">92%</span>
               </div>
               <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <motion.div
+                <m.div
                   initial={{ width: 0 }}
                   whileInView={{ width: '92%' }}
                   transition={{ duration: 1.5, delay: 1.4, ease: "easeOut" }}
@@ -159,7 +160,7 @@ export default function Skills() {
                   style={{ boxShadow: '0 0 10px rgba(168, 85, 247, 0.8)' }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-50 animate-pulse"></div>
-                </motion.div>
+                </m.div>
               </div>
             </div>
 
@@ -170,7 +171,7 @@ export default function Skills() {
                 <span className="text-green-400 font-mono text-lg">90%</span>
               </div>
               <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <motion.div
+                <m.div
                   initial={{ width: 0 }}
                   whileInView={{ width: '90%' }}
                   transition={{ duration: 1.5, delay: 1.6, ease: "easeOut" }}
@@ -178,7 +179,7 @@ export default function Skills() {
                   style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)' }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-50 animate-pulse"></div>
-                </motion.div>
+                </m.div>
               </div>
             </div>
 
@@ -189,7 +190,7 @@ export default function Skills() {
                 <span className="text-purple-400 font-mono text-lg">80%</span>
               </div>
               <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <motion.div
+                <m.div
                   initial={{ width: 0 }}
                   whileInView={{ width: '80%' }}
                   transition={{ duration: 1.5, delay: 1.8, ease: "easeOut" }}
@@ -197,7 +198,7 @@ export default function Skills() {
                   style={{ boxShadow: '0 0 10px rgba(168, 85, 247, 0.8)' }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-50 animate-pulse"></div>
-                </motion.div>
+                </m.div>
               </div>
             </div>
           </div>
@@ -208,7 +209,7 @@ export default function Skills() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </m.div>
 
       {/* Tech Stack Grid */}
       <SkillsGrid />

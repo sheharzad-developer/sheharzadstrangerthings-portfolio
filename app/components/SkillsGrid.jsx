@@ -23,7 +23,7 @@ import {
 import { TbBrain, TbMessageChatbot, TbUsersGroup } from "react-icons/tb";
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const sections = [
   {
@@ -80,7 +80,7 @@ const sections = [
 const SkillCard = ({ tech }) => (
   <div className="skill-item w-32 text-center">
     <div
-      className="bg-gray-800 border-2 border-red-600 w-20 h-20 flex items-center justify-center rounded-lg text-4xl mb-2 mx-auto transition-all duration-400 hover:border-red-400 hover:shadow-lg hover:shadow-red-600"
+      className="bg-gray-800 border-2 border-red-600 size-20 flex items-center justify-center rounded-lg text-4xl mb-2 mx-auto transition-all duration-400 hover:border-red-400 hover:shadow-lg hover:shadow-red-600"
       style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.2)' }}
     >
       {tech.icon}
@@ -100,13 +100,13 @@ const SkillsGrid = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (inView) {
-      setTimeout(() => setIsVisible(true), 200);
-    }
+    if (!inView) return;
+    const id = setTimeout(() => setIsVisible(true), 200);
+    return () => clearTimeout(id);
   }, [inView]);
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ const SkillsGrid = () => {
           </div>
         </div>
 
-        <motion.h3
+        <m.h3
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -133,7 +133,7 @@ const SkillsGrid = () => {
           data-text="I WORK WITH"
         >
           I WORK WITH
-        </motion.h3>
+        </m.h3>
         
         <div className={`transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
@@ -152,7 +152,7 @@ const SkillsGrid = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

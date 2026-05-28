@@ -4,7 +4,7 @@ import Projects from '../components/Projects';
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
+    <main className="bg-zinc-950 text-white">
       <Hero />
       <About />
       <Projects />

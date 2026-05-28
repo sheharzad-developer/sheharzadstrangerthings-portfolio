@@ -1,19 +1,19 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import Portal from './Portal';
 
 export default function Hero({ onActivate }) {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16 relative z-10 py-8 md:py-12">
       {/* S-Logo at the top */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
         className="absolute top-8 md:top-12"
       >
-        <motion.img
+        <m.img
           src="/S-Logo/S-Logo.jpg"
           alt="Stranger Things Logo"
           className="w-16 h-16 md:w-20 md:h-20 object-contain"
@@ -33,10 +33,10 @@ export default function Hero({ onActivate }) {
             filter: 'drop-shadow(0 0 15px rgba(0, 243, 255, 0.6))',
           }}
         />
-      </motion.div>
+      </m.div>
 
       {/* Title */}
-      <motion.h1
+      <m.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -44,48 +44,48 @@ export default function Hero({ onActivate }) {
         data-text="SHEHARZAD SALAHUDDIN"
       >
         SHEHARZAD SALAHUDDIN
-      </motion.h1>
+      </m.h1>
 
       {/* Typewriter subtitle */}
       <div className="w-full flex justify-center px-4">
-        <motion.p
+        <m.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
           className="typewriter text-sm sm:text-base md:text-lg lg:text-xl text-center w-full max-w-3xl leading-relaxed"
         >
           SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS...
-          <motion.span
+          <m.span
             className="block mt-1"
             initial={{ opacity: 0, y: 6 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.1, duration: 0.6 }}
           >
             ID: FULL STACK DEVELOPER
-          </motion.span>
-        </motion.p>
+          </m.span>
+        </m.p>
       </div>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 0.6 }}
         className="mt-4 flex flex-col items-center gap-2 text-center"
       >
-      </motion.div>
+      </m.div>
 
       {/* CTA Buttons */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6 }}
         className="mt-6 md:mt-8 lg:mt-10 flex justify-center gap-4"
       >
         <Portal onActivate={onActivate} />
-      </motion.div>
+      </m.div>
 
       {/* Scroll Down Indicator */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.6 }}
@@ -103,24 +103,24 @@ export default function Hero({ onActivate }) {
         whileHover={{ scale: 1.1 }}
         style={{ cursor: 'pointer' }}
       >
-        <motion.span
+        <m.span
           className="text-red-500 font-mono text-sm tracking-wider"
           whileHover={{ color: '#ff0000' }}
         >
           SCROLL DOWN
-        </motion.span>
-        <motion.div
+        </m.span>
+        <m.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
           className="w-6 h-10 border-2 border-red-600 rounded-full flex items-start justify-center p-2"
         >
-          <motion.div
+          <m.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 bg-red-500 rounded-full"
+            className="size-1.5 bg-red-500 rounded-full"
           />
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

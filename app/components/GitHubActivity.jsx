@@ -1,11 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
+import Image from 'next/image';
 
 export default function GitHubActivity() {
   return (
     <section id="github" className="px-6 py-20 flex flex-col items-center relative z-10">
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -13,9 +14,9 @@ export default function GitHubActivity() {
         data-text="GITHUB ACTIVITY"
       >
         GITHUB ACTIVITY
-      </motion.h2>
+      </m.h2>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.8 }}
@@ -39,18 +40,19 @@ export default function GitHubActivity() {
         </div>
 
         <div className="w-full overflow-x-auto">
-          <img
+          <Image
             src="https://ghchart.rshah.org/sheharzad-developer"
             alt="GitHub contribution graph"
-            className="w-full min-w-[720px] rounded border border-red-600/40 bg-black/40 p-3"
-            loading="lazy"
-            decoding="async"
+            width={720}
+            height={112}
+            unoptimized
+            className="w-full min-w-[720px] rounded border border-red-600/40 bg-zinc-950/40 p-3"
           />
         </div>
         <div className="mt-4 text-center text-gray-400 font-mono text-xs tracking-wider">
           ACTIVITY OVERVIEW
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

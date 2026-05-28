@@ -1,11 +1,11 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 export default function About() {
   return (
     <section id="about" className="min-h-screen text-gray-300 px-6 py-20 flex flex-col items-center relative z-10">
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -13,9 +13,9 @@ export default function About() {
         data-text="ABOUT ME"
       >
         ABOUT ME
-      </motion.h2>
+      </m.h2>
 
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.8 }}
@@ -70,7 +70,7 @@ export default function About() {
             </div>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

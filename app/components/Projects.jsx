@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import Tilt from 'react-parallax-tilt';
 
 const projects = [
@@ -208,7 +209,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="min-h-screen px-6 py-20 flex flex-col items-center relative z-10">
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -217,11 +218,11 @@ export default function Projects() {
         data-text="PROJECTS"
       >
         PROJECTS
-      </motion.h2>
+      </m.h2>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl w-full">
         {projects.map((project, index) => (
-          <motion.div
+          <m.div
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -237,7 +238,7 @@ export default function Projects() {
               glareMaxOpacity={0.1}
               glareColor={index % 3 === 0 ? "#00f3ff" : index % 3 === 1 ? "#bc13fe" : "#ff00ff"}
             >
-              <motion.div
+              <m.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => openModal(project)}
@@ -251,7 +252,7 @@ export default function Projects() {
                 }}
               >
                 {/* Classified Header */}
-                <div className="border-b-2 border-red-600 bg-black bg-opacity-50 p-3">
+                <div className="border-b-2 border-red-600 bg-zinc-950 bg-opacity-50 p-3">
                   <div className="flex justify-between items-center mb-1">
                     <span className="text-red-500 font-mono text-xs tracking-wider">CASE FILE</span>
                     <span className="text-red-500 font-mono text-xs">#{String(project.id).padStart(3, '0')}</span>
@@ -264,10 +265,12 @@ export default function Projects() {
                 {/* Image area */}
                 <div className="w-full h-40 bg-gray-800 border-b-2 border-red-600 flex items-center justify-center relative overflow-hidden">
                   {project.image ? (
-                    <img
+                    <Image
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
                     />
                   ) : (
                     <>
@@ -277,7 +280,7 @@ export default function Projects() {
                   )}
                 </div>
 
-                <div className="p-4 bg-black bg-opacity-30">
+                <div className="p-4 bg-zinc-950 bg-opacity-30">
                   <h3 className="text-red-500 font-bold text-lg mb-2 glitch font-mono" data-text={project.title}>
                     {project.title.toUpperCase()}
                   </h3>
@@ -313,9 +316,9 @@ export default function Projects() {
                     ACCESS FILE &gt;
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </Tilt>
-          </motion.div>
+          </m.div>
         ))}
       </div>
 
@@ -324,15 +327,15 @@ export default function Projects() {
         {selectedProject && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closeModal}
-              className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+              className="fixed inset-0 bg-zinc-950 bg-opacity-80 z-50 flex items-center justify-center p-4"
             >
               {/* Modal Content */}
-              <motion.div
+              <m.div
                 initial={{ opacity: 0, scale: 0.8, y: 50 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.8, y: 50 }}
@@ -342,7 +345,7 @@ export default function Projects() {
                 style={{ boxShadow: '0 0 30px rgba(176, 17, 33, 0.5)' }}
               >
                 {/* Modal Header */}
-                <div className={`border-b-2 bg-black bg-opacity-50 p-4 sticky top-0 z-10 ${selectedProject.id % 3 === 0 ? 'border-neonBlue' : selectedProject.id % 3 === 1 ? 'border-neonPurple' : 'border-neonPink'
+                <div className={`border-b-2 bg-zinc-950 bg-opacity-50 p-4 sticky top-0 z-10 ${selectedProject.id % 3 === 0 ? 'border-neonBlue' : selectedProject.id % 3 === 1 ? 'border-neonPurple' : 'border-neonPink'
                   }`}>
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex-1">
@@ -367,7 +370,7 @@ export default function Projects() {
                         {selectedProject.title.toUpperCase()}
                       </h3>
                     </div>
-                    <motion.button
+                    <m.button
                       whileHover={{ scale: 1.1, rotate: 90 }}
                       whileTap={{ scale: 0.9 }}
                       onClick={closeModal}
@@ -378,7 +381,7 @@ export default function Projects() {
                       style={{ boxShadow: '0 0 10px rgba(255, 255, 255, 0.1)' }}
                     >
                       ×
-                    </motion.button>
+                    </m.button>
                   </div>
                 </div>
 
@@ -409,7 +412,7 @@ export default function Projects() {
                   {/* Action Buttons */}
                   <div className={`flex gap-4 ${selectedProject.github ? '' : 'justify-center'}`}>
                     {selectedProject.github && (
-                      <motion.a
+                      <m.a
                         href={selectedProject.github}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -422,9 +425,9 @@ export default function Projects() {
                         style={{ boxShadow: '0 0 15px rgba(0, 0, 0, 0.5)' }}
                       >
                         GITHUB
-                      </motion.a>
+                      </m.a>
                     )}
-                    <motion.a
+                    <m.a
                       href={selectedProject.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -437,11 +440,11 @@ export default function Projects() {
                       style={{ boxShadow: '0 0 15px rgba(0, 0, 0, 0.3)' }}
                     >
                       LIVE DEMO
-                    </motion.a>
+                    </m.a>
                   </div>
                 </div>
-              </motion.div>
-            </motion.div>
+              </m.div>
+            </m.div>
           </>
         )}
       </AnimatePresence>

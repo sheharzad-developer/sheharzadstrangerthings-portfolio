@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { 
   FaGithub, 
   FaLinkedin, 
@@ -62,7 +62,7 @@ export default function Footer() {
             <h4 className="text-red-500 font-mono text-sm mb-4 tracking-wider">[CONNECT WITH ME]</h4>
             <div className="flex gap-4">
               {socialLinks.map((social, index) => (
-                <motion.a
+                <m.a
                   key={social.name}
                   href={social.url}
                   target="_blank"
@@ -72,12 +72,12 @@ export default function Footer() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                   whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(176, 17, 33, 0.5)' }}
-                  className={`w-12 h-12 bg-gray-800 border-2 ${social.borderColor} rounded-lg flex items-center justify-center ${social.color} transition-all`}
+                  className={`size-12 bg-gray-800 border-2 ${social.borderColor} rounded-lg flex items-center justify-center ${social.color} transition-all`}
                   style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.2)' }}
                   aria-label={social.name}
                 >
                   {social.icon}
-                </motion.a>
+                </m.a>
               ))}
             </div>
           </div>

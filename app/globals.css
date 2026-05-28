@@ -763,7 +763,18 @@ a, button, [role="button"], input[type="submit"], input[type="button"] {
       drop-shadow(0 0 5px #f59e0b) 
       drop-shadow(0 0 5px #3b82f6) 
       drop-shadow(0 0 5px #a855f7)
-      saturate(1.5) 
+      saturate(1.5)
       brightness(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

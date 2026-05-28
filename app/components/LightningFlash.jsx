@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 export default function LightningFlash() {
   const [flash, setFlash] = useState(false);
@@ -61,7 +61,7 @@ export default function LightningFlash() {
       {flash && (
         <>
           {/* Bright white/red flash overlay - very visible */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.8, 0.5, 0.7, 0] }}
             exit={{ opacity: 0 }}
@@ -72,7 +72,7 @@ export default function LightningFlash() {
             }}
           />
           {/* Red tint flash */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 0.6, 0.3, 0.5, 0] }}
             exit={{ opacity: 0 }}

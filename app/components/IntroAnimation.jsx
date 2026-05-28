@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef, useCallback } from 'react';
+import { m, AnimatePresence } from 'framer-motion';
 
 export default function IntroAnimation({ onComplete }) {
   const [showIntro, setShowIntro] = useState(true);
@@ -20,16 +20,13 @@ export default function IntroAnimation({ onComplete }) {
     const glitchInterval = setInterval(() => {
       // Randomly select 2-4 letters to glitch
       const count = Math.floor(Math.random() * 3) + 2;
-      const indices = [];
+      const indices = new Set();
 
-      while (indices.length < count) {
-        const index = Math.floor(Math.random() * letters.length);
-        if (!indices.includes(index)) {
-          indices.push(index);
-        }
+      while (indices.size < count) {
+        indices.add(Math.floor(Math.random() * letters.length));
       }
 
-      setGlitchLetters(indices);
+      setGlitchLetters([...indices]);
 
       // Clear glitch after short duration
       setTimeout(() => {
@@ -53,24 +50,7 @@ export default function IntroAnimation({ onComplete }) {
 
   // Rumble sound disabled (site is silent)
 
-  // Show skip button after 1 second and auto-complete after 3 seconds
-  useEffect(() => {
-    const skipTimer = setTimeout(() => {
-      setShowSkip(true);
-    }, 1000);
-
-    // Auto-complete after 3 seconds
-    const autoCompleteTimer = setTimeout(() => {
-      handleComplete();
-    }, 3000);
-
-    return () => {
-      clearTimeout(skipTimer);
-      clearTimeout(autoCompleteTimer);
-    };
-  }, []);
-
-  const handleComplete = () => {
+  const handleComplete = useCallback(() => {
     // Fade out audio
     if (audioRef.current) {
       const fadeOut = setInterval(() => {
@@ -89,11 +69,28 @@ export default function IntroAnimation({ onComplete }) {
     setTimeout(() => {
       onComplete();
     }, 500);
-  };
+  }, [onComplete]);
 
   const handleSkip = () => {
     handleComplete();
   };
+
+  // Show skip button after 1 second and auto-complete after 3 seconds
+  useEffect(() => {
+    const skipTimer = setTimeout(() => {
+      setShowSkip(true);
+    }, 1000);
+
+    // Auto-complete after 3 seconds
+    const autoCompleteTimer = setTimeout(() => {
+      handleComplete();
+    }, 3000);
+
+    return () => {
+      clearTimeout(skipTimer);
+      clearTimeout(autoCompleteTimer);
+    };
+  }, [handleComplete]);
 
   // Generate random character for glitch effect
   const getGlitchChar = () => {
@@ -104,14 +101,14 @@ export default function IntroAnimation({ onComplete }) {
   return (
     <AnimatePresence>
       {showIntro && (
-        <motion.div
+        <m.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 z-[9999] bg-zinc-950 flex items-center justify-center overflow-hidden"
         >
           {/* Main text with flickering and glitch effects */}
-          <motion.div
+          <m.div
             animate={{
               opacity: flicker ? [0.7, 1, 0.9, 1, 0.8, 1] : [1, 0.9, 1, 0.8, 1, 0.9],
             }}
@@ -128,7 +125,7 @@ export default function IntroAnimation({ onComplete }) {
                 const displayChar = isGlitching ? getGlitchChar() : letter;
 
                 return (
-                  <motion.span
+                  <m.span
                     key={index}
                     className="text-7xl md:text-9xl font-stranger text-red-600 relative inline-block"
                     style={{
@@ -182,20 +179,20 @@ export default function IntroAnimation({ onComplete }) {
                         </span>
                       </>
                     )}
-                  </motion.span>
+                  </m.span>
                 );
               })}
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Skip Intro Button */}
           {showSkip && (
-            <motion.button
+            <m.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
               onClick={handleSkip}
-              className="absolute bottom-8 right-8 px-6 py-3 bg-black bg-opacity-70 border-2 border-red-600 text-red-500 font-mono text-sm tracking-wider uppercase hover:bg-red-600 hover:text-white transition-all cursor-pointer"
+              className="absolute bottom-8 right-8 px-6 py-3 bg-zinc-950 bg-opacity-70 border-2 border-red-600 text-red-500 font-mono text-sm tracking-wider uppercase hover:bg-red-600 hover:text-white transition-all cursor-pointer"
               style={{
                 boxShadow: '0 0 15px rgba(176, 17, 33, 0.6)',
               }}
@@ -206,9 +203,9 @@ export default function IntroAnimation({ onComplete }) {
               whileTap={{ scale: 0.95 }}
             >
               SKIP INTRO
-            </motion.button>
+            </m.button>
           )}
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

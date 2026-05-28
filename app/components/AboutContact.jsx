@@ -1,13 +1,13 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FaCalendar, FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiFiverr, SiUpwork, SiLeetcode } from 'react-icons/si';
 
 export default function AboutContact() {
   return (
     <section id="about" className="min-h-screen text-gray-300 px-6 py-20 flex flex-col items-center relative z-10">
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -15,11 +15,11 @@ export default function AboutContact() {
         data-text="ABOUT ME"
       >
         ABOUT ME
-      </motion.h2>
+      </m.h2>
 
       <div className="grid gap-8 md:grid-cols-2 max-w-6xl w-full">
         {/* About Card */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -73,10 +73,10 @@ export default function AboutContact() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Contact Card */}
-        <motion.div
+        <m.div
           id="contact"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -166,7 +166,7 @@ export default function AboutContact() {
                 href="https://www.upwork.com/freelancers/~01264a0282005eca30"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                className="size-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
                 style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
                 aria-label="Upwork"
               >
@@ -176,7 +176,7 @@ export default function AboutContact() {
                 href="https://www.fiverr.com/sellers/sheharzad_1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                className="size-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
                 style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
                 aria-label="Fiverr"
               >
@@ -186,7 +186,7 @@ export default function AboutContact() {
                 href="https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 border-2 border-blue-500 rounded-lg flex items-center justify-center text-blue-400 hover:border-blue-400 transition"
+                className="size-12 bg-gray-800 border-2 border-blue-500 rounded-lg flex items-center justify-center text-blue-400 hover:border-blue-400 transition"
                 style={{ boxShadow: '0 0 10px rgba(37, 99, 235, 0.3)' }}
                 aria-label="LinkedIn"
               >
@@ -196,7 +196,7 @@ export default function AboutContact() {
                 href="https://github.com/sheharzad-developer"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 border-2 border-red-600 rounded-lg flex items-center justify-center text-red-400 hover:border-red-500 transition"
+                className="size-12 bg-gray-800 border-2 border-red-600 rounded-lg flex items-center justify-center text-red-400 hover:border-red-500 transition"
                 style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.3)' }}
                 aria-label="GitHub"
               >
@@ -206,7 +206,7 @@ export default function AboutContact() {
                 href="https://leetcode.com/u/sheharzad-developer/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-gray-800 border-2 border-yellow-500 rounded-lg flex items-center justify-center text-yellow-400 hover:border-yellow-400 transition"
+                className="size-12 bg-gray-800 border-2 border-yellow-500 rounded-lg flex items-center justify-center text-yellow-400 hover:border-yellow-400 transition"
                 style={{ boxShadow: '0 0 10px rgba(234, 179, 8, 0.3)' }}
                 aria-label="LeetCode"
               >
@@ -214,7 +214,7 @@ export default function AboutContact() {
               </a>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

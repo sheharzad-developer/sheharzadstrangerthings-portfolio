@@ -1,3 +1,12 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Articles | Sheharzad Salahuddin',
+  description: 'Insights on Deaf culture, education, and inclusive opportunities.',
+};
+
 const articles = [
   {
     title: 'Why Qualifications Still Matter and How We Can Better Support Deaf Job Seekers',
@@ -48,13 +57,13 @@ export default function ArticlesPage() {
               Insights on Deaf culture, education, and inclusive opportunities.
             </p>
           </div>
-          <a
+          <Link
             href="/"
             className="text-xs font-mono text-red-400 border border-red-500 px-3 py-2 hover:bg-red-600 hover:text-white transition-colors h-fit"
             style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
           >
             BACK TO HOME
-          </a>
+          </Link>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -64,18 +73,18 @@ export default function ArticlesPage() {
               className="bg-gray-900 bg-opacity-50 border-2 border-red-600 overflow-hidden"
               style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.3)' }}
             >
-              <div className="border-b-2 border-red-600 bg-black bg-opacity-50 px-4 py-3">
+              <div className="border-b-2 border-red-600 bg-zinc-950 bg-opacity-50 px-4 py-3">
                 <div className="text-red-500 font-mono text-xs tracking-wider">CASE FILE</div>
                 <div className="text-gray-400 font-mono text-xs mt-1">MEDIUM ARTICLE</div>
               </div>
 
-              <div className="bg-black/40 border-b-2 border-red-600">
-                <img
+              <div className="bg-zinc-950/40 border-b-2 border-red-600 relative h-48">
+                <Image
                   src={article.image}
                   alt={`${article.title} preview`}
-                  className="w-full h-48 object-cover"
-                  loading="lazy"
-                  decoding="async"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
                 />
               </div>
 

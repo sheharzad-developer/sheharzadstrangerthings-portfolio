@@ -7,7 +7,10 @@ const nextConfig: NextConfig = {
   // Image optimization
   images: {
     formats: ['image/avif', 'image/webp'],
-    remotePatterns: [],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'ghchart.rshah.org' },
+      { protocol: 'https', hostname: 'image.thum.io' },
+    ],
     unoptimized: false,
   },
 

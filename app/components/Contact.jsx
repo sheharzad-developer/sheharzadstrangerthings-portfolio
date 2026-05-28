@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { 
   FaGithub, 
   FaLinkedin, 
@@ -37,7 +37,7 @@ const Contact = () => {
       className="relative w-full py-24 px-6 text-white overflow-hidden relative z-10 min-h-screen"
     >
       {/* Section Title */}
-      <motion.h2
+      <m.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -46,11 +46,11 @@ const Contact = () => {
         data-text="CONTACT"
       >
         CONTACT
-      </motion.h2>
+      </m.h2>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
         {/* Left Column - Contact Information */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -82,7 +82,7 @@ const Contact = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col gap-4 mb-8">
             {/* WhatsApp Chat Button */}
-            <motion.a
+            <m.a
               href="https://wa.me/923160144176"
               target="_blank"
               rel="noopener noreferrer"
@@ -96,10 +96,10 @@ const Contact = () => {
                 <div className="text-green-400 font-bold text-lg">WHATSAPP CHAT</div>
                 <div className="text-green-500 text-xs">Get instant responses</div>
               </div>
-            </motion.a>
+            </m.a>
 
             {/* Book a Coffee Chat Button */}
-            <motion.a
+            <m.a
               href="https://calendly.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -114,7 +114,7 @@ const Contact = () => {
                 <div className="text-purple-500 text-xs">30-minute discovery call</div>
               </div>
               <span className="text-2xl">☕</span>
-            </motion.a>
+            </m.a>
           </div>
 
           {/* Other ways to reach me */}
@@ -144,54 +144,54 @@ const Contact = () => {
           <div>
             <h4 className="text-red-500 font-mono text-sm mb-4 tracking-wider">[CONNECT WITH ME]</h4>
             <div className="flex gap-4">
-              <motion.a
+              <m.a
                 href="https://www.upwork.com/freelancers/~01264a0282005eca30"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(34, 197, 94, 0.5)' }}
-                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                className="size-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
                 style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
                 aria-label="Upwork"
               >
                 <SiUpwork className="text-xl" />
-              </motion.a>
-              <motion.a
+              </m.a>
+              <m.a
                 href="https://www.fiverr.com/sellers/sheharzad_1/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(34, 197, 94, 0.5)' }}
-                className="w-12 h-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
+                className="size-12 bg-gray-800 border-2 border-green-500 rounded-lg flex items-center justify-center text-green-400 hover:border-green-400 transition"
                 style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.3)' }}
                 aria-label="Fiverr"
               >
                 <SiFiverr className="text-xl" />
-              </motion.a>
-              <motion.a
+              </m.a>
+              <m.a
                 href="https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(37, 99, 235, 0.5)' }}
-                className="w-12 h-12 bg-gray-800 border-2 border-blue-500 rounded-lg flex items-center justify-center text-blue-400 hover:border-blue-400 transition"
+                className="size-12 bg-gray-800 border-2 border-blue-500 rounded-lg flex items-center justify-center text-blue-400 hover:border-blue-400 transition"
                 style={{ boxShadow: '0 0 10px rgba(37, 99, 235, 0.3)' }}
               >
                 <FaLinkedin className="text-xl" />
-              </motion.a>
-              <motion.a
+              </m.a>
+              <m.a
                 href="https://github.com/sheharzad-developer"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, boxShadow: '0 0 15px rgba(176, 17, 33, 0.5)' }}
-                className="w-12 h-12 bg-gray-800 border-2 border-red-600 rounded-lg flex items-center justify-center text-red-400 hover:border-red-500 transition"
+                className="size-12 bg-gray-800 border-2 border-red-600 rounded-lg flex items-center justify-center text-red-400 hover:border-red-500 transition"
                 style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.3)' }}
               >
                 <FaGithub className="text-xl" />
-              </motion.a>
+              </m.a>
             </div>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* Right Column - Contact Form */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -276,7 +276,7 @@ const Contact = () => {
             </div>
 
             {/* Send Message Button */}
-            <motion.button
+            <m.button
               type="submit"
               whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(176, 17, 33, 0.8)' }}
               whileTap={{ scale: 0.95 }}
@@ -285,9 +285,9 @@ const Contact = () => {
             >
               <FaPaperPlane className="text-white" />
               <span>SEND MESSAGE</span>
-            </motion.button>
+            </m.button>
           </form>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import { SiLeetcode } from "react-icons/si";
 import { FiExternalLink } from "react-icons/fi";
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 
 const stats = [
   { name: "Easy", solved: 76, total: 944, color: "text-green-500", border: "border-green-500", bar: "bg-green-500" },
@@ -25,13 +25,13 @@ const LeetcodeStats = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (inView) {
-      setTimeout(() => setIsVisible(true), 200);
-    }
+    if (!inView) return;
+    const id = setTimeout(() => setIsVisible(true), 200);
+    return () => clearTimeout(id);
   }, [inView]);
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ const LeetcodeStats = () => {
           </div>
         </div>
 
-        <motion.h3
+        <m.h3
           initial={{ opacity: 0 }}
           animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -57,7 +57,7 @@ const LeetcodeStats = () => {
           data-text="LEETCODE"
         >
           LEETCODE
-        </motion.h3>
+        </m.h3>
 
         <div className={`transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 items-stretch">
@@ -119,7 +119,7 @@ const LeetcodeStats = () => {
 
           <div className="mt-6 bg-gray-800 border-2 border-red-600 rounded-lg p-6 flex flex-col sm:flex-row items-center gap-6"
             style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.2)' }}>
-            <div className="relative w-24 h-24 flex-shrink-0">
+            <div className="relative size-24 flex-shrink-0">
               <div className="absolute inset-0 bg-green-500 opacity-20 blur-xl rounded-full" />
               <div className="relative w-full h-full bg-gray-900 border-2 border-green-500 rounded-2xl flex flex-col items-center justify-center"
                 style={{ clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)', boxShadow: '0 0 15px rgba(34, 197, 94, 0.5)' }}>
@@ -142,7 +142,7 @@ const LeetcodeStats = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 

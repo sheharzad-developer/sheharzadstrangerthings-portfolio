@@ -1,3 +1,11 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Resume | Sheharzad Salahuddin',
+  description: 'Profile, core skills, and selected projects for Sheharzad Salahuddin, Full-Stack Developer.',
+};
+
 const coreSkills = [
   'React / Next.js',
   'TypeScript',
@@ -61,13 +69,13 @@ export default function ResumePage() {
               Detailed profile, skills, and selected project experience.
             </p>
           </div>
-          <a
+          <Link
             href="/"
             className="text-xs font-mono text-red-400 border border-red-500 px-3 py-2 hover:bg-red-600 hover:text-white transition-colors h-fit"
             style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
           >
             BACK TO HOME
-          </a>
+          </Link>
         </div>
 
         <section className="grid gap-8 md:grid-cols-3">

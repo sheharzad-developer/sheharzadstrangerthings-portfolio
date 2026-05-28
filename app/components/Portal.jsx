@@ -1,6 +1,6 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import DemogorgonScene from './DemogorgonScene';
 
@@ -57,7 +57,7 @@ export default function Portal({ onActivate }) {
   };
 
   return (
-    <motion.div
+    <m.div
       className="relative flex flex-col items-center w-full"
       variants={containerVariants}
       initial="hidden"
@@ -72,7 +72,7 @@ export default function Portal({ onActivate }) {
           style={{ boxShadow: '0 0 60px rgba(176, 17, 33, 0.55)' }}
         />
         <div className="relative z-10 flex flex-col md:flex-row gap-4 items-center justify-center px-6 md:px-10 py-8 md:py-10">
-      <motion.a
+      <m.a
         href="#about"
         className="btn-neon-sign purple pointer-events-auto"
         onClick={(e) => {
@@ -87,9 +87,9 @@ export default function Portal({ onActivate }) {
         <span className="tube-borders"></span>
         <span className="tube-ends"></span>
         <span>VIEW PROFILE</span>
-      </motion.a>
+      </m.a>
 
-      <motion.a
+      <m.a
         href="/resume/Sheharzad-Resume.pdf"
         download
         className="btn-neon-sign blue pointer-events-auto"
@@ -100,9 +100,9 @@ export default function Portal({ onActivate }) {
         <span className="tube-borders"></span>
         <span className="tube-ends"></span>
         <span>DOWNLOAD RESUME</span>
-      </motion.a>
+      </m.a>
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Particles from 'react-tsparticles';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { m, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 export default function StrangerThingsBackground({ portalActive = false }) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -183,7 +183,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
       />
 
      
-      <motion.div
+      <m.div
         className="absolute inset-0 bg-red-900 mix-blend-overlay pointer-events-none z-10"
         animate={{
           opacity: portalActive ? [0.3, 0.5, 0.3] : 0.1,
@@ -203,7 +203,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
 
  
       {isHovering && (
-        <motion.div
+        <m.div
           className="absolute pointer-events-none z-20"
           style={{
             width: '300px',
@@ -228,7 +228,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
 
       
       {lightningFlash && (
-        <motion.div
+        <m.div
           initial={{ opacity: 0 }}
           animate={{ opacity: [0, 0.7, 0.4, 0.6, 0] }}
           exit={{ opacity: 0 }}
@@ -248,7 +248,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
 
     
       {portalActive && (
-        <motion.div
+        <m.div
           className="absolute inset-0 pointer-events-none z-50"
           initial={{ opacity: 0 }}
           animate={{
@@ -273,7 +273,7 @@ export default function StrangerThingsBackground({ portalActive = false }) {
               animation: 'glitchPortal 0.3s infinite reverse',
             }}
           />
-        </motion.div>
+        </m.div>
       )}
 
       <style jsx>{`

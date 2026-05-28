@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { LazyMotion, domAnimation } from 'framer-motion';
 import Hero from './components/Hero';
 import FallingAshes from './components/FallingAshes';
 import AboutContact from './components/AboutContact';
@@ -20,33 +21,35 @@ export default function Home() {
   const [introComplete, setIntroComplete] = useState(false);
 
   return (
-    <main className="relative overflow-hidden min-h-screen">
-      {introComplete && <CustomCursor />}
-      <IntroAnimation onComplete={() => setIntroComplete(true)} />
-      {introComplete && (
-        <>
-          <LightningFlash />
-          <StrangerThingsBackground portalActive={portalActive} />
-          <FallingAshes />
-          <Hero onActivate={setPortalActive} />
-          <SectionWrapper>
-            <AboutContact />
-          </SectionWrapper>
-          <SectionWrapper>
-            <Skills />
-          </SectionWrapper>
-          <SectionWrapper>
-            <GitHubActivity />
-          </SectionWrapper>
-          <SectionWrapper>
-            <Projects />
-          </SectionWrapper>
-          <SectionWrapper>
-            <Certifications />
-          </SectionWrapper>
-          <Footer />
-        </>
-      )}
-    </main>
+    <LazyMotion features={domAnimation}>
+      <main className="relative overflow-hidden min-h-screen">
+        {introComplete && <CustomCursor />}
+        <IntroAnimation onComplete={() => setIntroComplete(true)} />
+        {introComplete && (
+          <>
+            <LightningFlash />
+            <StrangerThingsBackground portalActive={portalActive} />
+            <FallingAshes />
+            <Hero onActivate={setPortalActive} />
+            <SectionWrapper>
+              <AboutContact />
+            </SectionWrapper>
+            <SectionWrapper>
+              <Skills />
+            </SectionWrapper>
+            <SectionWrapper>
+              <GitHubActivity />
+            </SectionWrapper>
+            <SectionWrapper>
+              <Projects />
+            </SectionWrapper>
+            <SectionWrapper>
+              <Certifications />
+            </SectionWrapper>
+            <Footer />
+          </>
+        )}
+      </main>
+    </LazyMotion>
   );
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { Suspense, useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 function LoadingFallback() {
   return null;
@@ -30,7 +30,7 @@ export default function DemogorgonScene({ isVisible, mousePosition }) {
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <m.div
           className="fixed inset-0 pointer-events-none"
           style={{ 
             zIndex: 1,
@@ -58,7 +58,7 @@ export default function DemogorgonScene({ isVisible, mousePosition }) {
               <Demogorgon isVisible={isVisible} mousePosition={mousePosition} />
             </Suspense>
           </Canvas>
-        </motion.div>
+        </m.div>
       )}
     </AnimatePresence>
   );

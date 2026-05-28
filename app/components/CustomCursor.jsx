@@ -17,6 +17,8 @@ export default function CustomCursor() {
     const cursorInner = cursorInnerRef.current;
     if (!cursor || !cursorInner) return;
 
+    const particles = particlesRef.current;
+
     // Hide default cursor
     document.body.style.cursor = 'none';
 
@@ -194,11 +196,11 @@ export default function CustomCursor() {
       document.removeEventListener('mouseleave', handleMouseLeave, true);
       
       // Clean up particles
-      particlesRef.current.forEach(particle => {
+      particles.forEach(particle => {
         gsap.killTweensOf(particle);
         particle.remove();
       });
-      particlesRef.current = [];
+      particles.length = 0;
     };
   }, []);
 
@@ -220,12 +222,11 @@ export default function CustomCursor() {
             0 0 60px rgba(176, 17, 33, 0.4),
             inset 0 0 20px rgba(176, 17, 33, 0.3)
           `,
-          willChange: 'transform',
           transform: 'translateZ(0)',
           backfaceVisibility: 'hidden',
         }}
       />
-      
+
       {/* Inner cursor dot */}
       <div
         ref={cursorInnerRef}
@@ -236,7 +237,6 @@ export default function CustomCursor() {
           borderRadius: '50%',
           background: '#b01121',
           boxShadow: '0 0 10px rgba(176, 17, 33, 0.8)',
-          willChange: 'transform',
         }}
       />
     </>
