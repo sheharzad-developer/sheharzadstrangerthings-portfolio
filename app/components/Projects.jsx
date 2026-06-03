@@ -63,7 +63,7 @@ const projects = [
     year: '2025',
     status: 'completed',
     team: 'Solo project',
-    image: '/images/projects/daggys-cafe.png',
+    image: '/images/projects/daggys-cafe.webp',
     github: 'https://github.com/sheharzad-developer/daggys-cafe',
     liveDemo: 'https://daggys-cafe.vercel.app/',
   },
