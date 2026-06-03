@@ -216,7 +216,7 @@ export default function ResumePage() {
             {coreSkills.map((skill) => (
               <span
                 key={skill}
-                className="bg-red-600 bg-opacity-30 border border-red-500 text-red-300 px-3 py-1 rounded font-mono text-xs"
+                className="bg-red-600 bg-opacity-30 border border-red-500 text-white px-3.5 py-1.5 rounded font-mono text-sm md:text-base"
                 style={{ boxShadow: '0 0 5px rgba(176, 17, 33, 0.3)' }}
               >
                 {skill}
