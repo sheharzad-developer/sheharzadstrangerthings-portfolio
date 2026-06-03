@@ -51,6 +51,9 @@ export default function IntroAnimation({ onComplete }) {
   // Rumble sound disabled (site is silent)
 
   const handleComplete = useCallback(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem('introSeen', '1');
+    }
     // Fade out audio
     if (audioRef.current) {
       const fadeOut = setInterval(() => {
@@ -74,6 +77,17 @@ export default function IntroAnimation({ onComplete }) {
   const handleSkip = () => {
     handleComplete();
   };
+
+  // Skip the intro entirely for repeat views within the same browser session
+  useEffect(() => {
+    if (typeof window !== 'undefined' && sessionStorage.getItem('introSeen') === '1') {
+      // Intentional: sync UI with a browser API (sessionStorage) on mount to skip the
+      // intro for repeat visits. A lazy initializer would cause an SSR hydration mismatch.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setShowIntro(false);
+      onComplete();
+    }
+  }, [onComplete]);
 
   // Show skip button after 1 second and auto-complete after 3 seconds
   useEffect(() => {

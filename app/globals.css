@@ -25,6 +25,7 @@ html {
 html, body, #__next {
   height: 100%;
   color: #eaeaea;
+  background-color: #0a0a0a;
   font-family: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

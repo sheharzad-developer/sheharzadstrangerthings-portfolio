@@ -24,32 +24,34 @@ export default function Home() {
     <LazyMotion features={domAnimation}>
       <MotionConfig reducedMotion="user">
       <main className="relative overflow-hidden min-h-screen">
-        {introComplete && <CustomCursor />}
         <IntroAnimation onComplete={() => setIntroComplete(true)} />
-        {introComplete && (
-          <>
-            <LightningFlash />
-            <StrangerThingsBackground portalActive={portalActive} />
-            <FallingAshes />
-            <Hero onActivate={setPortalActive} />
-            <SectionWrapper>
-              <AboutContact />
-            </SectionWrapper>
-            <SectionWrapper>
-              <Skills />
-            </SectionWrapper>
-            <SectionWrapper>
-              <GitHubActivity />
-            </SectionWrapper>
-            <SectionWrapper>
-              <Projects />
-            </SectionWrapper>
-            <SectionWrapper>
-              <Certifications />
-            </SectionWrapper>
-            <Footer />
-          </>
-        )}
+
+        {/* Heavy decorative effects mount only after the intro, so they don't
+            compete with it during load (perf) */}
+        {introComplete && <CustomCursor />}
+        {introComplete && <LightningFlash />}
+        {introComplete && <StrangerThingsBackground portalActive={portalActive} />}
+        {introComplete && <FallingAshes />}
+
+        {/* Content renders immediately → present in the initial HTML for crawlers,
+            and visible the moment the intro overlay fades */}
+        <Hero onActivate={setPortalActive} />
+        <SectionWrapper>
+          <AboutContact />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Skills />
+        </SectionWrapper>
+        <SectionWrapper>
+          <GitHubActivity />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Projects />
+        </SectionWrapper>
+        <SectionWrapper>
+          <Certifications />
+        </SectionWrapper>
+        <Footer />
       </main>
       </MotionConfig>
     </LazyMotion>
