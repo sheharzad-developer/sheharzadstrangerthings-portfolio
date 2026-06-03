@@ -37,39 +37,64 @@ export default function AboutContact() {
           </div>
 
           <div className="space-y-6 text-gray-300 font-mono text-sm md:text-base leading-relaxed">
+            {/* Lead summary — first person, plain language, real facts only */}
+            <p className="text-gray-200">
+              I&apos;m a Front-End Developer at NETSOL Technologies, where I&apos;ve worked
+              since 2015 — I joined through a disability-inclusion program as someone who is
+              hard of hearing. I started in design and marketing, taught myself to code, and
+              grew into a Software Engineer role building responsive apps with React, Vue, and
+              Nuxt. I completed my Computer Science degree in 2026 while working full-time, and
+              I&apos;ve shipped 15+ personal projects across full-stack and AI.
+            </p>
+
             <div>
-              <span className="text-red-500">[PHILOSOPHY]</span>
+              <span className="text-red-500">[EXPERIENCE]</span>
               <p className="mt-2 ml-4 text-gray-400">
-                Subject believes great software should feel invisible. Focuses on building fast, intuitive, and seamless user experiences using modern JavaScript frameworks: React, Vue, Next.js, and Node.js.
+                I&apos;ve been with NETSOL Technologies since 2015, starting in design and
+                marketing before teaching myself to code and transitioning into development —
+                a 2023 internship, then my current Software Engineer / Front-End Developer
+                role in 2024 building responsive apps in React, Vue, and Nuxt. Alongside my
+                job, I&apos;ve shipped 15+ projects of my own across AI, FinTech, and
+                healthcare — several live in production.
               </p>
             </div>
 
             <div>
-              <span className="text-red-500">[ORIGIN]</span>
+              <span className="text-red-500">[WHAT I BUILD]</span>
               <p className="mt-2 ml-4 text-gray-400">
-                Journey initiated at tech firm in Lahore. Initial exposure: Vue.js. Learned that optimal interfaces require zero cognitive load. Since activation, has contributed to applications that improved engagement metrics, increased conversion rates, and delivered clean, high-quality user experiences.
+                On the frontend I work across React, Next.js, Vue, and Nuxt with
+                TypeScript and Tailwind; on the backend I reach into Node.js and
+                Python (Flask, FastAPI) with PostgreSQL, Prisma, and Supabase. I
+                integrate LLMs — Gemini, Groq, LangChain, and RAG pipelines —
+                into real products, and I focus on performance, clean
+                architecture, and interfaces that get out of the user&apos;s way.
               </p>
             </div>
 
             <div>
-              <span className="text-red-500">[SPECIALIZATION]</span>
+              <span className="text-red-500">[SELECTED IMPACT]</span>
               <p className="mt-2 ml-4 text-gray-400">
-                Specialized in crafting pixel-perfect UIs, integrating REST APIs, optimizing performance, and building maintainable architectures. Tech stack includes: TypeScript, Tailwind CSS, ShadCN, and modern tooling. Enjoys designing components, refining user flows, and making products feel polished and responsive.
+                At NETSOL I build responsive apps in React, Vue, and Nuxt from Figma
+                handoff through deployment. My Vue.js features increased user
+                engagement ~20% and conversions ~15%, and the GitHub Actions CI/CD
+                pipeline I set up cut deployment time ~20%.
               </p>
             </div>
 
             <div>
-              <span className="text-red-500">[BEHAVIORAL ANALYSIS]</span>
+              <span className="text-red-500">[HOW I WORK]</span>
               <p className="mt-2 ml-4 text-gray-400">
-                When not in active development mode, subject experiments with new frameworks, improves past projects, or assists others in the developer community. Core values: clean code, ethical development, and continuous learning. Believes great products emerge from collaboration, curiosity, and attention to detail.
+                I believe great software should feel invisible — fast, intuitive,
+                and reliable. I value clean code, continuous learning, and
+                shipping work that actually reaches users.
               </p>
             </div>
 
             <div className="mt-8 pt-6 border-t border-red-600 border-opacity-30">
               <div className="flex flex-wrap gap-4 text-xs">
-                <span className="text-red-500">STATUS: <span className="text-green-400">ACTIVE</span></span>
-                <span className="text-red-500">CLEARANCE: <span className="text-yellow-400">LEVEL 3</span></span>
-                <span className="text-red-500">SPECIALIZATION: <span className="text-blue-400">FULLSTACK DEVELOPER</span></span>
+                <span className="text-red-500">ROLE: <span className="text-green-400">SOFTWARE ENGINEER @ NETSOL</span></span>
+                <span className="text-red-500">FOCUS: <span className="text-blue-400">FRONTEND · FULL-STACK · AI</span></span>
+                <span className="text-red-500">BASED IN: <span className="text-yellow-400">LAHORE, PK</span></span>
               </div>
             </div>
           </div>
@@ -95,15 +120,15 @@ export default function AboutContact() {
           </div>
 
           <h3 className="text-3xl md:text-4xl font-stranger text-red-500 mb-4 glitch font-mono" data-text="LET'S BUILD SOMETHING AMAZING">
-            LET'S BUILD SOMETHING AMAZING
+            LET&apos;S BUILD SOMETHING AMAZING
           </h3>
 
           <p className="text-gray-400 text-sm leading-relaxed font-mono mb-8">
-            Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences. Let's chat about your project!
+            Ready to turn your ideas into reality? I&apos;m here to help you create exceptional digital experiences. Let&apos;s chat about your project!
           </p>
 
           <div className="text-purple-300 font-mono text-xs tracking-wider mb-4">
-            LET'S HAVE A COFFEE
+            LET&apos;S HAVE A COFFEE
           </div>
 
           <div className="flex flex-col gap-4 mb-8">
@@ -122,7 +147,7 @@ export default function AboutContact() {
             </a>
 
             <a
-              href="https://calendly.com"
+              href="https://calendly.com/sheharzad-salahuddin9000/new-meeting"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-4 bg-gray-800 border-2 border-purple-500 hover:border-purple-400 transition-all font-mono"

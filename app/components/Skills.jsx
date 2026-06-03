@@ -3,7 +3,6 @@
 import { m } from 'framer-motion';
 import Image from 'next/image';
 import SkillsGrid from './SkillsGrid';
-import LeetcodeStats from './LeetcodeStats';
 
 export default function Skills() {
   return (
@@ -12,24 +11,27 @@ export default function Skills() {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-4xl font-stranger text-red-600 mb-12 glitch"
-        data-text="SOME OF THE COMPANIES I WORKED WITH"
+        className="text-4xl font-stranger text-red-600 mb-10 glitch"
+        data-text="WHERE I'VE WORKED"
       >
-        SOME OF THE COMPANIES I WORKED WITH
+        WHERE I&apos;VE WORKED
       </m.h2>
 
-      {/* Company Logos */}
+      {/* Company logos with real role + tenure context */}
       <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.8 }}
-        className="flex justify-center gap-12 mb-16"
+        className="flex flex-wrap justify-center gap-12 mb-16"
       >
-        <div className="size-24 bg-blue-600 flex items-center justify-center border-2 border-blue-400 overflow-hidden" style={{ boxShadow: '0 0 20px rgba(37, 99, 235, 0.5)' }}>
-          <Image src="/images/company/codeninjainc.jpeg" alt="Code Ninja Inc" width={96} height={96} className="w-full h-full object-contain p-2" />
-        </div>
-        <div className="size-24 bg-red-600 flex items-center justify-center border-2 border-red-400 overflow-hidden" style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.5)' }}>
-          <Image src="/images/company/Netsol.png" alt="Netsol" width={96} height={96} className="w-full h-full object-contain p-2" />
+        <div className="flex flex-col items-center gap-3">
+          <div className="size-24 bg-red-600 flex items-center justify-center border-2 border-red-400 overflow-hidden" style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.5)' }}>
+            <Image src="/images/company/Netsol.png" alt="NetSol Technologies" width={96} height={96} className="w-full h-full object-contain p-2" />
+          </div>
+          <div className="text-center font-mono">
+            <div className="text-red-400 text-sm font-bold">NETSOL Technologies</div>
+            <div className="text-gray-400 text-xs">Front-End Developer · with NETSOL since 2015 (design → dev)</div>
+          </div>
         </div>
       </m.div>
 
@@ -85,7 +87,7 @@ export default function Skills() {
           <div className="mt-6">
             <div className="text-purple-400 font-mono text-xs mb-3">[TECHNOLOGIES]</div>
             <ul className="space-y-2">
-              {['React/Next.js', 'Node.js', 'Python', 'Django', 'Typescript'].map((tech, index) => (
+              {['React/Next.js', 'Vue/Nuxt', 'Node.js', 'Python', 'TypeScript'].map((tech, index) => (
                 <li key={index} className="flex items-center gap-2 text-gray-300 font-mono text-sm">
                   <span className="text-purple-500">▸</span>
                   {tech}
@@ -96,127 +98,8 @@ export default function Skills() {
         </m.div>
       </div>
 
-      {/* Skills Progress Section */}
-      <m.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.8 }}
-        className="mt-20 w-full max-w-4xl"
-      >
-        <m.h3
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          className="text-3xl font-stranger text-red-600 mb-12 glitch text-center"
-          data-text="SKILL PROFICIENCY"
-        >
-          SKILL PROFICIENCY
-        </m.h3>
-
-        <div className="bg-gray-900 bg-opacity-50 border-2 border-red-600 p-8 relative" style={{ boxShadow: '0 0 20px rgba(176, 17, 33, 0.3)' }}>
-          {/* Classified Header */}
-          <div className="border-b-2 border-red-600 pb-4 mb-8">
-            <div className="flex justify-between items-center">
-              <span className="text-red-500 font-mono text-sm tracking-wider">CLASSIFIED</span>
-              <span className="text-red-500 font-mono text-sm">SUBJECT S-011</span>
-            </div>
-            <div className="text-gray-400 font-mono text-xs mt-1">
-              SKILL ASSESSMENT REPORT
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* AI Integration */}
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-blue-400 font-mono text-lg">AI INTEGRATION</span>
-                <span className="text-blue-400 font-mono text-lg">95%</span>
-              </div>
-              <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <m.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '95%' }}
-                  transition={{ duration: 1.5, delay: 1.2, ease: "easeOut" }}
-                  className="h-full bg-blue-600 relative"
-                  style={{ boxShadow: '0 0 10px rgba(37, 99, 235, 0.8)' }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50 animate-pulse"></div>
-                </m.div>
-              </div>
-            </div>
-
-            {/* Chatbot Development */}
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-purple-400 font-mono text-lg">CHATBOT DEVELOPMENT</span>
-                <span className="text-purple-400 font-mono text-lg">92%</span>
-              </div>
-              <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <m.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '92%' }}
-                  transition={{ duration: 1.5, delay: 1.4, ease: "easeOut" }}
-                  className="h-full bg-purple-600 relative"
-                  style={{ boxShadow: '0 0 10px rgba(168, 85, 247, 0.8)' }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-50 animate-pulse"></div>
-                </m.div>
-              </div>
-            </div>
-
-            {/* Full Stack Development */}
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-green-400 font-mono text-lg">FULL STACK DEVELOPMENT</span>
-                <span className="text-green-400 font-mono text-lg">90%</span>
-              </div>
-              <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <m.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '90%' }}
-                  transition={{ duration: 1.5, delay: 1.6, ease: "easeOut" }}
-                  className="h-full bg-green-600 relative"
-                  style={{ boxShadow: '0 0 10px rgba(34, 197, 94, 0.8)' }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400 to-transparent opacity-50 animate-pulse"></div>
-                </m.div>
-              </div>
-            </div>
-
-            {/* UI/UX Design */}
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-purple-400 font-mono text-lg">UI/UX DESIGN</span>
-                <span className="text-purple-400 font-mono text-lg">80%</span>
-              </div>
-              <div className="w-full h-3 bg-gray-800 border border-gray-700 relative overflow-hidden">
-                <m.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: '80%' }}
-                  transition={{ duration: 1.5, delay: 1.8, ease: "easeOut" }}
-                  className="h-full bg-purple-600 relative"
-                  style={{ boxShadow: '0 0 10px rgba(168, 85, 247, 0.8)' }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400 to-transparent opacity-50 animate-pulse"></div>
-                </m.div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 pt-6 border-t border-red-600 border-opacity-30">
-            <div className="text-gray-400 font-mono text-xs text-center">
-              [ASSESSMENT COMPLETE] STATUS: ACTIVE | LAST UPDATED: {new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).toUpperCase()}
-            </div>
-          </div>
-        </div>
-      </m.div>
-
       {/* Tech Stack Grid */}
       <SkillsGrid />
-
-      {/* Leetcode Stats */}
-      <LeetcodeStats />
     </section>
   );
 }
-

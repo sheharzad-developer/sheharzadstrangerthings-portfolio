@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { LazyMotion, domAnimation } from 'framer-motion';
+import { LazyMotion, domAnimation, MotionConfig } from 'framer-motion';
 import Hero from './components/Hero';
 import FallingAshes from './components/FallingAshes';
 import AboutContact from './components/AboutContact';
@@ -22,6 +22,7 @@ export default function Home() {
 
   return (
     <LazyMotion features={domAnimation}>
+      <MotionConfig reducedMotion="user">
       <main className="relative overflow-hidden min-h-screen">
         {introComplete && <CustomCursor />}
         <IntroAnimation onComplete={() => setIntroComplete(true)} />
@@ -50,6 +51,7 @@ export default function Home() {
           </>
         )}
       </main>
+      </MotionConfig>
     </LazyMotion>
   );
 }

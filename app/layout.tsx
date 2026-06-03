@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Nav from "./components/Nav";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,11 +17,11 @@ const SITE_URL = "https://sheharzad-portfolio.vercel.app";
 const OG_IMAGE = "/S-Logo/S-Logo.jpg";
 
 const DESCRIPTION =
-  "Full-Stack Developer specializing in AI-integrated web & mobile apps — ReactJS, FastAPI, Next.js, and Python.";
+  "Front-End Developer at NETSOL Technologies building fast, responsive web apps with React, Vue, and Nuxt — self-taught across full-stack and AI with Next.js, Python, and FastAPI.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Sheharzad Salahuddin | Full-Stack Developer",
+  title: "Sheharzad Salahuddin | Front-End Developer",
   description: DESCRIPTION,
   authors: [{ name: "Sheharzad Salahuddin", url: SITE_URL }],
   creator: "Sheharzad Salahuddin",
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     shortcut: "/S-Logo/favicon.png",
   },
   openGraph: {
-    title: "Sheharzad Salahuddin | Full-Stack Developer",
+    title: "Sheharzad Salahuddin | Front-End Developer",
     description: DESCRIPTION,
     type: "website",
     locale: "en_US",
@@ -44,13 +45,13 @@ export const metadata: Metadata = {
         url: OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Sheharzad Salahuddin — Full-Stack Developer",
+        alt: "Sheharzad Salahuddin — Front-End Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sheharzad Salahuddin | Full-Stack Developer",
+    title: "Sheharzad Salahuddin | Front-End Developer",
     description: DESCRIPTION,
     creator: "@sheharzad_sala1",
     images: [OG_IMAGE],
@@ -70,7 +71,7 @@ const personJsonLd = {
   name: "Sheharzad Salahuddin",
   url: SITE_URL,
   image: `${SITE_URL}${OG_IMAGE}`,
-  jobTitle: "Full-Stack Developer",
+  jobTitle: "Front-End Developer",
   description: DESCRIPTION,
   sameAs: [
     "https://github.com/sheharzad-developer",
@@ -95,6 +96,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
+        <Nav />
         {children}
       </body>
     </html>

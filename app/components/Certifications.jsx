@@ -8,73 +8,72 @@ import Tilt from 'react-parallax-tilt';
 const certifications = [
   {
     id: 1,
-    title: "Python Certification",
-    issuer: "Certification Authority",
-    date: "2024",
-    description: "Python programming certification demonstrating proficiency in Python development.",
+    title: "Python Programming Fundamentals",
+    issuer: "Microsoft (via Coursera)",
+    date: "2023",
+    description:
+      "Microsoft's Python Programming Fundamentals course, completed through Coursera — covering core Python syntax, data structures, and programming logic.",
     image: "/certifications/Python-Certificate.png",
-    credentialId: "CERT-001",
     category: "Programming",
   },
   {
     id: 2,
-    title: "Certification One",
-    issuer: "Issuing Organization",
-    date: "2024",
-    description: "Professional certification in relevant field.",
-    image: "/certifications/one.jpg",
-    credentialId: "CERT-002",
-    category: "Professional",
+    title: "Front-End Web Development with React",
+    issuer: "Hong Kong University of Science & Technology (via Coursera)",
+    date: "2021",
+    description:
+      "Building rich, interactive single-page applications with React — component architecture, state management, and routing.",
+    image: "/certifications/two.jpg",
+    credentialId: "KD539HCFEYW7",
+    verifyUrl: "https://coursera.org/verify/KD539HCFEYW7",
+    category: "Frontend",
   },
   {
     id: 3,
-    title: "Certification Two",
-    issuer: "Issuing Organization",
-    date: "2024",
-    description: "Professional certification in relevant field.",
-    image: "/certifications/two.jpg",
-    credentialId: "CERT-003",
-    category: "Professional",
+    title: "Server-side Development with NodeJS, Express & MongoDB",
+    issuer: "Hong Kong University of Science & Technology (via Coursera)",
+    date: "2021",
+    description:
+      "Backend development with Node.js, Express, and MongoDB — designing REST APIs and persistence layers.",
+    image: "/certifications/four.jpg",
+    credentialId: "V55RG4V75GAG",
+    verifyUrl: "https://coursera.org/verify/V55RG4V75GAG",
+    category: "Backend",
   },
   {
     id: 4,
-    title: "Certification Three",
-    issuer: "Issuing Organization",
-    date: "2024",
-    description: "Professional certification in relevant field.",
+    title: "Front-End Web UI Frameworks & Tools: Bootstrap 4",
+    issuer: "Hong Kong University of Science & Technology (via Coursera)",
+    date: "2021",
+    description:
+      "Responsive, mobile-first UI development with Bootstrap 4 — grids, components, and front-end tooling.",
     image: "/certifications/three.jpg",
-    credentialId: "CERT-004",
-    category: "Professional",
+    credentialId: "RH5LV6MLCXS5",
+    verifyUrl: "https://coursera.org/verify/RH5LV6MLCXS5",
+    category: "Frontend",
   },
   {
     id: 5,
-    title: "Certification Four",
-    issuer: "Issuing Organization",
-    date: "2024",
-    description: "Professional certification in relevant field.",
-    image: "/certifications/four.jpg",
-    credentialId: "CERT-005",
-    category: "Professional",
+    title: "Introduction to Front-End Development with ReactJS",
+    issuer: "Coursera Project Network",
+    date: "2021",
+    description:
+      "Hands-on, project-based introduction to building front-end interfaces with ReactJS.",
+    image: "/certifications/one.jpg",
+    credentialId: "G6S5BEMQDEHM",
+    verifyUrl: "https://coursera.org/verify/G6S5BEMQDEHM",
+    category: "Frontend",
   },
   {
     id: 6,
-    title: "Certification Five",
-    issuer: "Issuing Organization",
+    title: "Namaste JavaScript",
+    issuer: "NamasteDev.com",
     date: "2024",
-    description: "Professional certification in relevant field.",
+    description:
+      "Deep-dive into JavaScript internals — closures, the event loop, hoisting, and asynchronous execution.",
     image: "/certifications/five.jpg",
-    credentialId: "CERT-006",
-    category: "Professional",
-  },
-  {
-    id: 7,
-    title: "Certification Six",
-    issuer: "Issuing Organization",
-    date: "2024",
-    description: "Professional certification in relevant field.",
-    image: "/certifications/Six.png",
-    credentialId: "CERT-007",
-    category: "Professional",
+    credentialId: "94OZIS",
+    category: "Programming",
   },
 ];
 
@@ -320,6 +319,17 @@ export default function Certifications() {
                         </p>
                       )}
                     </div>
+                    {selectedCert.verifyUrl && (
+                      <a
+                        href={selectedCert.verifyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-block bg-red-600 hover:bg-red-700 border border-red-500 text-white px-4 py-2 transition-all text-xs font-mono font-semibold tracking-wider uppercase"
+                        style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.5)' }}
+                      >
+                        VERIFY CREDENTIAL &gt;
+                      </a>
+                    )}
                   </div>
 
                   {selectedCert.description && (

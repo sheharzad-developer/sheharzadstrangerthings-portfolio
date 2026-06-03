@@ -6,35 +6,6 @@ import Portal from './Portal';
 export default function Hero({ onActivate }) {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16 relative z-10 py-8 md:py-12">
-      {/* S-Logo at the top */}
-      <m.div
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.2 }}
-        className="absolute top-8 md:top-12"
-      >
-        <m.img
-          src="/S-Logo/S-Logo.jpg"
-          alt="Stranger Things Logo"
-          className="w-16 h-16 md:w-20 md:h-20 object-contain"
-          animate={{
-            filter: [
-              'drop-shadow(0 0 10px rgba(188, 19, 254, 0.5))',
-              'drop-shadow(0 0 20px rgba(0, 243, 255, 0.8))',
-              'drop-shadow(0 0 10px rgba(188, 19, 254, 0.5))',
-            ],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          style={{
-            filter: 'drop-shadow(0 0 15px rgba(0, 243, 255, 0.6))',
-          }}
-        />
-      </m.div>
-
       {/* Title */}
       <m.h1
         initial={{ opacity: 0, y: -20 }}
@@ -46,33 +17,40 @@ export default function Hero({ onActivate }) {
         SHEHARZAD SALAHUDDIN
       </m.h1>
 
-      {/* Typewriter subtitle */}
+      {/* Flavor line — theme accent, intentionally small and quiet */}
       <div className="w-full flex justify-center px-4">
         <m.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="typewriter text-sm sm:text-base md:text-lg lg:text-xl text-center w-full max-w-3xl leading-relaxed"
+          className="typewriter text-xs sm:text-sm md:text-base text-center w-full max-w-2xl leading-relaxed text-red-400/80"
         >
-          SYSTEM BOOTING... ACCESSING SHEHARZAD SALAHUDDIN LAB RECORDS...
-          <m.span
-            className="block mt-1"
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.6 }}
-          >
-            ID: FULL STACK DEVELOPER
-          </m.span>
+          SYSTEM BOOTING... ACCESSING LAB RECORDS...
         </m.p>
       </div>
 
-      <m.div
+      {/* Value proposition — the line a human actually reads */}
+      <m.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.6 }}
-        className="mt-4 flex flex-col items-center gap-2 text-center"
+        transition={{ delay: 1.0, duration: 0.7 }}
+        className="mt-5 text-base sm:text-lg md:text-xl lg:text-2xl text-center max-w-3xl text-gray-100 leading-relaxed px-2"
       >
-      </m.div>
+        Front-End Developer at NETSOL building fast, responsive web apps with{' '}
+        <span className="text-cyan-300">React, Vue &amp; Nuxt</span> — and self-taught
+        across the full stack with{' '}
+        <span className="text-purple-300">Next.js &amp; Python</span>.
+      </m.p>
+
+      {/* Specificity hook — REPLACE the {{...}} placeholder with your real number */}
+      <m.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.3, duration: 0.6 }}
+        className="mt-3 text-sm md:text-base text-center max-w-2xl text-gray-400 font-mono px-2"
+      >
+        At NETSOL since 2015 · Front-End Developer · BCS 2026 · 15+ projects built · Lahore, PK
+      </m.p>
 
       {/* CTA Buttons */}
       <m.div

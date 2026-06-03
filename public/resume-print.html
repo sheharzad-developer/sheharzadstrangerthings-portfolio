@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sheharzad Salahuddin — Résumé</title>
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --muted: #555;
+      --accent: #b01121;
+      --rule: #d8d8d8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body {
+      font-family: "Helvetica Neue", Arial, "Segoe UI", system-ui, sans-serif;
+      color: var(--ink);
+      line-height: 1.28;
+      font-size: 9pt;
+      background: #f3f3f3;
+    }
+    .sheet {
+      width: 210mm;
+      min-height: 297mm;
+      max-width: 100%;
+      margin: 24px auto;
+      background: #fff;
+      padding: 12mm 14mm;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    }
+    /* Header */
+    header { border-bottom: 2px solid var(--accent); padding-bottom: 8px; margin-bottom: 10px; }
+    h1 { font-size: 19pt; letter-spacing: 0.5px; color: var(--ink); }
+    .role { font-size: 10.5pt; color: var(--accent); font-weight: 600; margin-top: 1px; }
+    .contact { margin-top: 5px; font-size: 8pt; color: var(--muted); }
+    .contact a { color: var(--muted); text-decoration: none; }
+    .contact span { white-space: nowrap; }
+    /* Sections */
+    section { margin-top: 9px; }
+    h2 {
+      font-size: 9.5pt; text-transform: uppercase; letter-spacing: 1.2px;
+      color: var(--accent); border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px; margin-bottom: 5px;
+    }
+    .summary { font-size: 8.7pt; color: #333; }
+    /* Experience */
+    .job { margin-bottom: 7px; }
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+    .job-title { font-weight: 700; font-size: 9.5pt; }
+    .job-dates { font-size: 8pt; color: var(--muted); }
+    .job-company { font-size: 8.5pt; color: var(--muted); font-style: italic; margin-bottom: 2px; }
+    ul { list-style: none; }
+    .job li, .edu li { position: relative; padding-left: 12px; margin-bottom: 1.5px; font-size: 8.6pt; }
+    .job li::before, .edu li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+    /* Skills */
+    .skill-row { margin-bottom: 2.5px; font-size: 8.6pt; }
+    .skill-label { font-weight: 700; color: var(--ink); }
+    /* Projects */
+    .proj { margin-bottom: 5px; font-size: 8.6pt; }
+    .proj-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+    .proj-title { font-weight: 700; }
+    .proj-year { font-size: 8pt; color: var(--muted); }
+    .proj-desc { color: #333; }
+    .proj a { color: var(--accent); text-decoration: none; }
+    /* Two-column blocks */
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .edu-item { margin-bottom: 6px; font-size: 8.6pt; }
+    .edu-item .job-title { font-size: 9pt; }
+    .edu-note { font-size: 8pt; color: #555; margin-top: 1px; }
+    .cert { font-size: 8pt; margin-bottom: 3px; color: #333; }
+    .cert .issuer { color: var(--muted); }
+    /* Print button (hidden when printing) */
+    .toolbar { max-width: 210mm; margin: 16px auto 0; text-align: center; }
+    .print-btn {
+      background: var(--accent); color: #fff; border: none; padding: 10px 22px;
+      font-size: 11pt; border-radius: 4px; cursor: pointer; font-family: inherit;
+    }
+    .hint { font-size: 9pt; color: #777; margin-top: 6px; }
+    @media print {
+      body { background: #fff; }
+      .sheet { box-shadow: none; margin: 0; width: auto; min-height: 0; padding: 11mm 13mm; }
+      .toolbar { display: none; }
+      @page { size: A4 portrait; margin: 0; }
+      section, .job, .proj, .edu-item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button class="print-btn" onclick="window.print()">Save as PDF / Print</button>
+    <div class="hint">Print settings: Paper A4 · Margins None · Headers and footers OFF.</div>
+  </div>
+
+  <div class="sheet">
+    <header>
+      <h1>SHEHARZAD SALAHUDDIN</h1>
+      <div class="role">Front-End Developer · Software Engineer</div>
+      <div class="contact">
+        <span>Lahore, Pakistan</span> &nbsp;·&nbsp;
+        <span><a href="tel:+923160144176">+92 316 0144176</a></span> &nbsp;·&nbsp;
+        <span><a href="mailto:sheharzad.salahuddin9000@outlook.com">sheharzad.salahuddin9000@outlook.com</a></span><br />
+        <span><a href="https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/">linkedin.com/in/sheharzad-salahuddin-frontend-developer</a></span> &nbsp;·&nbsp;
+        <span><a href="https://github.com/sheharzad-developer">github.com/sheharzad-developer</a></span> &nbsp;·&nbsp;
+        <span><a href="https://sheharzad-portfolio.vercel.app">sheharzad-portfolio.vercel.app</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p class="summary">
+        Front-End Developer &amp; Software Engineer at NETSOL Technologies (with the company since 2015). Started in
+        design and marketing, self-taught into web development, and now build scalable, responsive applications with
+        React, Vue, Nuxt, and Tailwind — backed by REST APIs, JWT/OAuth, and GitHub Actions CI/CD. BSc in Computer
+        Science (2026), completed while working full-time; 15+ personal projects across full-stack and AI. Hard of
+        hearing; hired through NETSOL's disability-inclusion program.
+      </p>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Software Engineer / Front-End Developer</span>
+          <span class="job-dates">Jun 2024 – Present</span>
+        </div>
+        <div class="job-company">NETSOL Technologies — Lahore, Pakistan</div>
+        <ul>
+          <li>Built fast, responsive web apps with React, Vue, and Nuxt, focused on scalability and clean architecture.</li>
+          <li>Created dynamic Vue.js features and high-converting landing pages, increasing engagement ~20% and conversions ~15%.</li>
+          <li>Integrated RESTful APIs and secured applications with JWT + OAuth authentication.</li>
+          <li>Set up GitHub Actions CI/CD and deployed to Vercel, cutting deployment time ~20% and removing manual steps.</li>
+          <li>Collaborated on Agile teams via JIRA, reducing sprint bottlenecks ~30%.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Design &amp; Marketing</span>
+          <span class="job-dates">2015 – 2024</span>
+        </div>
+        <div class="job-company">NETSOL Technologies — Lahore, Pakistan</div>
+        <ul>
+          <li>Joined NETSOL in 2015 through a disability-inclusion hiring program, building a decade-long career while studying in parallel.</li>
+          <li>Designed brand logos and web elements (Adobe Illustrator) and built HTML email templates, lifting open rates and engagement.</li>
+          <li>Ran targeted Mailchimp campaigns — then taught myself web development and transitioned into the engineering team.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skill-row"><span class="skill-label">Frontend:</span> React, Next.js, Vue, Nuxt, TypeScript, JavaScript (ES6+), Tailwind CSS, HTML5, CSS3, Bootstrap</div>
+      <div class="skill-row"><span class="skill-label">Backend:</span> Node.js, Python (FastAPI, Flask)</div>
+      <div class="skill-row"><span class="skill-label">APIs &amp; Auth:</span> REST APIs, JWT, OAuth &nbsp;·&nbsp; <span class="skill-label">Databases:</span> PostgreSQL, MongoDB</div>
+      <div class="skill-row"><span class="skill-label">Tooling &amp; Practices:</span> GitHub Actions (CI/CD), Git, Vercel, JIRA, Figma, Agile/Scrum</div>
+    </section>
+
+    <section>
+      <h2>Selected Projects</h2>
+      <div class="proj">
+        <div class="proj-head"><span class="proj-title">AuraAi — AI Wellness Companion</span><span class="proj-year">2026</span></div>
+        <div class="proj-desc">Streaming AI wellness chat (Google Gemini) on Next.js 16 — adaptive responses, auth, history, Stripe subscriptions. <a href="https://ai-mental-health-chat-app.vercel.app/">ai-mental-health-chat-app.vercel.app</a></div>
+      </div>
+      <div class="proj">
+        <div class="proj-head"><span class="proj-title">Live Gold &amp; Silver Prices</span><span class="proj-year">2026</span></div>
+        <div class="proj-desc">Production site — live rates across six markets, Arabic RTL, server-side revalidation (Next.js 16, Sanity CMS). <a href="https://www.thegoldprice.gold/">thegoldprice.gold</a></div>
+      </div>
+      <div class="proj">
+        <div class="proj-head"><span class="proj-title">Eden Avenue Management</span><span class="proj-year">2025</span></div>
+        <div class="proj-desc">Full-stack property-management dashboard — role-based access, maintenance workflows, PWA (Next.js, Prisma, PostgreSQL). <a href="https://edenavenuemanagement.vercel.app/dashboard">edenavenuemanagement.vercel.app</a></div>
+      </div>
+      <div class="proj">
+        <div class="proj-head"><span class="proj-title">AI Chatbot Platform</span><span class="proj-year">2025</span></div>
+        <div class="proj-desc">Multi-agent, tool-aware chatbot platform (FastAPI) with multi-tenant isolation and a RAG document system. <a href="https://github.com/sheharzad-developer/Chatbot_Internship">github.com/sheharzad-developer/Chatbot_Internship</a></div>
+      </div>
+    </section>
+
+    <div class="cols">
+      <section>
+        <h2>Education</h2>
+        <div class="edu-item">
+          <div class="job-head"><span class="job-title">BSc in Computer Science</span><span class="job-dates">2021 – 2026</span></div>
+          <div class="job-company">Virtual University of Pakistan</div>
+          <div class="edu-note">Full-time, alongside full-time work at NETSOL. Final-year project: a full-stack English language-learning platform.</div>
+        </div>
+        <div class="edu-item">
+          <div class="job-head"><span class="job-title">Associate Degree in Computer Science</span><span class="job-dates">2018 – 2021</span></div>
+          <div class="job-company">Virtual University of Pakistan</div>
+          <div class="edu-note">Part-time. Foundations: DSA, OOP, Java, C++.</div>
+        </div>
+        <div class="edu-item">
+          <div class="job-head"><span class="job-title">Full-Stack Bootcamp (MERN)</span><span class="job-dates">2023</span></div>
+          <div class="job-company">Code Ninja Inc</div>
+          <div class="edu-note">4-person team project; owned the Stripe payment integration.</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <div class="cert">Python Programming Fundamentals <span class="issuer">— Microsoft (Coursera), 2023</span></div>
+        <div class="cert">Front-End Web Development with React <span class="issuer">— HKUST (Coursera), 2021</span></div>
+        <div class="cert">Server-side Development with Node, Express &amp; MongoDB <span class="issuer">— HKUST (Coursera), 2021</span></div>
+        <div class="cert">Front-End Web UI Frameworks &amp; Tools: Bootstrap 4 <span class="issuer">— HKUST (Coursera), 2021</span></div>
+        <div class="cert">Introduction to Front-End Development with ReactJS <span class="issuer">— Coursera, 2021</span></div>
+        <div class="cert">Namaste JavaScript <span class="issuer">— NamasteDev.com, 2024</span></div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>

@@ -11,9 +11,14 @@ import {
 import {
   SiNextdotjs,
   SiTailwindcss,
+  SiVuedotjs,
+  SiNuxtdotjs,
+  SiTypescript,
   SiOpenai,
   SiMongodb,
   SiPostgresql,
+  SiFastapi,
+  SiFlask,
   SiDjango,
   SiFirebase,
   SiJavascript,
@@ -31,6 +36,9 @@ const sections = [
     items: [
       { name: "React", icon: <FaReact className="text-sky-400" /> },
       { name: "Next.js", icon: <SiNextdotjs className="text-black dark:text-white" /> },
+      { name: "Vue", icon: <SiVuedotjs className="text-green-500" /> },
+      { name: "Nuxt", icon: <SiNuxtdotjs className="text-green-400" /> },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-500" /> },
       { name: "Tailwind", icon: <SiTailwindcss className="text-sky-500" /> },
       { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
     ],
@@ -40,6 +48,8 @@ const sections = [
     items: [
       { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
       { name: "Python", icon: <FaPython className="text-yellow-400" /> },
+      { name: "FastAPI", icon: <SiFastapi className="text-teal-500" /> },
+      { name: "Flask", icon: <SiFlask className="text-gray-300" /> },
       { name: "Django", icon: <SiDjango className="text-black dark:text-white" /> },
     ],
   },
