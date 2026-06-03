@@ -23,7 +23,7 @@ export default function Hero({ onActivate }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="typewriter text-xs sm:text-sm md:text-base text-center w-full max-w-2xl leading-relaxed text-red-400/80"
+          className="hero-boot text-xs sm:text-sm md:text-base text-center"
         >
           SYSTEM BOOTING... ACCESSING LAB RECORDS...
         </m.p>
@@ -37,20 +37,24 @@ export default function Hero({ onActivate }) {
         className="mt-5 text-base sm:text-lg md:text-xl lg:text-2xl text-center max-w-3xl text-gray-100 leading-relaxed px-2"
       >
         Front-End Developer at NETSOL building fast, responsive web apps with{' '}
-        <span className="text-cyan-300">React, Vue &amp; Nuxt</span> — and self-taught
+        <span className="hero-grad hero-grad-cyan">React, Vue &amp; Nuxt</span> — and self-taught
         across the full stack with{' '}
-        <span className="text-purple-300">Next.js &amp; Python</span>.
+        <span className="hero-grad hero-grad-purple">Next.js &amp; Python</span>.
       </m.p>
 
       {/* Specificity hook — REPLACE the {{...}} placeholder with your real number */}
-      <m.p
+      <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3, duration: 0.6 }}
-        className="mt-3 text-sm md:text-base text-center max-w-2xl text-gray-400 font-mono px-2"
+        className="hero-stats mt-5"
       >
-        At NETSOL since 2015 · Front-End Developer · BCS 2026 · 15+ projects built · Lahore, PK
-      </m.p>
+        <span className="hero-stat">At NETSOL <strong>since 2015</strong></span>
+        <span className="hero-stat">Front-End Developer</span>
+        <span className="hero-stat"><strong>BCS 2026</strong></span>
+        <span className="hero-stat"><strong>15+</strong> projects built</span>
+        <span className="hero-stat">Lahore, PK</span>
+      </m.div>
 
       {/* CTA Buttons */}
       <m.div
