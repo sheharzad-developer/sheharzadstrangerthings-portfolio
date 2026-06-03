@@ -19,8 +19,8 @@ export default function CustomCursor() {
 
     const particles = particlesRef.current;
 
-    // Hide default cursor
-    document.body.style.cursor = 'none';
+    // Hide default cursor (scoped via CSS class so other pages keep their cursor)
+    document.documentElement.classList.add('custom-cursor-active');
 
     // Initialize cursor position
     gsap.set(cursor, { xPercent: -50, yPercent: -50 });
@@ -190,7 +190,7 @@ export default function CustomCursor() {
 
     // Cleanup
     return () => {
-      document.body.style.cursor = '';
+      document.documentElement.classList.remove('custom-cursor-active');
       window.removeEventListener('mousemove', throttledMouseMove);
       document.removeEventListener('mouseenter', handleMouseEnter, true);
       document.removeEventListener('mouseleave', handleMouseLeave, true);

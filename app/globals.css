@@ -515,19 +515,15 @@ input, textarea, select, button, label {
   backface-visibility: hidden;
 }
 
-/* Hide default cursor globally */
-* {
-  cursor: none !important;
-}
-
-/* Show cursor on December countdown page */
-.countdown-page,
-.countdown-page * {
-  cursor: default !important;
-}
-
-/* Show pointer cursor on interactive elements (custom cursor will handle visual) */
-a, button, [role="button"], input[type="submit"], input[type="button"] {
+/* Hide the native cursor ONLY while the custom cursor is mounted (homepage).
+   Other pages (resume, articles) keep their normal cursor. */
+.custom-cursor-active,
+.custom-cursor-active *,
+.custom-cursor-active a,
+.custom-cursor-active button,
+.custom-cursor-active [role="button"],
+.custom-cursor-active input[type="submit"],
+.custom-cursor-active input[type="button"] {
   cursor: none !important;
 }
 
