@@ -137,21 +137,10 @@ export default function ResumePage() {
             </p>
           </div>
           <div className="flex gap-3">
-            <a
-              href={PDF_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              download
-              className="text-xs font-mono text-white bg-red-600 border border-red-500 px-3 py-2 hover:bg-red-700 transition-colors h-fit"
-              style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
-            >
+            <a href={PDF_URL} target="_blank" rel="noopener noreferrer" download className="btn btn-primary btn-sm">
               DOWNLOAD PDF
             </a>
-            <Link
-              href="/"
-              className="text-xs font-mono text-red-400 border border-red-500 px-3 py-2 hover:bg-red-600 hover:text-white transition-colors h-fit"
-              style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
-            >
+            <Link href="/" className="btn btn-outline btn-sm">
               BACK TO HOME
             </Link>
           </div>
@@ -259,13 +248,7 @@ export default function ResumePage() {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-mono text-red-400 border border-red-500 px-3 py-1 hover:bg-red-600 hover:text-white transition-colors inline-block"
-                  style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
-                >
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-outline btn-sm">
                   VIEW PROJECT
                 </a>
               </div>

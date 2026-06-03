@@ -57,11 +57,7 @@ export default function ArticlesPage() {
               Insights on Deaf culture, education, and inclusive opportunities.
             </p>
           </div>
-          <Link
-            href="/"
-            className="text-xs font-mono text-red-400 border border-red-500 px-3 py-2 hover:bg-red-600 hover:text-white transition-colors h-fit"
-            style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
-          >
+          <Link href="/" className="btn btn-outline btn-sm">
             BACK TO HOME
           </Link>
         </div>
@@ -99,13 +95,7 @@ export default function ArticlesPage() {
                   <span>{article.date}</span>
                   <span>{article.readTime}</span>
                 </div>
-                <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block w-full text-center bg-red-600 hover:bg-red-700 border border-red-500 text-white px-4 py-2 transition-all text-xs font-mono font-semibold tracking-wider uppercase"
-                  style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.5)' }}
-                >
+                <a href={article.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full">
                   READ ON MEDIUM
                 </a>
               </div>

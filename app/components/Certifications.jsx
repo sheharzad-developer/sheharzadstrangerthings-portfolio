@@ -196,9 +196,7 @@ export default function Certifications() {
                       <span className="text-red-400">[DATE]</span> {cert.date}
                     </p>
 
-                    <div className="inline-block w-full text-center bg-red-600 hover:bg-red-700 border border-red-500 text-white px-4 py-2 transition-all text-xs font-mono font-semibold tracking-wider uppercase"
-                      style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.5)' }}
-                    >
+                    <div className="btn btn-primary w-full">
                       VIEW CERTIFICATE &gt;
                     </div>
                   </div>
@@ -324,8 +322,7 @@ export default function Certifications() {
                         href={selectedCert.verifyUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-4 inline-block bg-red-600 hover:bg-red-700 border border-red-500 text-white px-4 py-2 transition-all text-xs font-mono font-semibold tracking-wider uppercase"
-                        style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.5)' }}
+                        className="btn btn-primary btn-sm mt-4"
                       >
                         VERIFY CREDENTIAL &gt;
                       </a>

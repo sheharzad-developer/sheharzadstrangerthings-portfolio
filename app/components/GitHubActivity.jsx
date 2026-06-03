@@ -32,8 +32,7 @@ export default function GitHubActivity() {
             href="https://github.com/sheharzad-developer"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs font-mono text-red-400 border border-red-500 px-3 py-1 hover:bg-red-600 hover:text-white transition-colors"
-            style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
+            className="btn btn-outline btn-sm"
           >
             VIEW PROFILE
           </a>

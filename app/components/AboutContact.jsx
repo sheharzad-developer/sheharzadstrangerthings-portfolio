@@ -38,7 +38,7 @@ export default function AboutContact() {
 
           <div className="space-y-6 text-gray-300 font-mono text-sm md:text-base leading-relaxed">
             {/* Lead summary — first person, plain language, real facts only */}
-            <p className="text-gray-200">
+            <p className="mt-2 ml-4 text-gray-400">
               I&apos;m a Front-End Developer at NETSOL Technologies, where I&apos;ve worked
               since 2015 — I joined through a disability-inclusion program as someone who is
               hard of hearing. I started in design and marketing, taught myself to code, and
