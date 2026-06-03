@@ -44,11 +44,7 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/resume"
-            className="font-mono text-[0.7rem] md:text-xs tracking-wider uppercase text-red-300 border border-red-500 px-2.5 md:px-3 py-1.5 hover:bg-red-600 hover:text-white transition-colors"
-            style={{ boxShadow: '0 0 10px rgba(176, 17, 33, 0.4)' }}
-          >
+          <Link href="/resume" className="btn btn-outline btn-sm">
             Resume
           </Link>
         </div>

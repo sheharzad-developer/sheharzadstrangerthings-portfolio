@@ -21,8 +21,28 @@ const DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Sheharzad Salahuddin | Front-End Developer",
+  title: {
+    default: "Sheharzad Salahuddin | Front-End Developer",
+    template: "%s | Sheharzad Salahuddin",
+  },
   description: DESCRIPTION,
+  keywords: [
+    "Sheharzad Salahuddin",
+    "Front-End Developer",
+    "Software Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "Vue",
+    "Nuxt",
+    "TypeScript",
+    "Tailwind CSS",
+    "Full-Stack Developer",
+    "AI integration",
+    "FastAPI",
+    "Web Developer Lahore",
+    "Pakistan",
+    "Portfolio",
+  ],
   authors: [{ name: "Sheharzad Salahuddin", url: SITE_URL }],
   creator: "Sheharzad Salahuddin",
   alternates: {

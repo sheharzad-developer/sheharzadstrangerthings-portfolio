@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Resume | Sheharzad Salahuddin',
+  title: 'Résumé',
   description:
     'Resume of Sheharzad Salahuddin — Software Engineer & Front-End Developer at NETSOL Technologies. Experience, skills, projects, and education.',
 };
