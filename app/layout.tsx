@@ -92,6 +92,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* JSON-LD structured data for SEO. Content is a static, trusted object
+            (no user input), so dangerouslySetInnerHTML is safe here — this is the
+            standard Next.js pattern for <script type="application/ld+json">. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
