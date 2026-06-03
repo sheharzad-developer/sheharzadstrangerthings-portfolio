@@ -264,7 +264,7 @@ export default function ResumePage() {
             </div>
             <div className="space-y-4">
               {education.map((edu) => (
-                <div key={edu.school} className="border border-red-600/40 p-3 bg-black/30">
+                <div key={edu.credential} className="border border-red-600/40 p-3 bg-black/30">
                   <div className="flex items-center justify-between flex-wrap gap-2">
                     <h3 className="text-red-500 font-mono text-sm">{edu.credential}</h3>
                     <span className="text-gray-500 font-mono text-xs">{edu.dates}</span>
