@@ -184,6 +184,7 @@ const projects = [
     status: 'completed',
     team: 'Team of 4 · my focus: Stripe payments & checkout',
     image: '/images/projects/Codeninja_Image.png',
+    github: 'https://github.com/sheharzad-developer/CodeNinja-Project',
   },
 ];
 
