@@ -86,10 +86,22 @@ const personJsonLd = {
   image: `${SITE_URL}${OG_IMAGE}`,
   jobTitle: "Front-End Developer",
   description: DESCRIPTION,
+  worksFor: {
+    "@type": "Organization",
+    name: "NETSOL Technologies",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  // sameAs URLs pulled from the footer/contact components
+  // (Footer.jsx, AboutContact.jsx).
   sameAs: [
     "https://github.com/sheharzad-developer",
     "https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/",
-    "https://twitter.com/sheharzad_sala1",
+    "https://www.upwork.com/freelancers/~01264a0282005eca30",
+    "https://x.com/sheharzad_sala1",
     "https://leetcode.com/u/sheharzad-developer/",
     "https://medium.com/@sheharzadsalahuddin.90",
   ],
