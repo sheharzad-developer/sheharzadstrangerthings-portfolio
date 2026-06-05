@@ -2,9 +2,27 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
+const TITLE = 'Articles';
+const DESCRIPTION = 'Insights on Deaf culture, education, and inclusive opportunities.';
+
 export const metadata: Metadata = {
-  title: 'Articles',
-  description: 'Insights on Deaf culture, education, and inclusive opportunities.',
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: '/articles',
+  },
+  openGraph: {
+    title: `${TITLE} | Sheharzad Salahuddin`,
+    description: DESCRIPTION,
+    url: '/articles',
+    siteName: 'Sheharzad Salahuddin',
+    locale: 'en_US',
+    type: 'website',
+    // Re-reference the shared generated OG image. A child openGraph object
+    // replaces the parent's, so the file-convention image (app/opengraph-image.tsx,
+    // served at /opengraph-image) must be pointed to explicitly here.
+    images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
+  },
 };
 
 const articles = [

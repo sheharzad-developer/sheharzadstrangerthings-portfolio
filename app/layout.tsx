@@ -89,10 +89,24 @@ const personJsonLd = {
   sameAs: [
     "https://github.com/sheharzad-developer",
     "https://www.linkedin.com/in/sheharzad-salahuddin-frontend-developer/",
+    "https://twitter.com/sheharzad_sala1",
     "https://leetcode.com/u/sheharzad-developer/",
     "https://medium.com/@sheharzadsalahuddin.90",
-    "https://twitter.com/sheharzad_sala1",
   ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Sheharzad Salahuddin",
+  url: SITE_URL,
+  description: DESCRIPTION,
+  author: {
+    "@type": "Person",
+    name: "Sheharzad Salahuddin",
+    url: SITE_URL,
+  },
+  inLanguage: "en",
 };
 
 export default function RootLayout({
@@ -111,6 +125,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <Nav />
         {children}
