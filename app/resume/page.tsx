@@ -95,7 +95,7 @@ const selectedProjects = [
     summary:
       'Full-stack property-management dashboard with role-based access, maintenance workflows, and PWA support.',
     tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'NextAuth'],
-    link: 'https://edenavenuemanagement.vercel.app/dashboard',
+    link: 'https://edenavenue.vercel.app/',
   },
   {
     title: 'AI Chatbot Platform',
