@@ -50,7 +50,7 @@ const projects = [
     team: 'Solo project',
     image: '/images/projects/EdenAvenue.png',
     github: 'https://github.com/sheharzad-developer/edenavenue',
-    liveDemo: 'https://edenavenuemanagement.vercel.app/dashboard',
+    liveDemo: 'https://edenavenue.vercel.app/',
   },
   {
     id: 4,
