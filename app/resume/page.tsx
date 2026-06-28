@@ -65,6 +65,7 @@ const coreSkills = [
   'Node.js',
   'Python (FastAPI / Flask)',
   'REST APIs',
+  'GraphQL',
   'JWT / OAuth',
   'PostgreSQL',
   'MongoDB',

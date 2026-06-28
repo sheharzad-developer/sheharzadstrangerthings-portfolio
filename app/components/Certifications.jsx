@@ -75,6 +75,17 @@ const certifications = [
     credentialId: "94OZIS",
     category: "Programming",
   },
+  {
+    id: 7,
+    title: "Namaste DSA",
+    issuer: "NamasteDev.com",
+    date: "2026",
+    description:
+      "Comprehensive guide to Data Structures and Algorithms — arrays, linked lists, trees, graphs, and sorting techniques.",
+    image: "/certifications/six.png",
+    credentialId: "94OZIS",
+    category: "Programming",
+  },
 ];
 
 export default function Certifications() {
