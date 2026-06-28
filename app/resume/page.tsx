@@ -130,12 +130,13 @@ const education = [
 ];
 
 const certifications = [
-  { title: 'Python Programming Fundamentals', issuer: 'Microsoft (Coursera)', year: '2023' },
+  { title: 'Python Programming Fundamentals', issuer: 'Microsoft (Coursera)', year: '2025' },
   { title: 'Front-End Web Development with React', issuer: 'HKUST (Coursera)', year: '2021' },
   { title: 'Server-side Development with Node, Express & MongoDB', issuer: 'HKUST (Coursera)', year: '2021' },
   { title: 'Front-End Web UI Frameworks & Tools: Bootstrap 4', issuer: 'HKUST (Coursera)', year: '2021' },
   { title: 'Introduction to Front-End Development with ReactJS', issuer: 'Coursera Project Network', year: '2021' },
   { title: 'Namaste JavaScript', issuer: 'NamasteDev.com', year: '2024' },
+  { title: 'Namaste DSA', issuer: 'NamasteDev.com', year: '2026' },
 ];
 
 export default function ResumePage() {

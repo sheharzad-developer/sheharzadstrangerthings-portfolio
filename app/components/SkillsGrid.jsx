@@ -24,6 +24,7 @@ import {
   SiJavascript,
   SiSupabase,
   SiDocker,
+  SiGraphql,
 } from "react-icons/si";
 import { TbBrain, TbMessageChatbot, TbUsersGroup } from "react-icons/tb";
 import { useEffect, useState } from 'react';
@@ -51,6 +52,7 @@ const sections = [
       { name: "FastAPI", icon: <SiFastapi className="text-teal-500" /> },
       { name: "Flask", icon: <SiFlask className="text-gray-300" /> },
       { name: "Django", icon: <SiDjango className="text-black dark:text-white" /> },
+      { name: "GraphQL", icon: <SiGraphql className="text-pink-500" /> },
     ],
   },
   {
