@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const TITLE = 'Résumé';
 const DESCRIPTION =
-  'Resume of Sheharzad Salahuddin — Software Engineer & Front-End Developer at NETSOL Technologies. Experience, skills, projects, and education.';
+  'Resume of Sheharzad Salahuddin — Senior Full Stack Developer at NETSOL Technologies. Experience, skills, projects, and education.';
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -30,81 +30,82 @@ const PDF_URL = '/resume/Sheharzad-Resume.pdf';
 const experience = [
   {
     company: 'NETSOL Technologies',
-    title: 'Software Engineer / Front-End Developer',
+    title: 'Senior Full Stack Developer',
     location: 'Lahore, Pakistan',
-    dates: 'Jun 2024 – Present',
+    dates: 'Jan 2019 – Present',
     bullets: [
-      'Built fast, responsive web apps with React, Vue, and Nuxt, focused on scalability and clean architecture.',
-      'Created dynamic Vue.js features and high-converting landing pages, increasing user engagement ~20% and conversions ~15%.',
-      'Integrated RESTful APIs and secured applications with JWT + OAuth authentication.',
-      'Set up GitHub Actions CI/CD and deployed to Vercel, cutting deployment time ~20% and removing manual release steps.',
-      'Collaborated on Agile teams via JIRA, reducing sprint bottlenecks ~30%.',
+      'Led full-stack development of enterprise web applications from Figma handoff to deployment using React, Vue.js, Nuxt.js, FastAPI, and Node.js, with secure PostgreSQL backend services and JWT/OAuth.',
+      "Reduced development time ~25% during NETSOL's corporate website rebuild by migrating to Nuxt.js with server-side rendering and a reusable component architecture.",
+      'Cut deployment time 67% (~45 to ~15 minutes) by designing CI/CD pipelines with GitHub Actions, Docker, and Vercel, eliminating manual release steps.',
+      'Improved frontend performance via optimized state management, code splitting, lazy loading, and data caching; delivered a Malaysia-based clinic management system within a distributed team.',
     ],
   },
   {
     company: 'NETSOL Technologies',
-    title: 'Design & Marketing',
+    title: 'Software Engineer / Front-End Developer',
     location: 'Lahore, Pakistan',
-    dates: '2015 – 2024',
+    dates: 'Jun 2016 – Dec 2018',
     bullets: [
-      'Joined NETSOL in 2015 through a disability-inclusion hiring program, building a decade-long career while studying in parallel.',
-      'Designed brand logos and web elements, improving brand consistency.',
-      'Built HTML email templates and marketing materials (Adobe Illustrator), lifting open rates and engagement.',
-      'Ran targeted email campaigns with Mailchimp — then taught myself web development and transitioned into the engineering team.',
+      'Implemented JWT/OAuth authentication, role-based access control, and REST API integrations across enterprise applications; built reusable Vue.js components that reduced duplicated code.',
+      'Developed backend APIs with FastAPI, Flask, and Node.js, delivering secure Stripe payment workflows for end-to-end full-stack features.',
+    ],
+  },
+  {
+    company: 'NETSOL Technologies',
+    title: 'Internship Trainee',
+    location: 'Lahore, Pakistan',
+    dates: 'Oct 2015 – May 2016',
+    bullets: [
+      "Joined through NETSOL's disability-inclusion hiring program; transitioned from a design and marketing internship into a decade-long engineering career while completing a CS degree in parallel.",
     ],
   },
 ];
 
-const coreSkills = [
-  'React',
-  'Next.js',
-  'Vue',
-  'Nuxt',
-  'TypeScript',
-  'Tailwind CSS',
-  'Node.js',
-  'Python (FastAPI / Flask)',
-  'REST APIs',
-  'GraphQL',
-  'JWT / OAuth',
-  'PostgreSQL',
-  'MongoDB',
-  'GitHub Actions (CI/CD)',
-  'Git · JIRA · Figma',
+const skillGroups = [
+  { label: 'Languages', items: ['TypeScript', 'JavaScript (ES6+)', 'Python', 'C++', 'SQL', 'HTML / CSS'] },
+  { label: 'Frontend', items: ['React', 'Next.js', 'Vue', 'Nuxt', 'Tailwind CSS', 'React Native'] },
+  {
+    label: 'Backend & Data',
+    items: ['Node.js', 'FastAPI', 'Flask', 'REST', 'JWT / OAuth', 'Stripe', 'PostgreSQL', 'MongoDB', 'Supabase'],
+  },
+  {
+    label: 'AI & DevOps',
+    items: ['LLM APIs', 'RAG Pipelines', 'LangChain', 'pgvector', 'Docker', 'Kubernetes', 'GitHub Actions (CI/CD)', 'Vercel'],
+  },
 ];
 
 const selectedProjects = [
   {
-    title: 'AuraAi — AI Wellness Companion',
-    year: '2026',
+    title: 'AI Chatbot Platform',
+    year: 'Jul – Sep 2025',
     summary:
-      'Streaming AI wellness chat app (Google Gemini) with adaptive responses, auth, persistent history, and Stripe subscriptions.',
-    tech: ['Next.js 16', 'React 19', 'Gemini', 'Supabase', 'Stripe'],
+      'Multi-agent, tool-aware chatbot platform letting enterprises query internal knowledge bases conversationally, with multi-tenant isolation and a RAG pipeline — document chunking, pgvector embeddings, and semantic search — grounding LLM responses in source documents to reduce hallucinations.',
+    tech: ['FastAPI', 'PostgreSQL (pgvector)', 'LangChain', 'LLM APIs'],
+    link: 'https://github.com/sheharzad-developer/Chatbot_Internship',
+  },
+  {
+    title: 'AuraAi — AI Wellness Companion',
+    year: 'Jan – Apr 2026',
+    summary:
+      'Production AI wellness companion with real-time streaming conversations via the Google Gemini API, secure authentication, persistent history, and end-to-end Stripe subscription billing (plan management, payment webhooks, gated premium features).',
+    tech: ['Next.js 16', 'Google Gemini', 'Supabase', 'Stripe'],
     link: 'https://ai-mental-health-chat-app.vercel.app/',
   },
   {
     title: 'Live Gold & Silver Prices',
-    year: '2026',
+    year: 'Nov 2025 – Jan 2026',
     summary:
-      'Production site serving live gold/silver rates across six markets with Arabic RTL support and server-side revalidation.',
-    tech: ['Next.js 16', 'TypeScript', 'Sanity CMS', 'REST API'],
+      'Production web app delivering live gold and silver prices across six international markets with full Arabic RTL localization, Incremental Static Regeneration for near real-time updates at static-site speed, and Sanity CMS for non-technical content editing.',
+    tech: ['Next.js 16', 'Sanity CMS', 'ISR', 'i18n / RTL'],
     link: 'https://www.thegoldprice.gold/',
   },
   {
     title: 'Eden Avenue Management',
-    year: '2025',
+    year: 'May – Jun 2025',
     summary:
-      'Full-stack property-management dashboard with role-based access, maintenance workflows, and PWA support.',
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'NextAuth'],
+      'Full-stack property-management platform digitizing tenant–landlord workflows, with role-based access control, maintenance request tracking, and offline-capable PWA support for field staff.',
+    tech: ['Next.js', 'Prisma', 'PostgreSQL', 'PWA'],
     link: 'https://edenavenue.vercel.app/',
-  },
-  {
-    title: 'AI Chatbot Platform',
-    year: '2025',
-    summary:
-      'Multi-agent, tool-aware chatbot platform (FastAPI) with multi-tenant isolation and a RAG document system.',
-    tech: ['FastAPI', 'Python', 'LangChain', 'MongoDB', 'MCP'],
-    link: 'https://github.com/sheharzad-developer/Chatbot_Internship',
   },
 ];
 
@@ -130,6 +131,7 @@ const education = [
 ];
 
 const certifications = [
+  { title: 'AI Engineering Program (LLM integration, RAG & agent workflows)', issuer: 'NETSOL Technologies', year: '2026' },
   { title: 'Python Programming Fundamentals', issuer: 'Microsoft (Coursera)', year: '2025' },
   { title: 'Front-End Web Development with React', issuer: 'HKUST (Coursera)', year: '2021' },
   { title: 'Server-side Development with Node, Express & MongoDB', issuer: 'HKUST (Coursera)', year: '2021' },
@@ -153,14 +155,14 @@ export default function ResumePage() {
               RESUME
             </h1>
             <p className="text-gray-400 font-mono text-sm mt-3 max-w-2xl">
-              Software Engineer &amp; Front-End Developer · NETSOL Technologies · Lahore, PK
+              Senior Full Stack Developer · NETSOL Technologies · Lahore, PK
             </p>
           </div>
           <div className="flex gap-3">
             <a href={PDF_URL} target="_blank" rel="noopener noreferrer" download className="btn btn-primary btn-sm">
               DOWNLOAD PDF
             </a>
-            <Link href="/" className="btn btn-outline btn-sm">
+            <Link href="/#home" className="btn btn-outline btn-sm">
               BACK TO HOME
             </Link>
           </div>
@@ -174,13 +176,14 @@ export default function ResumePage() {
             </div>
             <h2 className="text-red-500 font-mono text-2xl mb-4">SHEHARZAD SALAHUDDIN</h2>
             <p className="text-gray-400 font-mono text-sm leading-relaxed">
-              Front-End Developer at NETSOL Technologies, where I&apos;ve worked since 2015 —
-              I joined through a disability-inclusion program as someone who is hard of hearing.
-              I started in design and marketing, taught myself to code, and grew into a Software
-              Engineer role building scalable, responsive web apps with React, Vue, Nuxt, and
-              Tailwind — backed by RESTful APIs, JWT/OAuth, and GitHub Actions CI/CD. I completed
-              my BSc in Computer Science in 2026 while working full-time, and I&apos;ve shipped
-              15+ personal projects across full-stack and AI.
+              Senior Full Stack Developer at NETSOL Technologies, promoted twice across a
+              10-year tenure — intern &rarr; Software Engineer &rarr; Senior Full Stack Developer.
+              I joined in 2015 through a disability-inclusion program as someone who is hard of
+              hearing, started in design and marketing, taught myself to code, and now lead
+              enterprise web apps end to end with React, Vue, Nuxt, FastAPI, and Node.js — backed
+              by PostgreSQL, JWT/OAuth, and GitHub Actions CI/CD. I completed my BSc in Computer
+              Science in 2026 while working full-time, and I build with LLMs, RAG pipelines, and
+              LangChain across AI, FinTech, and healthcare.
             </p>
           </div>
 
@@ -232,15 +235,22 @@ export default function ResumePage() {
             <div className="text-red-500 font-mono text-sm tracking-wider">CORE SKILLS</div>
             <div className="text-gray-400 font-mono text-xs mt-1">TECH STACK</div>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {coreSkills.map((skill) => (
-              <span
-                key={skill}
-                className="bg-red-600 bg-opacity-30 border border-red-500 text-white px-3.5 py-1.5 rounded font-mono text-sm md:text-base"
-                style={{ boxShadow: '0 0 5px rgba(176, 17, 33, 0.3)' }}
-              >
-                {skill}
-              </span>
+          <div className="space-y-5">
+            {skillGroups.map((group) => (
+              <div key={group.label}>
+                <div className="text-red-400 font-mono text-xs tracking-wider mb-2">{group.label.toUpperCase()}</div>
+                <div className="flex flex-wrap gap-2">
+                  {group.items.map((skill) => (
+                    <span
+                      key={skill}
+                      className="bg-red-600 bg-opacity-30 border border-red-500 text-white px-3.5 py-1.5 rounded font-mono text-sm md:text-base"
+                      style={{ boxShadow: '0 0 5px rgba(176, 17, 33, 0.3)' }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>

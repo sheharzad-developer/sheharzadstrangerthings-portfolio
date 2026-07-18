@@ -5,7 +5,7 @@ import Portal from './Portal';
 
 export default function Hero({ onActivate }) {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16 relative z-10 py-8 md:py-12">
+    <section id="home" className="min-h-screen flex flex-col items-center justify-center px-4 md:px-8 lg:px-12 xl:px-16 relative z-10 py-8 md:py-12">
       {/* Title */}
       <m.h1
         initial={{ opacity: 0, y: -20 }}

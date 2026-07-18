@@ -37,6 +37,32 @@ const projects = [
     github: 'https://github.com/sheharzad-developer/Chatbot_Internship',
   },
   {
+    id: 13,
+    title: 'RideShare — Mobility App',
+    problem:
+      'A ride-hailing app has to match riders and drivers in real time, track them on a live map, and take payment — all without the UI stalling as locations stream in.',
+    solution:
+      'A full-stack ride-hailing system: real-time driver matching over WebSockets, geospatial proximity queries with PostGIS, and Redis caching for hot location data, on a FastAPI backend with a React Native client and Stripe payments.',
+    tech: ['React Native', 'FastAPI', 'PostGIS', 'Redis', 'WebSockets', 'Stripe'],
+    category: 'Real-Time Full-Stack',
+    year: '2025',
+    status: 'completed',
+    team: 'Solo project',
+  },
+  {
+    id: 14,
+    title: 'Bilingual AI Study Companion',
+    problem:
+      'Learners studying in English and Urdu need a tutor that switches languages fluidly and stays grounded in sound pedagogy, not generic chatbot replies.',
+    solution:
+      'An AI tutor that responds fluidly in English and Urdu, built on a Node.js backend with the Claude API and a React Native client — grounded in my published applied-linguistics research on AI-assisted language learning.',
+    tech: ['React Native', 'Node.js', 'Claude API', 'Bilingual (EN/UR)', 'Prompt Design'],
+    category: 'AI / Education',
+    year: '2025',
+    status: 'completed',
+    team: 'Solo project',
+  },
+  {
     id: 3,
     title: 'Eden Avenue Management',
     problem:

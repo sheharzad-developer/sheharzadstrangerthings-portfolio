@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "node:path";
 
 const nextConfig: NextConfig = {
   // Production optimizations
@@ -26,7 +27,11 @@ const nextConfig: NextConfig = {
   },
 
   // Turbopack configuration (Next.js 16 default)
-  turbopack: {},
+  // Pin the workspace root so Turbopack doesn't misinfer it from a parent
+  // lockfile on the external-drive path (caused a build failure otherwise).
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
 };
 
 export default nextConfig;
