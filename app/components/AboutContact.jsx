@@ -1,10 +1,43 @@
 'use client';
 
+import { useState } from 'react';
 import { m } from 'framer-motion';
 import { FaCalendar, FaEnvelope, FaMapMarkerAlt, FaPhone, FaWhatsapp, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiFiverr, SiUpwork, SiLeetcode } from 'react-icons/si';
 
 export default function AboutContact() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('');
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('Sending...');
+
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setStatus('Message sent successfully!');
+      setForm({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error(error);
+      setStatus('Failed to send message.');
+    }
+  };
+
   return (
     <section id="about" className="min-h-screen text-gray-300 px-6 py-20 flex flex-col items-center relative z-10">
       <m.h2
@@ -182,6 +215,64 @@ export default function AboutContact() {
                 <span className="text-gray-300">Lahore, Pakistan</span>
               </div>
             </div>
+          </div>
+
+          <div className="mt-8 pt-6 border-t border-red-600 border-opacity-30">
+            <h4 className="text-red-500 font-mono text-sm mb-4 tracking-wider">[SEND A TRANSMISSION]</h4>
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 font-mono">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className="w-full p-3 bg-gray-800 border-2 border-red-600 border-opacity-50 text-gray-300 placeholder-gray-500 text-sm focus:outline-none focus:border-red-400 transition"
+              />
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className="w-full p-3 bg-gray-800 border-2 border-red-600 border-opacity-50 text-gray-300 placeholder-gray-500 text-sm focus:outline-none focus:border-red-400 transition"
+              />
+
+              <textarea
+                name="message"
+                placeholder="Your message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                className="w-full p-3 bg-gray-800 border-2 border-red-600 border-opacity-50 text-gray-300 placeholder-gray-500 text-sm focus:outline-none focus:border-red-400 transition resize-none"
+              />
+
+              <button
+                type="submit"
+                disabled={status === 'Sending...'}
+                className="p-3 bg-gray-800 border-2 border-red-600 text-red-400 font-bold tracking-wider hover:border-red-400 hover:text-red-300 transition disabled:opacity-50"
+                style={{ boxShadow: '0 0 15px rgba(176, 17, 33, 0.3)' }}
+              >
+                SEND MESSAGE
+              </button>
+
+              {status && (
+                <p
+                  className={`text-xs tracking-wider ${
+                    status === 'Message sent successfully!'
+                      ? 'text-green-400'
+                      : status === 'Failed to send message.'
+                      ? 'text-red-500'
+                      : 'text-gray-400'
+                  }`}
+                >
+                  {status}
+                </p>
+              )}
+            </form>
           </div>
 
           <div className="mt-8">
