@@ -33,7 +33,7 @@ export default function AboutContact() {
       setStatus('Message sent successfully!');
       setForm({ name: '', email: '', message: '' });
     } catch (error) {
-      console.error(error);
+      console.error('Contact form error:', error);
       setStatus('Failed to send message.');
     }
   };
