@@ -103,7 +103,7 @@ const personJsonLd = {
     "https://www.upwork.com/freelancers/~01264a0282005eca30",
     "https://x.com/sheharzad_sala1",
     "https://leetcode.com/u/sheharzad-developer/",
-    "https://medium.com/@sheharzadsalahuddin.90",
+    "https://sheharzadsalahuddin.substack.com",
   ],
 };
 

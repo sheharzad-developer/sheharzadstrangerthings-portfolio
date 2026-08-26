@@ -30,31 +30,31 @@ const articles = [
     title: 'Why Qualifications Still Matter and How We Can Better Support Deaf Job Seekers',
     date: 'Jan 8, 2026',
     readTime: '3 min read',
-    url: 'https://medium.com/@sheharzadsalahuddin.90/why-qualifications-still-matter-and-how-we-can-better-support-deaf-job-seekers-ddf9ae83adc4',
+    url: 'https://sheharzadsalahuddin.substack.com/p/why-qualifications-still-matter-and',
     summary:
       'Why strong standards must come with better support, accessibility, and inclusive education for deaf candidates.',
     image:
-      'https://image.thum.io/get/width/1200/https://medium.com/@sheharzadsalahuddin.90/why-qualifications-still-matter-and-how-we-can-better-support-deaf-job-seekers-ddf9ae83adc4',
+      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/why-qualifications-still-matter-and',
   },
   {
     title: 'Understanding Deaf Culture: Communication, Respect, and the Challenges Deaf Individuals Face',
     date: 'Nov 17, 2025',
     readTime: '4 min read',
-    url: 'https://medium.com/@sheharzadsalahuddin.90/understanding-deaf-culture-communication-respect-and-the-challenges-deaf-individuals-face-59d61afb8f0a',
+    url: 'https://sheharzadsalahuddin.substack.com/p/understanding-deaf-culture-communication',
     summary:
       'A practical guide to Deaf culture, respectful communication, and the real-world barriers the community faces.',
     image:
-      'https://image.thum.io/get/width/1200/https://medium.com/@sheharzadsalahuddin.90/understanding-deaf-culture-communication-respect-and-the-challenges-deaf-individuals-face-59d61afb8f0a',
+      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/understanding-deaf-culture-communication',
   },
   {
     title: 'My Journey of Learning Grammar as a Deaf Student in Pakistan',
     date: 'Nov 15, 2025',
     readTime: '5 min read',
-    url: 'https://medium.com/@sheharzadsalahuddin.90/my-journey-of-learning-grammar-as-a-deaf-student-in-pakistan-77c0ce2054c3',
+    url: 'https://sheharzadsalahuddin.substack.com/p/my-journey-of-learning-grammar-as',
     summary:
       'A personal story about perseverance, study methods, and what helped me master English grammar.',
     image:
-      'https://image.thum.io/get/width/1200/https://medium.com/@sheharzadsalahuddin.90/my-journey-of-learning-grammar-as-a-deaf-student-in-pakistan-77c0ce2054c3',
+      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/my-journey-of-learning-grammar-as',
   },
 ];
 
@@ -89,7 +89,7 @@ export default function ArticlesPage() {
             >
               <div className="border-b-2 border-red-600 bg-zinc-950 bg-opacity-50 px-4 py-3">
                 <div className="text-red-500 font-mono text-xs tracking-wider">CASE FILE</div>
-                <div className="text-gray-400 font-mono text-xs mt-1">MEDIUM ARTICLE</div>
+                <div className="text-gray-400 font-mono text-xs mt-1">SUBSTACK ARTICLE</div>
               </div>
 
               <div className="bg-zinc-950/40 border-b-2 border-red-600 relative h-48">
@@ -114,7 +114,7 @@ export default function ArticlesPage() {
                   <span>{article.readTime}</span>
                 </div>
                 <a href={article.url} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-full">
-                  READ ON MEDIUM
+                  READ ON SUBSTACK
                 </a>
               </div>
             </article>
