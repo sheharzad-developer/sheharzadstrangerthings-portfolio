@@ -27,6 +27,16 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    title: 'I Thought My Hearing Loss Was the Biggest Barrier. Later I Discovered Something Else.',
+    date: 'Jun 26, 2026',
+    readTime: '7 min read',
+    url: 'https://sheharzadsalahuddin.substack.com/p/i-thought-my-hearing-loss-was-the',
+    summary:
+      'Why the real barrier to career growth was a missing ecosystem of mentors and fundamentals, not the hearing loss itself.',
+    image:
+      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/i-thought-my-hearing-loss-was-the',
+  },
+  {
     title: 'Why Qualifications Still Matter and How We Can Better Support Deaf Job Seekers',
     date: 'Jan 8, 2026',
     readTime: '3 min read',
