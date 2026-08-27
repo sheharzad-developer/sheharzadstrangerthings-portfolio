@@ -33,8 +33,7 @@ const articles = [
     url: 'https://sheharzadsalahuddin.substack.com/p/i-thought-my-hearing-loss-was-the',
     summary:
       'Why the real barrier to career growth was a missing ecosystem of mentors and fundamentals, not the hearing loss itself.',
-    image:
-      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/i-thought-my-hearing-loss-was-the',
+    image: '/images/articles/I-Thought-My-Hearing-Loss.jpeg',
   },
   {
     title: 'Why Qualifications Still Matter and How We Can Better Support Deaf Job Seekers',
@@ -43,8 +42,7 @@ const articles = [
     url: 'https://sheharzadsalahuddin.substack.com/p/why-qualifications-still-matter-and',
     summary:
       'Why strong standards must come with better support, accessibility, and inclusive education for deaf candidates.',
-    image:
-      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/why-qualifications-still-matter-and',
+    image: '/images/articles/Why-Qualifications-Still-Matter.jpeg',
   },
   {
     title: 'Understanding Deaf Culture: Communication, Respect, and the Challenges Deaf Individuals Face',
@@ -53,8 +51,7 @@ const articles = [
     url: 'https://sheharzadsalahuddin.substack.com/p/understanding-deaf-culture-communication',
     summary:
       'A practical guide to Deaf culture, respectful communication, and the real-world barriers the community faces.',
-    image:
-      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/understanding-deaf-culture-communication',
+    image: '/images/articles/Understanding-Deaf-Culture.jpeg',
   },
   {
     title: 'My Journey of Learning Grammar as a Deaf Student in Pakistan',
@@ -63,8 +60,7 @@ const articles = [
     url: 'https://sheharzadsalahuddin.substack.com/p/my-journey-of-learning-grammar-as',
     summary:
       'A personal story about perseverance, study methods, and what helped me master English grammar.',
-    image:
-      'https://image.thum.io/get/width/1200/https://sheharzadsalahuddin.substack.com/p/my-journey-of-learning-grammar-as',
+    image: '/images/articles/My-Journey-of-Learning-Grammar.jpeg',
   },
 ];
 
